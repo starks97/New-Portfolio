@@ -1,14 +1,33 @@
-import Link from "next/link";
+"use client"; //Must be Client Components
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+import { Box, GridItem, Text } from "@chakra-ui/react";
+import React from "react";
+import Card from "./Card";
+import data from "./data";
+import { LayoutComponent } from "../../themes";
+
+export default function HomeLayout() {
   return (
     <>
-      <h1>hello im page Blog</h1>;
-      <div>
-        <Link href="/">
-          <button>About</button>
-        </Link>
-      </div>
+      <Box margin="2">
+        <LayoutComponent>
+          <GridItem w="full" justifyContent={"center"} h="full">
+            <Text>Image</Text>
+          </GridItem>
+          <LayoutComponent variant="cardLayout">
+            {data.map((item) => (
+              <GridItem
+                bg={item.index !== 1 ? "#222" : ""}
+                w="full"
+                h="full"
+                key={item.index}
+              >
+                <Card key={item.index} title={item.title} />
+              </GridItem>
+            ))}
+          </LayoutComponent>
+        </LayoutComponent>
+      </Box>
     </>
   );
 }

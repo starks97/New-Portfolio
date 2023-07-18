@@ -1,4 +1,5 @@
 import { extendTheme } from "@chakra-ui/react";
+import { Layout } from "./custom_CSS";
 
 const theme = extendTheme({
   styles: {
@@ -7,28 +8,15 @@ const theme = extendTheme({
       body: {
         bg: "#111",
         color: "white",
-        margin: "8px",
-        padding: "8px",
+        margin: "2rem",
         boxSizing: "border-box",
       },
-      // styles for the `a`
-      a: {
-        color: "teal.500",
-        _hover: {
-          textDecoration: "underline",
-        },
-      },
-    },
-  },
-  colors: {
-    brand: {
-      100: "#f7fafc",
-      // ...
-      900: "#1a202c",
     },
   },
 
-  components: {},
+  components: {
+    Layout,
+  },
 });
 
 export default theme;
