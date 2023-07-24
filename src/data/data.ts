@@ -94,7 +94,7 @@ const data = [
   },
   {
     index: 3,
-    title: "Portfolio",
+    title: "My Portfolio",
     work: [
       {
         index: 1,

@@ -1,29 +1,60 @@
 "use client"; //Must be Client Components
 
-import { Box, GridItem, Text } from "@chakra-ui/react";
-import React from "react";
-import Card from "./Card";
-import data from "./data";
+import { Box, useDisclosure, Modal } from "@chakra-ui/react";
+import React, { useState } from "react";
+
+import { data } from "../../data";
 import { LayoutComponent } from "../../themes";
+import { ImageCard, HomeCard } from "./card";
+import { ModalComponent } from "../modal";
+import { useIndex } from "../../state";
 
 export default function HomeLayout() {
+  const [activeIndex, setActiveIndex] = useState<number>(-1);
+  const { isOpen, onClose, onOpen } = useDisclosure();
+
+  //const indexs = useIndex((state) => state.index);
+
+  const handdleToggle = (index: number) => {
+    setActiveIndex(index);
+    onOpen();
+  };
+
   return (
     <>
-      <Box margin="2">
+      <Box height="100vh" padding="2rem" width="100%">
         <LayoutComponent>
-          <GridItem w="full" justifyContent={"center"} h="full">
-            <Text>Image</Text>
-          </GridItem>
+          <ImageCard />
           <LayoutComponent variant="cardLayout">
             {data.map((item) => (
-              <GridItem
-                bg={item.index !== 1 ? "#222" : ""}
-                w="full"
-                h="full"
-                key={item.index}
-              >
-                <Card key={item.index} title={item.title} />
-              </GridItem>
+              <React.Fragment key={item.index}>
+                <HomeCard
+                  bg={item.index !== 1 ? "#222" : ""}
+                  cursor={item.index === 1 ? "default" : "pointer"}
+                  onClick={
+                    item.index !== 1
+                      ? () => handdleToggle(item.index)
+                      : () => {
+                          return;
+                        }
+                  }
+                >
+                  {item.title}
+                </HomeCard>
+
+                {activeIndex === item.index && (
+                  <Modal
+                    isOpen={isOpen}
+                    onClose={onClose}
+                    size={"6xl"}
+                    key={item.index}
+                  >
+                    <ModalComponent title={item.title}>
+                      {item!.info?.phone}
+                    </ModalComponent>
+                  </Modal>
+                )}
+              </React.Fragment>
             ))}
           </LayoutComponent>
         </LayoutComponent>
