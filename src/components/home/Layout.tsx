@@ -1,19 +1,19 @@
 "use client"; //Must be Client Components
 
-import { Box, useDisclosure, Modal } from "@chakra-ui/react";
+import { Box, useDisclosure, Modal, Text, Icon } from "@chakra-ui/react";
 import React, { useState } from "react";
 
 import { data } from "../../data";
 import { LayoutComponent } from "../../themes";
 import { ImageCard, HomeCard } from "./card";
 import { ModalComponent } from "../modal";
-import { useIndex } from "../../state";
+
+import { BsGithub, BsInstagram, BsLinkedin } from "react-icons/bs";
 
 export default function HomeLayout() {
   const [activeIndex, setActiveIndex] = useState<number>(-1);
   const { isOpen, onClose, onOpen } = useDisclosure();
-
-  //const indexs = useIndex((state) => state.index);
+  const [isFadeOpen, setIsFadeOpen] = useState<boolean>(false);
 
   const handdleToggle = (index: number) => {
     setActiveIndex(index);
@@ -24,7 +24,10 @@ export default function HomeLayout() {
     <>
       <Box height="100vh" padding="2rem" width="100%">
         <LayoutComponent>
-          <ImageCard />
+          <ImageCard
+            imagePath="url(/xample.jpg)"
+            sx={{ "@media (max-width: 62em)": { display: "none" } }}
+          />
           <LayoutComponent variant="cardLayout">
             {data.map((item) => (
               <React.Fragment key={item.index}>
@@ -43,16 +46,34 @@ export default function HomeLayout() {
                 </HomeCard>
 
                 {activeIndex === item.index && (
-                  <Modal
+                  <ModalComponent
+                    title={item.title}
                     isOpen={isOpen}
                     onClose={onClose}
-                    size={"6xl"}
-                    key={item.index}
+                    activeIndex={activeIndex}
+                    description={item.personalInfo?.description!}
+                    isFadeOpen={isFadeOpen}
+                    setIsFadeOpen={setIsFadeOpen}
+                    info={{
+                      icons: [BsInstagram, BsGithub, BsLinkedin],
+                      path: item.info?.socialMedia
+                        ? item.info.socialMedia.map((element) => element.path)
+                        : [],
+                    }}
+                    email={item.info?.email ? item.info?.email : ""}
+                    phone={item.info?.phone ? item.info?.phone : ""}
                   >
-                    <ModalComponent title={item.title}>
-                      {item!.info?.phone}
-                    </ModalComponent>
-                  </Modal>
+                    {item.work?.map((element) => (
+                      <React.Fragment key={element.index}>
+                        <ImageCard
+                          imagePath={`url(${element.imagePreview})`}
+                          key={element.index}
+                          minHeight={"20rem"}
+                          onClick={() => setIsFadeOpen(!isFadeOpen)}
+                        />
+                      </React.Fragment>
+                    ))}
+                  </ModalComponent>
                 )}
               </React.Fragment>
             ))}

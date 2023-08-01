@@ -103,7 +103,7 @@ const data = [
         startDate: Date.now(),
         endDate: Date.now(),
         usedTechnologies: ["PHP", "JAVASCRIPT", "CSS"],
-        imagePreview: "",
+        imagePreview: "/dados.svg",
       },
       {
         index: 2,
@@ -112,7 +112,7 @@ const data = [
         startDate: Date.now(),
         endDate: Date.now(),
         usedTechnologies: ["PHP", "JAVASCRIPT", "CSS"],
-        imagePreview: "",
+        imagePreview: "/dados.svg",
       },
       {
         index: 3,
@@ -121,7 +121,7 @@ const data = [
         startDate: Date.now(),
         endDate: Date.now(),
         usedTechnologies: ["PHP", "JAVASCRIPT", "CSS"],
-        imagePreview: "",
+        imagePreview: "/dados.svg",
       },
       {
         index: 4,
@@ -130,7 +130,7 @@ const data = [
         startDate: Date.now(),
         endDate: Date.now(),
         usedTechnologies: ["PHP", "JAVASCRIPT", "CSS"],
-        imagePreview: "",
+        imagePreview: "/dados.svg",
       },
       {
         index: 5,
@@ -139,7 +139,16 @@ const data = [
         startDate: Date.now(),
         endDate: Date.now(),
         usedTechnologies: ["PHP", "JAVASCRIPT", "CSS"],
-        imagePreview: "",
+        imagePreview: "/dados.svg",
+      },
+      {
+        index: 6,
+        title: "Image Project",
+        client: "Random",
+        startDate: Date.now(),
+        endDate: Date.now(),
+        usedTechnologies: ["PHP", "JAVASCRIPT", "CSS"],
+        imagePreview: "/dados.svg",
       },
     ],
   },
@@ -153,18 +162,18 @@ const data = [
       socialMedia: [
         {
           index: 1,
-          value: "",
-          icon: "",
+          value: "instagram",
+          path: "https://www.instagram.com/",
         },
         {
           index: 2,
-          value: "",
-          icon: "",
+          value: "github",
+          path: "https://github.com/starks97",
         },
         {
           index: 3,
-          value: "",
-          icon: "",
+          value: "linkedIn",
+          path: "https://www.linkedin.com/in/david-espinoza-a306b2242/",
         },
       ],
     },
