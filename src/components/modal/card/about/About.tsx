@@ -6,31 +6,14 @@ import { ImProfile } from "react-icons/im";
 import { BsFillPersonFill } from "react-icons/bs";
 import SwiperAbout from "./SwipeAbout";
 import { IAboutProps } from "../../interfaces";
+import { LineSeparator } from "@/themes";
 
 export default function About({ activeIndex, description }: IAboutProps) {
   return (
     <>
       {activeIndex === 2 && (
         <Flex flexDirection="column" alignItems="center">
-          <Flex
-            overflow={"inherit"}
-            bg="none"
-            margin="35px 0 62px"
-            justifyItems="center"
-            alignItems="center"
-            w="50%"
-          >
-            <Flex borderBottom="2px solid #666" width="100%" />
-            <Icon
-              as={ImProfile}
-              bg="none"
-              color="orange"
-              w={5}
-              h={5}
-              margin={"1rem"}
-            />
-            <Flex borderBottom="2px solid #666" width="100%" />
-          </Flex>
+          <LineSeparator icon={ImProfile} />
           <Flex w="full" flexDirection={"column"}>
             <Flex justifyItems="center" alignItems="center">
               <Icon as={BsFillPersonFill} w={5} h={5} margin={"1rem"} />

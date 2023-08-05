@@ -1,6 +1,6 @@
 "use client"; //Must be Client Components
 
-import { Box, useDisclosure, Modal, Text, Icon } from "@chakra-ui/react";
+import { Box, useDisclosure } from "@chakra-ui/react";
 import React, { useState } from "react";
 
 import { data } from "../../data";
@@ -14,6 +14,14 @@ export default function HomeLayout() {
   const [activeIndex, setActiveIndex] = useState<number>(-1);
   const { isOpen, onClose, onOpen } = useDisclosure();
   const [isFadeOpen, setIsFadeOpen] = useState<boolean>(false);
+
+  //state form
+
+  const [dataForm, setDataForm] = useState({
+    name: "",
+    email: "",
+    comment: "",
+  });
 
   const handdleToggle = (index: number) => {
     setActiveIndex(index);

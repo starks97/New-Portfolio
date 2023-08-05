@@ -9,7 +9,8 @@ import {
   Modal,
 } from "@chakra-ui/react";
 import { About } from "./card/about";
-import { Portfolio, Touch } from "./card";
+import { Portfolio } from "./card";
+import { Touch } from "./card/touch";
 import React from "react";
 
 import { IModalProps } from "./interfaces";

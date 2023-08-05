@@ -1,3 +1,4 @@
+import { ChangeEventHandler, Dispatch, SetStateAction } from "react";
 import { IconType } from "react-icons";
 
 export interface IModalProps {
@@ -28,3 +29,22 @@ export interface IPortfolioProps
 
 export interface IAboutProps
   extends Pick<IModalProps, "description" | "activeIndex"> {}
+
+export interface IFormTouchProps {
+  dataForm?: {
+    names: string;
+    email: string;
+    comment: string;
+  };
+  setDataForm?: Dispatch<
+    SetStateAction<{
+      names: string;
+      email: string;
+      comment: string;
+    }>
+  >;
+  label: string;
+  icon?: IconType;
+  onChange?: ChangeEventHandler<HTMLInputElement> | undefined;
+  value: string;
+}

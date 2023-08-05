@@ -1,10 +1,14 @@
 "use client";
-import { LayoutComponent } from "@/themes";
-import { Flex, Icon, GridItem, Box, Text } from "@chakra-ui/react";
+import { LayoutComponent, LineSeparator } from "@/themes";
+import { Flex, Icon, GridItem, Box, Text, Button } from "@chakra-ui/react";
 import Link from "next/link";
 import React from "react";
 import { MdEmail } from "react-icons/md";
-import { ITouchProps } from "../interfaces";
+import { ITouchProps } from "../../interfaces";
+import { AiOutlineMail } from "react-icons/ai";
+import { BsFillTelephoneFill } from "react-icons/bs";
+import TouchInfoLabel from "./TouchInfoLabel";
+import TouchForm from "./TouchForm";
 
 export default function Touch({
   activeIndex,
@@ -16,25 +20,7 @@ export default function Touch({
     <>
       {activeIndex === 4 && (
         <Flex flexDirection="column" alignItems="center">
-          <Flex
-            overflow={"inherit"}
-            bg="none"
-            margin="35px 0 62px"
-            justifyItems="center"
-            alignItems="center"
-            w="50%"
-          >
-            <Flex borderBottom="2px solid #666" width="100%" />
-            <Icon
-              as={MdEmail}
-              bg="none"
-              color="orange"
-              w={5}
-              h={5}
-              margin={"1rem"}
-            />
-            <Flex borderBottom="2px solid #666" width="100%" />
-          </Flex>
+          <LineSeparator icon={MdEmail} />
           <LayoutComponent variant="touchLayout">
             <GridItem
               bg="#111"
@@ -46,18 +32,18 @@ export default function Touch({
               alignItems={"start"}
               p={"1rem"}
             >
-              <Flex flexDirection={"column"}>
-                <Text fontWeight={"extrabold"} color="orange">
-                  PHONE
-                </Text>
-                <Text marginTop={"1rem"}>{phone}</Text>
-              </Flex>
-              <Flex flexDirection={"column"}>
-                <Text fontWeight={"extrabold"} color="orange">
-                  EMAIL
-                </Text>
-                <Text marginTop={"1rem"}>{email}</Text>
-              </Flex>
+              <TouchInfoLabel
+                href="tel:631-903-3732"
+                icon={BsFillTelephoneFill}
+                label="TELEPHONE"
+                value={phone}
+              />
+              <TouchInfoLabel
+                href="mailto:ifrit68@hotmail.com"
+                icon={AiOutlineMail}
+                label="EMAIL"
+                value={email}
+              />
               <Box>
                 <Text fontWeight={"extrabold"} color="orange">
                   SOCIAL MEDIA
@@ -90,6 +76,9 @@ export default function Touch({
                   ))}
                 </Flex>
               </Box>
+            </GridItem>
+            <GridItem display={"flex"} w="100%">
+              <TouchForm />
             </GridItem>
           </LayoutComponent>
         </Flex>
