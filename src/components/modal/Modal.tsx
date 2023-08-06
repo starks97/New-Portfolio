@@ -9,7 +9,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { About } from "./card/about";
-import { Portfolio } from "./card";
+import { Portfolio } from "./card/portfolio";
 import { Touch } from "./card/touch";
 import React from "react";
 
@@ -48,6 +48,7 @@ export default function ModalComponent({ ...props }: IModalProps) {
               activeIndex={props.activeIndex}
               isFadeOpen={props.isFadeOpen}
               setIsFadeOpen={props.setIsFadeOpen}
+              dataPortfolio={props.dataPortfolio}
             >
               {props.children}
             </Portfolio>

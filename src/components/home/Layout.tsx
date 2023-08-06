@@ -9,6 +9,7 @@ import { ImageCard, HomeCard } from "./card";
 import { ModalComponent } from "../modal";
 
 import { BsGithub, BsInstagram, BsLinkedin } from "react-icons/bs";
+import { PortfolioCard } from "../modal/card/portfolio";
 
 export default function HomeLayout() {
   const [activeIndex, setActiveIndex] = useState<number>(-1);
@@ -34,7 +35,9 @@ export default function HomeLayout() {
         <LayoutComponent>
           <ImageCard
             imagePath="url(/xample.jpg)"
-            sx={{ "@media (max-width: 62em)": { display: "none" } }}
+            sx={{
+              "@media (max-width: 62em)": { display: "none" },
+            }}
           />
           <LayoutComponent variant="cardLayout">
             {data.map((item) => (
@@ -70,6 +73,9 @@ export default function HomeLayout() {
                     }}
                     email={item.info?.email ? item.info?.email : ""}
                     phone={item.info?.phone ? item.info?.phone : ""}
+                    dataPortfolio={item.work?.map((element) => ({
+                      title: element.title,
+                    }))}
                   >
                     {item.work?.map((element) => (
                       <React.Fragment key={element.index}>
@@ -78,6 +84,17 @@ export default function HomeLayout() {
                           key={element.index}
                           minHeight={"20rem"}
                           onClick={() => setIsFadeOpen(!isFadeOpen)}
+                          sx={{
+                            filter: { base: "none", md: "grayscale(100%)" },
+                            "&:hover": {
+                              base: "none",
+                              md: {
+                                filter: "grayscale(0%)",
+                                "& .read-more": { opacity: 1 },
+                              },
+                            },
+                            transition: { base: "none", md: "filter 0.2s" },
+                          }}
                         />
                       </React.Fragment>
                     ))}

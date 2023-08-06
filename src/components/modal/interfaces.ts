@@ -16,6 +16,7 @@ export interface IModalProps {
   };
   email: string;
   phone: string;
+  dataPortfolio?: IPortfolioCardProps[];
 }
 
 export interface ITouchProps
@@ -24,7 +25,11 @@ export interface ITouchProps
 export interface IPortfolioProps
   extends Pick<
     IModalProps,
-    "activeIndex" | "isFadeOpen" | "setIsFadeOpen" | "children"
+    | "activeIndex"
+    | "isFadeOpen"
+    | "setIsFadeOpen"
+    | "children"
+    | "dataPortfolio"
   > {}
 
 export interface IAboutProps
@@ -47,4 +52,13 @@ export interface IFormTouchProps {
   icon?: IconType;
   onChange?: ChangeEventHandler<HTMLInputElement> | undefined;
   value: string;
+}
+
+export interface IPortfolioCardProps {
+  title: string;
+  client?: string;
+  startDate?: Date;
+  endDate?: Date;
+  usedTechnologies?: string[];
+  image?: string;
 }

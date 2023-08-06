@@ -72,6 +72,23 @@ export const Layout = defineStyleConfig({
       width: "100%",
       height: "100%",
     },
+
+    formLayout: {
+      display: "grid",
+      gridTemplateColumns: {
+        base: "repeat(1, 1fr)",
+        sm: "repeat(1, 1fr)",
+        md: "repeat(1, 1fr)",
+        lg: "repeat(2, 1fr)",
+        xl: "repeat(2, 1fr)",
+      },
+      justifyContent: "center",
+      alignItems: "center",
+      gap: 5,
+      justifyItems: "center",
+      width: "100%",
+      height: "100%",
+    },
   },
 });
 
