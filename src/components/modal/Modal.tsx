@@ -1,12 +1,12 @@
 "use client"; //Must be Client Components
 import {
   Flex,
-  Text,
   ModalOverlay,
   ModalContent,
   ModalHeader,
   ModalBody,
   Modal,
+  Text,
 } from "@chakra-ui/react";
 import { About } from "./card/about";
 import { Portfolio } from "./card";
@@ -29,11 +29,11 @@ export default function ModalComponent({ ...props }: IModalProps) {
           <ModalHeader>
             <Flex justifyContent="center" alignItems="center">
               <Text
-                fontFamily={"Lato, sans-serif, serif"}
-                fontSize={"50px"}
-                textTransform={"uppercase"}
+                fontFamily="Lato, sans-serif, serif"
+                fontSize="50px"
+                textTransform="uppercase"
                 fontWeight={900}
-                color={"white"}
+                color="white"
               >
                 {props.title}
               </Text>

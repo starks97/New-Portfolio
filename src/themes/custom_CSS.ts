@@ -98,3 +98,74 @@ export const Wrapper = defineStyleConfig({
     },
   },
 });
+
+export const Button = defineStyleConfig({
+  baseStyle: {
+    bg: "#BB5611",
+    color: "white",
+  },
+  variants: {
+    FormButton: {
+      bg: "#BB5611",
+      color: "white",
+
+      _hover: {
+        opacity: 0.5,
+      },
+      _focus: {
+        outline: "none",
+      },
+      _active: {
+        bg: "transparent",
+      },
+    },
+  },
+});
+
+export const GridItem = defineStyleConfig({
+  baseStyle: {
+    bg: "#111",
+    width: "full",
+    h: "full",
+    display: "flex",
+    gap: "inherit",
+    flexDirection: "column",
+    alignItems: "start",
+    p: "1rem",
+  },
+});
+
+export const Icon = defineStyleConfig({
+  baseStyle: {
+    color: "#FFB25C",
+    w: 5,
+    h: 5,
+    bg: "transparent",
+    _active: {
+      bg: "transparent",
+    },
+    _focus: {
+      outline: "none",
+    },
+    _hover: {
+      opacity: 0.5,
+    },
+  },
+});
+
+export const TextCusto = defineStyleConfig({
+  baseStyle: {
+    fontFamily: "Lato, sans-serif, serif",
+    fontSize: "50px",
+    textTransform: "uppercase",
+    fontWeight: 900,
+    color: "white",
+  },
+  variants: {
+    formTitle: {
+      fontFamily: "Lato, serif, Calibri, Arial",
+      fontSize: "1.3rem",
+      fontWeight: "extrabold",
+    },
+  },
+});

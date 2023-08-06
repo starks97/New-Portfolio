@@ -1,6 +1,11 @@
 "use client";
-import { LayoutComponent, LineSeparator } from "@/themes";
-import { Flex, Icon, GridItem, Box, Text, Button } from "@chakra-ui/react";
+import {
+  CustomIconComponent,
+  GridItemCustom,
+  LayoutComponent,
+  LineSeparator,
+} from "@/themes";
+import { Flex, GridItem, Box, Text } from "@chakra-ui/react";
 import Link from "next/link";
 import React from "react";
 import { MdEmail } from "react-icons/md";
@@ -19,19 +24,10 @@ export default function Touch({
   return (
     <>
       {activeIndex === 4 && (
-        <Flex flexDirection="column" alignItems="center">
+        <Flex flexDirection="column" alignItems="center" marginBottom="0.5rem">
           <LineSeparator icon={MdEmail} />
           <LayoutComponent variant="touchLayout">
-            <GridItem
-              bg="#111"
-              width="full"
-              h="full"
-              display={"flex"}
-              gap={"inherit"}
-              flexDirection={"column"}
-              alignItems={"start"}
-              p={"1rem"}
-            >
+            <GridItemCustom>
               <TouchInfoLabel
                 href="tel:631-903-3732"
                 icon={BsFillTelephoneFill}
@@ -56,27 +52,12 @@ export default function Touch({
                       passHref
                       target="_blank"
                     >
-                      <Icon
-                        as={icon}
-                        color="#FFB25C"
-                        w={5}
-                        h={5}
-                        bg="transparent"
-                        _active={{
-                          bg: "transparent",
-                        }}
-                        _focus={{
-                          outline: "none",
-                        }}
-                        _hover={{
-                          opacity: 0.5,
-                        }}
-                      />
+                      <CustomIconComponent as={icon} />
                     </Link>
                   ))}
                 </Flex>
               </Box>
-            </GridItem>
+            </GridItemCustom>
             <GridItem display={"flex"} w="100%">
               <TouchForm />
             </GridItem>

@@ -1,20 +1,28 @@
-import { Box, Flex, Icon, useStyleConfig } from "@chakra-ui/react";
-import { ReactNode } from "react";
+import {
+  Box,
+  Button,
+  Flex,
+  GridItem,
+  Icon,
+  useStyleConfig,
+  Text,
+} from "@chakra-ui/react";
 import { IconType } from "react-icons";
+import {
+  ICustomComponentsProps,
+  ICustomFormComponentProps,
+  ICustomIconProps,
+} from "./interfaces";
 
-type VariantProps = Record<string, Record<string, unknown>>;
-interface CustomProps {
-  variant?: keyof VariantProps;
-  children: ReactNode;
-  icon?: IconType;
-}
-
-export function LayoutComponent({ variant, children }: CustomProps) {
+export function LayoutComponent({ variant, children }: ICustomComponentsProps) {
   const styles = useStyleConfig("Layout", { variant });
   return <Box __css={styles}>{children}</Box>;
 }
 
-export function WrapperComponent({ children, variant }: CustomProps) {
+export function WrapperComponent({
+  children,
+  variant,
+}: ICustomComponentsProps) {
   const styles = useStyleConfig("Wrapper", { variant });
   return <Box __css={styles}>{children}</Box>;
 }
@@ -34,4 +42,35 @@ export function LineSeparator({ icon }: { icon: IconType }) {
       <Flex borderBottom="2px solid #666" width="100%" />
     </Flex>
   );
+}
+
+export function CustomButtonComponent({
+  children,
+  variant,
+  onSubmit,
+}: ICustomFormComponentProps) {
+  const styles = useStyleConfig("Button", { variant });
+  return (
+    <Button __css={styles} onSubmit={onSubmit}>
+      {children}
+    </Button>
+  );
+}
+
+export function GridItemCustom({ children }: ICustomComponentsProps) {
+  const styles = useStyleConfig("GridItem");
+  return <GridItem __css={styles}>{children}</GridItem>;
+}
+
+export function CustomIconComponent({ as }: ICustomIconProps) {
+  const styles = useStyleConfig("Icon");
+  return <Icon __css={styles} as={as} />;
+}
+
+export function CustomTextComponent({
+  children,
+  variant,
+}: ICustomComponentsProps) {
+  const styles = useStyleConfig("TextCusto", { variant });
+  return <Text __css={styles}>{children}</Text>;
 }

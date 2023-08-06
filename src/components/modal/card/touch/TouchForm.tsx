@@ -19,6 +19,7 @@ import {
 import { BsPerson } from "react-icons/bs";
 import { MdOutlineEmail } from "react-icons/md";
 import TouchFormControl from "./TouchFormControl";
+import { CustomButtonComponent } from "@/themes";
 
 export default function TouchForm() {
   return (
@@ -37,22 +38,9 @@ export default function TouchForm() {
           <TouchFormControl label="Email" icon={MdOutlineEmail!} value="" />
           <TouchFormControl label="Message" value="" />
           <FormControl id="name" float="right">
-            <Button
-              variant="solid"
-              bg="orange"
-              color="white"
-              _active={{
-                bg: "transparent",
-              }}
-              _focus={{
-                outline: "none",
-              }}
-              _hover={{
-                opacity: 0.5,
-              }}
-            >
+            <CustomButtonComponent variant="FormButton">
               Send Message
-            </Button>
+            </CustomButtonComponent>
           </FormControl>
         </VStack>
       </Flex>
