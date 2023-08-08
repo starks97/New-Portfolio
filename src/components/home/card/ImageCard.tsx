@@ -6,6 +6,7 @@ interface IProps {
   sx?: SystemStyleObject | undefined;
   minHeight?: string;
   onClick?: () => void;
+  as?: React.ElementType;
 }
 
 export default function ImageCard({
@@ -13,6 +14,7 @@ export default function ImageCard({
   sx,
   minHeight,
   onClick,
+  as,
 }: IProps) {
   return (
     <>
@@ -25,7 +27,7 @@ export default function ImageCard({
         backgroundImage={imagePath}
         backgroundSize={"cover"}
         backgroundPosition={"center, center"}
-        as={"button"}
+        as={as}
         onClick={onClick}
       />
     </>

@@ -9,7 +9,6 @@ import { ImageCard, HomeCard } from "./card";
 import { ModalComponent } from "../modal";
 
 import { BsGithub, BsInstagram, BsLinkedin } from "react-icons/bs";
-import { PortfolioCard } from "../modal/card/portfolio";
 
 export default function HomeLayout() {
   const [activeIndex, setActiveIndex] = useState<number>(-1);
@@ -73,9 +72,14 @@ export default function HomeLayout() {
                     }}
                     email={item.info?.email ? item.info?.email : ""}
                     phone={item.info?.phone ? item.info?.phone : ""}
-                    dataPortfolio={item.work?.map((element) => ({
+                    dataPortfolio={item.work? (item.work?.map((element) => ({
                       title: element.title,
-                    }))}
+                      image: element.imagePreview,
+                      client: element.client,
+                      endDate: element.endDate,
+                      startDate: element.startDate,
+                      usedTechnologies: element.usedTechnologies,
+                    }))): []}
                   >
                     {item.work?.map((element) => (
                       <React.Fragment key={element.index}>
@@ -95,6 +99,7 @@ export default function HomeLayout() {
                             },
                             transition: { base: "none", md: "filter 0.2s" },
                           }}
+                          as={"button"}
                         />
                       </React.Fragment>
                     ))}

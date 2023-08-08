@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { JSXElementConstructor, ReactElement, ReactNode } from "react";
 import { IconType } from "react-icons";
 
 type VariantProps = Record<string, Record<string, unknown>>;

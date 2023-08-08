@@ -48,7 +48,15 @@ export default function Portfolio({ ...props }: IPortfolioProps) {
               </Flex>
               {props.dataPortfolio
                 ? props.dataPortfolio.map((item) => (
-                    <PortfolioCard title={item.title} />
+                    <PortfolioCard
+                      title={item.title}
+                      image={item.image}
+                      key={Math.random()}
+                      client={item.client}
+                      startDate={item.startDate}
+                      endDate={item.endDate}
+                      usedTechnologies={item.usedTechnologies}
+                    />
                   ))
                 : ""}
             </Box>

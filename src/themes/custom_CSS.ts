@@ -73,7 +73,7 @@ export const Layout = defineStyleConfig({
       height: "100%",
     },
 
-    formLayout: {
+    PortfolioLayout: {
       display: "grid",
       gridTemplateColumns: {
         base: "repeat(1, 1fr)",
@@ -183,6 +183,13 @@ export const TextCusto = defineStyleConfig({
       fontFamily: "Lato, serif, Calibri, Arial",
       fontSize: "1.3rem",
       fontWeight: "extrabold",
+    },
+
+    portfolioTitle: {
+      fontFamily: "Lato, serif, Calibri, Arial",
+      fontSize: "1.7rem",
+      fontWeight: "extrabold",
+      textTransform: "uppercase",
     },
   },
 });

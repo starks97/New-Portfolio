@@ -56,9 +56,9 @@ export interface IFormTouchProps {
 
 export interface IPortfolioCardProps {
   title: string;
-  client?: string;
-  startDate?: Date;
-  endDate?: Date;
-  usedTechnologies?: string[];
-  image?: string;
+  client: string;
+  startDate: string;
+  endDate: string;
+  usedTechnologies: string[];
+  image: string;
 }
