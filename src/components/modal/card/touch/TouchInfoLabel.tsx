@@ -31,7 +31,7 @@ export default function TouchInfoLabel({ ...props }: IProps) {
           opacity: 0.5,
         }}
       >
-        <Icon as={props.icon} color="rgba(255, 255, 255, .3" w={5} h={5} />
+        <Icon as={props.icon} color="orange" w={5} h={5} />
         <a href={props.href}>
           <Text>{props.value}</Text>
         </a>

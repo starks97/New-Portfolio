@@ -152,7 +152,7 @@ export const GridItem = defineStyleConfig({
   },
 });
 
-export const Icon = defineStyleConfig({
+export const IconCustom = defineStyleConfig({
   baseStyle: {
     color: "#FFB25C",
     w: 5,
@@ -166,6 +166,14 @@ export const Icon = defineStyleConfig({
     },
     _hover: {
       opacity: 0.5,
+    },
+  },
+  variants: {
+    portfolioTechIcon: {
+      color: "white",
+      w: 5,
+      h: 5,
+      bg: "transparent",
     },
   },
 });

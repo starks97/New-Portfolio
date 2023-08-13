@@ -17,6 +17,8 @@ export interface IModalProps {
   email: string;
   phone: string;
   dataPortfolio?: IPortfolioCardProps[];
+  activeProjectCard?: number;
+  setActiveProjectCard?: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export interface ITouchProps
@@ -30,6 +32,8 @@ export interface IPortfolioProps
     | "setIsFadeOpen"
     | "children"
     | "dataPortfolio"
+    | "activeProjectCard"
+    | "setActiveProjectCard"
   > {}
 
 export interface IAboutProps
@@ -59,6 +63,7 @@ export interface IPortfolioCardProps {
   client: string;
   startDate: string;
   endDate: string;
-  usedTechnologies: string[];
+  iconUsedTechnologies: IconType[];
   image: string;
+  index: number;
 }

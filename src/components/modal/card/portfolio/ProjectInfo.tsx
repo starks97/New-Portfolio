@@ -7,10 +7,16 @@ import { IconType } from "react-icons";
 interface IProjectInfoProps {
   label: string;
   icon: IconType;
-  value: React.ReactNode;
+  value?: React.ReactNode;
+  children?: React.ReactNode;
 }
 
-export default function ProjectInfo({ label, icon, value }: IProjectInfoProps) {
+export default function ProjectInfo({
+  label,
+  icon,
+  value,
+  children,
+}: IProjectInfoProps) {
   return (
     <Flex
       flexDirection={"row"}
@@ -20,7 +26,11 @@ export default function ProjectInfo({ label, icon, value }: IProjectInfoProps) {
     >
       <Icon as={icon} w={5} h={5} color="white" bg="none" />
       <Text>{label} </Text>
-      <Text>{value}</Text>
+      {label === "Technologies: " ? (
+        <Flex>{children}</Flex>
+      ) : (
+        <Text>{value}</Text>
+      )}
     </Flex>
   );
 }

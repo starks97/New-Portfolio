@@ -48,10 +48,11 @@ export function CustomButtonComponent({
   children,
   variant,
   onSubmit,
+  sx,
 }: ICustomFormComponentProps) {
   const styles = useStyleConfig("Button", { variant });
   return (
-    <Button __css={styles} onSubmit={onSubmit}>
+    <Button __css={styles} onSubmit={onSubmit} sx={sx}>
       {children}
     </Button>
   );
@@ -62,8 +63,8 @@ export function GridItemCustom({ children }: ICustomComponentsProps) {
   return <GridItem __css={styles}>{children}</GridItem>;
 }
 
-export function CustomIconComponent({ as }: ICustomIconProps) {
-  const styles = useStyleConfig("Icon");
+export function CustomIconComponent({ as, variant }: ICustomIconProps) {
+  const styles = useStyleConfig("IconCustom", { variant });
   return <Icon __css={styles} as={as} />;
 }
 

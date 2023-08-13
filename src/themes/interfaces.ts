@@ -12,6 +12,7 @@ export interface ICustomComponentsProps {
 export interface ICustomFormComponentProps
   extends Pick<ICustomComponentsProps, "children" | "variant"> {
   onSubmit?: () => void;
+  sx?: Record<string, unknown>;
 }
 
 export interface ICustomIconProps

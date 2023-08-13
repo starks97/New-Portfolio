@@ -44,11 +44,14 @@ export default function ModalComponent({ ...props }: IModalProps) {
               activeIndex={props.activeIndex}
               description={props.description}
             />
+
             <Portfolio
               activeIndex={props.activeIndex}
               isFadeOpen={props.isFadeOpen}
               setIsFadeOpen={props.setIsFadeOpen}
               dataPortfolio={props.dataPortfolio}
+              activeProjectCard={props.activeProjectCard}
+              setActiveProjectCard={props.setActiveProjectCard}
             >
               {props.children}
             </Portfolio>

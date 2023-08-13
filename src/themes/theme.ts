@@ -1,5 +1,5 @@
 import { extendTheme } from "@chakra-ui/react";
-import { Button, GridItem, Icon, Layout, TextCusto } from "./custom_CSS";
+import { Button, GridItem, IconCustom, Layout, TextCusto } from "./custom_CSS";
 import { Lato } from "next/font/google";
 
 const nextFont = Lato({
@@ -28,7 +28,7 @@ const theme = extendTheme({
     Layout,
     Button,
     GridItem,
-    Icon,
+    IconCustom,
     TextCusto,
   },
 });

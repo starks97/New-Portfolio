@@ -1,7 +1,7 @@
 "use client"; //Must be Client Components
 
 import { Box, useDisclosure } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { data } from "../../data";
 import { LayoutComponent } from "../../themes";
@@ -10,12 +10,14 @@ import { ModalComponent } from "../modal";
 
 import { BsGithub, BsInstagram, BsLinkedin } from "react-icons/bs";
 
+import useAssignIcon from "@/hooks/useAssignIcon";
+
 export default function HomeLayout() {
   const [activeIndex, setActiveIndex] = useState<number>(-1);
   const { isOpen, onClose, onOpen } = useDisclosure();
   const [isFadeOpen, setIsFadeOpen] = useState<boolean>(false);
 
-  //state form
+  const [activeProjectCard, setActiveProjectCard] = useState<number>(0);
 
   const [dataForm, setDataForm] = useState({
     name: "",
@@ -26,6 +28,12 @@ export default function HomeLayout() {
   const handdleToggle = (index: number) => {
     setActiveIndex(index);
     onOpen();
+  };
+
+  const handleProjectClick = (index: number) => {
+    setIsFadeOpen(!isFadeOpen);
+    setActiveProjectCard(index);
+    return;
   };
 
   return (
@@ -72,14 +80,21 @@ export default function HomeLayout() {
                     }}
                     email={item.info?.email ? item.info?.email : ""}
                     phone={item.info?.phone ? item.info?.phone : ""}
-                    dataPortfolio={item.work? (item.work?.map((element) => ({
-                      title: element.title,
-                      image: element.imagePreview,
-                      client: element.client,
-                      endDate: element.endDate,
-                      startDate: element.startDate,
-                      usedTechnologies: element.usedTechnologies,
-                    }))): []}
+                    dataPortfolio={
+                      item.work
+                        ? item.work?.map((element) => ({
+                            title: element.title,
+                            image: element.imagePreview,
+                            client: element.client,
+                            endDate: element.endDate,
+                            startDate: element.startDate,
+                            iconUsedTechnologies: element.iconUsedTechnologies,
+                            index: element.index,
+                          }))
+                        : []
+                    }
+                    activeProjectCard={activeProjectCard}
+                    setActiveProjectCard={setActiveProjectCard}
                   >
                     {item.work?.map((element) => (
                       <React.Fragment key={element.index}>
@@ -87,7 +102,7 @@ export default function HomeLayout() {
                           imagePath={`url(${element.imagePreview})`}
                           key={element.index}
                           minHeight={"20rem"}
-                          onClick={() => setIsFadeOpen(!isFadeOpen)}
+                          onClick={() => handleProjectClick(element.index)}
                           sx={{
                             filter: { base: "none", md: "grayscale(100%)" },
                             "&:hover": {

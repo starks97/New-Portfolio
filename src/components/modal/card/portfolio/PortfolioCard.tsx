@@ -1,6 +1,6 @@
 "use client"; //Must be Client Components
 
-import { Box, Text, GridItem, Flex, Button } from "@chakra-ui/react";
+import { Box, Text, GridItem, Flex, Button, Icon } from "@chakra-ui/react";
 import { LayoutComponent } from "@/themes";
 import { IPortfolioCardProps } from "../../interfaces";
 
@@ -53,11 +53,16 @@ export default function PortfolioCard({ ...props }: IPortfolioCardProps) {
           value={props.endDate}
         />
 
-        <ProjectInfo
-          icon={BsPerson}
-          label="Technologies: "
-          value={props.usedTechnologies}
-        />
+        <ProjectInfo icon={BsPerson} label="Technologies: ">
+          {props.iconUsedTechnologies.map((icon) => (
+            <Icon
+              as={icon}
+              key={Math.random()}
+              marginRight="1rem"
+              color="white!important"
+            />
+          ))}
+        </ProjectInfo>
 
         <Flex
           borderBottom="1px solid #666"
