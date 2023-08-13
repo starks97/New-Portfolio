@@ -37,7 +37,11 @@ export default function TouchForm() {
           <TouchFormControl label="Name" icon={BsPerson!} value="" />
           <TouchFormControl label="Email" icon={MdOutlineEmail!} value="" />
           <TouchFormControl label="Message" value="" />
-          <FormControl id="name" float="right">
+          <FormControl
+            id="name"
+            display="flex"
+            sx={{ justifyContent: { md: "center", lg: "flex-start" } }}
+          >
             <CustomButtonComponent
               variant="FormButton"
               sx={{ width: { base: "100%", md: "50%" } }}

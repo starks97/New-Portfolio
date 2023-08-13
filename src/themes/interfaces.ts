@@ -19,3 +19,12 @@ export interface ICustomIconProps
   extends Pick<ICustomComponentsProps, "variant"> {
   as?: IconType;
 }
+
+export interface ICustomButtonComponentProps
+  extends Pick<ICustomComponentsProps, "children" | "variant"> {
+  onSubmit?: () => void;
+  sx?: Record<string, unknown>;
+  rightIcon?:
+    | ReactElement<any, string | JSXElementConstructor<any>>
+    | undefined;
+}

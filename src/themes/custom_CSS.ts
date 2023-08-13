@@ -89,6 +89,23 @@ export const Layout = defineStyleConfig({
       width: "100%",
       height: "100%",
     },
+
+    aboutCard: {
+      display: "grid",
+      gridTemplateColumns: {
+        base: "repeat(1, 1fr)",
+        sm: "repeat(1, 1fr)",
+        md: "repeat(2, 1fr)",
+        lg: "repeat(1, 1fr)",
+        xl: "repeat(1, 1fr)",
+      },
+      justifyContent: "center",
+      alignItems: "center",
+      gap: 4,
+      justifyItems: "center",
+      width: "100%",
+      height: "100%",
+    },
   },
 });
 
@@ -128,6 +145,24 @@ export const Button = defineStyleConfig({
 
       _hover: {
         opacity: 0.5,
+      },
+      _focus: {
+        outline: "none",
+      },
+      _active: {
+        bg: "transparent",
+      },
+    },
+    AboutButton: {
+      bg: "#222",
+      color: "orange",
+      borderRadius: "0",
+      border: "1px solid #F0A202",
+
+      _hover: {
+        bg: "orange",
+        border: "2px solid orange",
+        color: "white",
       },
       _focus: {
         outline: "none",

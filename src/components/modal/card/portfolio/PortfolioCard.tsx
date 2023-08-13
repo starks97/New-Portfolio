@@ -70,7 +70,11 @@ export default function PortfolioCard({ ...props }: IPortfolioCardProps) {
           marginTop="1.5rem"
         />
 
-        <Flex marginTop="1.5rem" w="full">
+        <Flex
+          marginTop="1.5rem"
+          w="full"
+          sx={{ justifyContent: { md: "center", lg: "flex-start" } }}
+        >
           <Button
             rightIcon={<MdCall />}
             bg="#BB5611"

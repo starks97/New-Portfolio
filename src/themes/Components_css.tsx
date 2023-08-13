@@ -9,6 +9,7 @@ import {
 } from "@chakra-ui/react";
 import { IconType } from "react-icons";
 import {
+  ICustomButtonComponentProps,
   ICustomComponentsProps,
   ICustomFormComponentProps,
   ICustomIconProps,
@@ -49,10 +50,11 @@ export function CustomButtonComponent({
   variant,
   onSubmit,
   sx,
-}: ICustomFormComponentProps) {
+  rightIcon,
+}: ICustomButtonComponentProps) {
   const styles = useStyleConfig("Button", { variant });
   return (
-    <Button __css={styles} onSubmit={onSubmit} sx={sx}>
+    <Button __css={styles} onSubmit={onSubmit} sx={sx} rightIcon={rightIcon}>
       {children}
     </Button>
   );
