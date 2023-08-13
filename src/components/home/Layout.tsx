@@ -10,8 +10,6 @@ import { ModalComponent } from "../modal";
 
 import { BsGithub, BsInstagram, BsLinkedin } from "react-icons/bs";
 
-import useAssignIcon from "@/hooks/useAssignIcon";
-
 export default function HomeLayout() {
   const [activeIndex, setActiveIndex] = useState<number>(-1);
   const { isOpen, onClose, onOpen } = useDisclosure();
@@ -28,6 +26,8 @@ export default function HomeLayout() {
   const handdleToggle = (index: number) => {
     setActiveIndex(index);
     onOpen();
+    setIsFadeOpen(false);
+    return;
   };
 
   const handleProjectClick = (index: number) => {

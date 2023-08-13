@@ -7,6 +7,8 @@ import {
   ModalBody,
   Modal,
   Text,
+  IconButton,
+  Box,
 } from "@chakra-ui/react";
 import { About } from "./card/about";
 import { Portfolio } from "./card/portfolio";
@@ -14,6 +16,7 @@ import { Touch } from "./card/touch";
 import React from "react";
 
 import { IModalProps } from "./interfaces";
+import { AiOutlineClose } from "react-icons/ai";
 
 export default function ModalComponent({ ...props }: IModalProps) {
   return (
@@ -26,8 +29,13 @@ export default function ModalComponent({ ...props }: IModalProps) {
       >
         <ModalOverlay />
         <ModalContent bg="#222" alignItems={"center"}>
-          <ModalHeader>
-            <Flex justifyContent="center" alignItems="center">
+          <ModalHeader
+            display="flex"
+            alignItems="center"
+            w="full"
+            justifyContent="center"
+          >
+            <Flex w="full" justifyContent="center" marginLeft="2rem">
               <Text
                 fontFamily="Lato, sans-serif, serif"
                 fontSize="50px"
@@ -38,6 +46,20 @@ export default function ModalComponent({ ...props }: IModalProps) {
                 {props.title}
               </Text>
             </Flex>
+            <Box>
+              <IconButton
+                icon={
+                  <AiOutlineClose width="2rem" height="2rem" color="white" />
+                }
+                aria-label="close"
+                bg="none"
+                variant="none"
+                onClick={() => props.onClose()}
+                size={"lg"}
+              >
+                Close
+              </IconButton>
+            </Box>
           </ModalHeader>
           <ModalBody maxW={"100%"} w="100%">
             <About

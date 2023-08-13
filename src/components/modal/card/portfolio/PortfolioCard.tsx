@@ -54,10 +54,10 @@ export default function PortfolioCard({ ...props }: IPortfolioCardProps) {
         />
 
         <ProjectInfo icon={BsPerson} label="Technologies: ">
-          {props.iconUsedTechnologies.map((icon) => (
+          {props.iconUsedTechnologies.map((icon, index) => (
             <Icon
               as={icon}
-              key={Math.random()}
+              key={index}
               marginRight="1rem"
               color="white!important"
             />
