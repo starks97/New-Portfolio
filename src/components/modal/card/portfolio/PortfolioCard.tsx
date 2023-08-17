@@ -1,7 +1,7 @@
 "use client"; //Must be Client Components
 
 import { Box, Text, GridItem, Flex, Button, Icon } from "@chakra-ui/react";
-import { LayoutComponent } from "@/themes";
+import { CustomButtonComponent, LayoutComponent } from "@/themes";
 import { IPortfolioCardProps } from "../../interfaces";
 
 import {
@@ -12,7 +12,7 @@ import {
 
 import Image from "next/image";
 import ProjectInfo from "./ProjectInfo";
-import { MdCall } from "react-icons/md";
+
 import Link from "next/link";
 export default function PortfolioCard({ ...props }: IPortfolioCardProps) {
   return (
@@ -75,25 +75,14 @@ export default function PortfolioCard({ ...props }: IPortfolioCardProps) {
           w="full"
           sx={{ justifyContent: { md: "center", lg: "flex-start" } }}
         >
-          <Button
-            rightIcon={<MdCall />}
-            bg="#BB5611"
-            color="white"
-            _hover={{
-              opacity: 0.5,
-            }}
-            _focus={{
-              outline: "none",
-            }}
-            _active={{
-              bg: "transparent",
-            }}
+          <CustomButtonComponent
+            variant="AboutButton"
             sx={{ width: { base: "100%", md: "50%" } }}
           >
             <Link href={""} passHref target="_blank">
               View More
             </Link>
-          </Button>
+          </CustomButtonComponent>
         </Flex>
       </GridItem>
     </LayoutComponent>

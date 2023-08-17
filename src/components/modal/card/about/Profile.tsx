@@ -56,7 +56,7 @@ export default function Profile({ description }: IAboutProps) {
             rightIcon={<BsCloudDownloadFill />}
             sx={{ width: { base: "100%", md: "100%", lg: "25%" } }}
           >
-            <Link href={""} passHref target="_blank">
+            <Link href={""} download>
               My Resume
             </Link>
           </CustomButtonComponent>
@@ -65,7 +65,7 @@ export default function Profile({ description }: IAboutProps) {
             rightIcon={<ImBlog />}
             sx={{ width: { base: "100%", md: "100%", lg: "25%" } }}
           >
-            <Link href={""} passHref target="_blank">
+            <Link href={"/blog"} passHref>
               My Blog
             </Link>
           </CustomButtonComponent>

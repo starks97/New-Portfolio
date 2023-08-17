@@ -17,7 +17,7 @@ export default function About({ activeIndex, description }: IAboutProps) {
           <LayoutComponent variant="aboutCard">
             <Profile description={description} />
           </LayoutComponent>
-          <Flex h="100px" w="full">
+          <Flex h="100px" w="full" marginTop="2rem">
             <SwiperAbout />
           </Flex>
         </Flex>

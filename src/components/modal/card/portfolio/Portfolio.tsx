@@ -1,6 +1,6 @@
 "use client"; //Must be Client Components
 
-import { LayoutComponent, LineSeparator, WrapperComponent } from "@/themes";
+import { LayoutComponent, LineSeparator } from "@/themes";
 import { Box, Flex, IconButton } from "@chakra-ui/react";
 import { AiOutlineClose } from "react-icons/ai";
 
@@ -8,6 +8,8 @@ import { BsFillBriefcaseFill } from "react-icons/bs";
 import { IPortfolioProps } from "../../interfaces";
 import PortfolioCard from "./PortfolioCard";
 import { useMemo } from "react";
+
+import { motion } from "framer-motion";
 
 export default function Portfolio({ ...props }: IPortfolioProps) {
   const activeProject = useMemo(() => {
@@ -43,7 +45,7 @@ export default function Portfolio({ ...props }: IPortfolioProps) {
             height="100%"
             bg="#222"
             transform={`translateY(${props?.isFadeOpen ? "0" : "100%"})`}
-            transition="transform 0.10s ease-in-out"
+            transition="transform 0.5s ease-in-out"
             zIndex={props?.isFadeOpen ? 10 : -1}
           >
             <Flex justifyContent="flex-end">

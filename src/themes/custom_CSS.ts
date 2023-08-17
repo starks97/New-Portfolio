@@ -106,6 +106,26 @@ export const Layout = defineStyleConfig({
       width: "100%",
       height: "100%",
     },
+
+    postCard: {
+      display: "grid",
+      gridTemplateColumns: {
+        base: "repeat(1, 1fr)",
+        sm: "repeat(1, 1fr)",
+        md: "repeat(1, 1fr)",
+        lg: "repeat(1, 1fr)",
+        xl: "repeat(2, 1fr)",
+      },
+
+      justifyContent: "center",
+      alignItems: "center",
+      gap: 5,
+      justifyItems: "center",
+      width: "100%",
+      height: "100%",
+      paddingLeft: "5rem",
+      paddingRight: "5rem",
+    },
   },
 });
 
@@ -140,11 +160,15 @@ export const Button = defineStyleConfig({
   },
   variants: {
     FormButton: {
-      bg: "#BB5611",
-      color: "white",
+      bg: "#222",
+      color: "orange",
+      borderRadius: "0",
+      border: "1px solid #F0A202",
 
       _hover: {
-        opacity: 0.5,
+        bg: "orange",
+        border: "2px solid orange",
+        color: "white",
       },
       _focus: {
         outline: "none",
@@ -152,6 +176,8 @@ export const Button = defineStyleConfig({
       _active: {
         bg: "transparent",
       },
+      fontFamily: "Lato, sans-serif, serif",
+      textTransform: "uppercase",
     },
     AboutButton: {
       bg: "#222",
@@ -170,6 +196,8 @@ export const Button = defineStyleConfig({
       _active: {
         bg: "transparent",
       },
+      fontFamily: "Lato, sans-serif, serif",
+      textTransform: "uppercase",
     },
   },
 });

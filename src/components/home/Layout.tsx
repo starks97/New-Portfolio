@@ -1,7 +1,7 @@
 "use client"; //Must be Client Components
 
 import { Box, useDisclosure } from "@chakra-ui/react";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import { data } from "../../data";
 import { LayoutComponent } from "../../themes";
@@ -14,6 +14,8 @@ export default function HomeLayout() {
   const [activeIndex, setActiveIndex] = useState<number>(-1);
   const { isOpen, onClose, onOpen } = useDisclosure();
   const [isFadeOpen, setIsFadeOpen] = useState<boolean>(false);
+
+  console.log("isFadeOpen", isFadeOpen);
 
   const [activeProjectCard, setActiveProjectCard] = useState<number>(0);
 
