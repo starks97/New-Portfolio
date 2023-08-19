@@ -15,8 +15,6 @@ export default function HomeLayout() {
   const { isOpen, onClose, onOpen } = useDisclosure();
   const [isFadeOpen, setIsFadeOpen] = useState<boolean>(false);
 
-  console.log("isFadeOpen", isFadeOpen);
-
   const [activeProjectCard, setActiveProjectCard] = useState<number>(0);
 
   const [dataForm, setDataForm] = useState({

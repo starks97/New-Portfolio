@@ -41,7 +41,7 @@ export default function PostsCardMobile({ ...props }: IPostsCardsMobileProps) {
           <Box
             maxW="25rem"
             w="full"
-            boxShadow="2xl red"
+            boxShadow="2xl"
             rounded="xl"
             overflow="hidden"
             p={6}

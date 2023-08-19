@@ -113,8 +113,8 @@ export const Layout = defineStyleConfig({
         base: "repeat(1, 1fr)",
         sm: "repeat(1, 1fr)",
         md: "repeat(1, 1fr)",
-        lg: "repeat(1, 1fr)",
-        xl: "repeat(2, 1fr)",
+        lg: "70% 30%",
+        xl: "70% 30%",
       },
 
       justifyContent: "center",
@@ -123,8 +123,6 @@ export const Layout = defineStyleConfig({
       justifyItems: "center",
       width: "100%",
       height: "100%",
-      paddingLeft: "5rem",
-      paddingRight: "5rem",
     },
   },
 });

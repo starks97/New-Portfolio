@@ -1,24 +1,43 @@
 "use client"; //Must be Client Components
 
-import { PostsCardMobile } from "./posts";
+import { PostsCardMobile, PostsCard } from "./posts";
 
-import { Box } from "@chakra-ui/react";
-import { PostsCard } from "./posts";
+import { Box, Flex, Text } from "@chakra-ui/react";
 import { useResponsive, ResponsiveBreakpoints } from "@/hooks";
 
 export default function BlogLayout() {
   const isMobile = useResponsive(ResponsiveBreakpoints.XS);
   return (
-    <Box bg="#222" maxH="100vh" h="100%" w="100%">
+    <Box
+      bg="#0f172a"
+      maxH="100vh"
+      h="100%"
+      w="100%"
+      sx={{
+        pl: { base: "1rem", md: "5.5rem" },
+        pr: { base: "1rem", md: "5.5rem" },
+      }}
+    >
+      <Flex
+        sx={{
+          justifyContent: { base: "center", md: "flex-start" },
+        }}
+      >
+        <Text fontWeight="extrabold" fontSize="4xl" color="#0ea5ea" mt={10}>
+          Recent Posts
+        </Text>
+      </Flex>
       {isMobile ? (
-        <PostsCardMobile
-          title="Helpful Tips for Working from Home as a Freelancer"
-          images={"/dados.svg"}
-          author="David"
-          imageAuthor={"/xample.jpg"}
-          publishDate="May 31, 2021"
-          category={"#Technology"}
-        />
+        <>
+          <PostsCardMobile
+            title="Helpful Tips for Working from Home as a Freelancer"
+            images={"/dados.svg"}
+            author="David"
+            imageAuthor={"/xample.jpg"}
+            publishDate="May 31, 2021"
+            category={"#Technology"}
+          />
+        </>
       ) : (
         <PostsCard
           images={"/dados.svg"}

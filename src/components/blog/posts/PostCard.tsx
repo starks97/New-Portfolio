@@ -4,8 +4,7 @@ import Image from "next/image";
 import { IPostsCardsDesktopProps } from "../interfaces";
 import Link from "next/link";
 import { LayoutComponent } from "@/themes";
-
-//Must be Client Components
+import SidePosts from "./SidePosts";
 
 export default function PostsCard({ ...props }: IPostsCardsDesktopProps) {
   return (
@@ -16,6 +15,7 @@ export default function PostsCard({ ...props }: IPostsCardsDesktopProps) {
         marginTop="2rem"
         flexDir={"row"}
         justifyContent={"center"}
+        mb="4rem"
       >
         <Link href="/">
           <Box
@@ -87,6 +87,13 @@ export default function PostsCard({ ...props }: IPostsCardsDesktopProps) {
             </Text>
           </Stack>
         </Stack>
+      </GridItem>
+      <GridItem display="flex" w="full" mb="4rem">
+        <SidePosts
+          images={props.images}
+          title={props.title}
+          publishDate={props.publishDate}
+        />
       </GridItem>
     </LayoutComponent>
   );
