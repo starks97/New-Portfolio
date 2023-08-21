@@ -14,9 +14,9 @@ export const TechIcon = {
 const data = [
   {
     index: 1,
-    title: "Hi there I'm",
+    title: "Hi there! I'm",
     subtitle: "David Espinoza",
-    description: "full stack developer",
+    description: ["full stack developer", "web designer", "blogger"],
   },
   {
     index: 2,

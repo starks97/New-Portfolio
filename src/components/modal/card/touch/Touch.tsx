@@ -20,11 +20,17 @@ export default function Touch({
   email,
   phone,
   info: { icons, path },
+  id,
 }: ITouchProps) {
   return (
     <>
       {activeIndex === 4 && (
-        <Flex flexDirection="column" alignItems="center" marginBottom="0.5rem">
+        <Flex
+          flexDirection="column"
+          alignItems="center"
+          marginBottom="0.5rem"
+          id={id}
+        >
           <LineSeparator icon={MdEmail} />
           <LayoutComponent variant="touchLayout">
             <GridItemCustom>

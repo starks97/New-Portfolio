@@ -124,6 +124,24 @@ export const Layout = defineStyleConfig({
       width: "100%",
       height: "100%",
     },
+    footerCard: {
+      display: "grid",
+      gridTemplateColumns: {
+        base: "repeat(1, 1fr)",
+        sm: "repeat(1, 1fr)",
+        md: "repeat(1, 1fr)",
+        lg: "repeat(3, 1fr)",
+        xl: "repeat(3, 1fr)",
+      },
+      width: "100%",
+      height: "100%",
+      boxShadow: "2xl",
+      rounded: "3xl",
+
+      gap: 5,
+      border: "1px solid #222f43",
+      bg: "#131c31",
+    },
   },
 });
 
@@ -200,7 +218,7 @@ export const Button = defineStyleConfig({
   },
 });
 
-export const GridItem = defineStyleConfig({
+export const GridItemComponent = defineStyleConfig({
   baseStyle: {
     bg: "#111",
     width: "full",
@@ -210,6 +228,26 @@ export const GridItem = defineStyleConfig({
     flexDirection: "column",
     alignItems: "start",
     p: "1rem",
+  },
+  variants: {
+    profile: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+      w: "full",
+      h: "full",
+      gap: "0px",
+      role: "group",
+    },
+    footer: {
+      display: "flex",
+      flexDirection: "column",
+      bg: "none",
+      alignItems: "center",
+      justifyContent: "center",
+      w: "full",
+    },
   },
 });
 
@@ -239,14 +277,7 @@ export const IconCustom = defineStyleConfig({
   },
 });
 
-export const TextCusto = defineStyleConfig({
-  baseStyle: {
-    fontFamily: "Lato, sans-serif, serif",
-    fontSize: "50px",
-    textTransform: "uppercase",
-    fontWeight: 900,
-    color: "white",
-  },
+export const Text = defineStyleConfig({
   variants: {
     formTitle: {
       fontFamily: "Lato, serif, Calibri, Arial",
@@ -259,6 +290,17 @@ export const TextCusto = defineStyleConfig({
       fontSize: "1.7rem",
       fontWeight: "extrabold",
       textTransform: "uppercase",
+    },
+
+    profile: {
+      fontFamily: "Lato, serif, Calibri, Arial",
+      fontSize: "30px",
+      fontWeight: "extrabold",
+      textTransform: "uppercase",
+      color: "orange",
+      _groupHover: {
+        color: "white",
+      },
     },
   },
 });

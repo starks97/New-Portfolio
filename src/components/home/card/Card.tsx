@@ -1,37 +1,38 @@
 "use client"; //Must be Client Components
 
-import { Box, GridItem, Text } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 
 import { ICardProps } from "../interfaces";
+import { CustomTextComponent, GridItemCustom } from "@/themes";
 
 export default function HomeCard({
   bg,
   cursor,
   children,
   onClick,
+  title,
 }: ICardProps) {
   return (
     <>
-      <GridItem
+      <GridItemCustom
         bg={bg}
-        w="full"
-        h="full"
         cursor={cursor}
-        display={"flex"}
-        alignItems={"center"}
-        justifyContent={"center"}
         onClick={onClick}
+        variant="profile"
       >
-        <Text
-          fontFamily={"Lato, sans-serif, serif"}
-          fontSize={"30px"}
-          textTransform={"uppercase"}
-          fontWeight={900}
-          color="orange"
+        <CustomTextComponent variant="profile" fontSize="25px">
+          {title}
+        </CustomTextComponent>
+
+        <Flex
+          justifyContent={"center"}
+          flexDirection={"column"}
+          alignItems={"center"}
+          overflow="auto"
         >
           {children}
-        </Text>
-      </GridItem>
+        </Flex>
+      </GridItemCustom>
     </>
   );
 }

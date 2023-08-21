@@ -1,16 +1,20 @@
 "use client"; //Must be Client Components
 
 import { Box, useDisclosure } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { data } from "../../data";
-import { LayoutComponent } from "../../themes";
-import { ImageCard, HomeCard } from "./card";
+import { CustomTextComponent, LayoutComponent } from "../../themes";
+import { ImageCard, HomeCard, TypeWritter } from "./card";
 import { ModalComponent } from "../modal";
 
 import { BsGithub, BsInstagram, BsLinkedin } from "react-icons/bs";
+import { useRouter } from "next/router";
 
 export default function HomeLayout() {
+  const router = useRouter();
+  const modalId = router.query.modalId;
+  console.log(modalId);
   const [activeIndex, setActiveIndex] = useState<number>(-1);
   const { isOpen, onClose, onOpen } = useDisclosure();
   const [isFadeOpen, setIsFadeOpen] = useState<boolean>(false);
@@ -59,8 +63,22 @@ export default function HomeLayout() {
                           return;
                         }
                   }
+                  title={item.title}
                 >
-                  {item.title}
+                  {item.index === 1 && (
+                    <>
+                      <CustomTextComponent variant="profile" fontSize="30px">
+                        {item.subtitle}
+                      </CustomTextComponent>
+                      <TypeWritter
+                        texts={
+                          item.description
+                            ? item.description.map((item) => item)
+                            : []
+                        }
+                      />
+                    </>
+                  )}
                 </HomeCard>
 
                 {activeIndex === item.index && (
@@ -128,3 +146,5 @@ export default function HomeLayout() {
     </>
   );
 }
+
+/* */

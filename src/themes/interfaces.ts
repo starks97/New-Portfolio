@@ -1,5 +1,12 @@
-import { JSXElementConstructor, ReactElement, ReactNode } from "react";
+import { ResponsiveValue } from "@chakra-ui/react";
+import {
+  JSXElementConstructor,
+  MouseEventHandler,
+  ReactElement,
+  ReactNode,
+} from "react";
 import { IconType } from "react-icons";
+import { Token } from "typescript";
 
 type VariantProps = Record<string, Record<string, unknown>>;
 
@@ -27,4 +34,16 @@ export interface ICustomButtonComponentProps
   rightIcon?:
     | ReactElement<any, string | JSXElementConstructor<any>>
     | undefined;
+}
+
+export interface ICustomTextComponentProps
+  extends Pick<ICustomComponentsProps, "children" | "variant"> {
+  fontSize: string;
+}
+
+export interface ICustomGridItemComponentProps
+  extends Pick<ICustomComponentsProps, "children" | "variant"> {
+  onClick?: MouseEventHandler<HTMLDivElement> | undefined;
+  cursor?: string;
+  bg?: string;
 }

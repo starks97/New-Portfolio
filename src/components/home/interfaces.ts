@@ -3,4 +3,5 @@ export interface ICardProps {
   cursor: string;
   onClick: () => void;
   children: React.ReactNode;
+  title: string;
 }

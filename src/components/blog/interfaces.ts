@@ -25,3 +25,7 @@ export interface IPostsCardsDesktopProps
     | "publishDate"
     | "images"
   > {}
+
+const AppData = {
+  links: ["/", "/about", "/portfolio", "/contact"],
+};

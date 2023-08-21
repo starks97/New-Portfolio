@@ -4,13 +4,12 @@ import { PostsCardMobile, PostsCard } from "./posts";
 
 import { Box, Flex, Text } from "@chakra-ui/react";
 import { useResponsive, ResponsiveBreakpoints } from "@/hooks";
+import Footer from "./Footer";
 
 export default function BlogLayout() {
   const isMobile = useResponsive(ResponsiveBreakpoints.XS);
   return (
     <Box
-      bg="#0f172a"
-      maxH="100vh"
       h="100%"
       w="100%"
       sx={{
@@ -48,6 +47,7 @@ export default function BlogLayout() {
           publishDate="May 31, 2021"
         />
       )}
+      <Footer phone="631-903-3732" email="ifrit68@hotmail.com" />
     </Box>
   );
 }

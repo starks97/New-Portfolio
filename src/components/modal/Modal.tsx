@@ -65,6 +65,7 @@ export default function ModalComponent({ ...props }: IModalProps) {
             <About
               activeIndex={props.activeIndex}
               description={props.description}
+              id="#about"
             />
 
             <Portfolio
@@ -74,6 +75,7 @@ export default function ModalComponent({ ...props }: IModalProps) {
               dataPortfolio={props.dataPortfolio}
               activeProjectCard={props.activeProjectCard}
               setActiveProjectCard={props.setActiveProjectCard}
+              id="#portfolio"
             >
               {props.children}
             </Portfolio>
@@ -85,6 +87,7 @@ export default function ModalComponent({ ...props }: IModalProps) {
                 icons: props.info.icons,
                 path: props.info.path,
               }}
+              id="#touch"
             />
           </ModalBody>
         </ModalContent>

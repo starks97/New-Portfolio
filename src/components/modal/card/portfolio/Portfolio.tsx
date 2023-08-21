@@ -9,8 +9,6 @@ import { IPortfolioProps } from "../../interfaces";
 import PortfolioCard from "./PortfolioCard";
 import { useMemo } from "react";
 
-import { motion } from "framer-motion";
-
 export default function Portfolio({ ...props }: IPortfolioProps) {
   const activeProject = useMemo(() => {
     const projectData = props.dataPortfolio!.find((item) => {
@@ -28,7 +26,7 @@ export default function Portfolio({ ...props }: IPortfolioProps) {
     <>
       <>
         {props.activeIndex === 3 && (
-          <Flex flexDirection="column" alignItems="center">
+          <Flex flexDirection="column" alignItems="center" id={props.id!}>
             <LineSeparator icon={BsFillBriefcaseFill} />
             <LayoutComponent variant="AboutLayout">
               {props?.children}

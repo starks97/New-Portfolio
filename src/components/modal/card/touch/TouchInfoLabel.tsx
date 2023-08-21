@@ -8,13 +8,13 @@ interface IProps {
   value: string;
   icon: IconType;
   href: string;
-  label: string;
+  label?: string;
 }
 
 export default function TouchInfoLabel({ ...props }: IProps) {
   return (
     <Box>
-      <Text fontWeight={"extrabold"} color="orange">
+      <Text fontWeight={"extrabold"} color="#b9e0f2">
         {props.label}
       </Text>
       <Flex
@@ -31,7 +31,7 @@ export default function TouchInfoLabel({ ...props }: IProps) {
           opacity: 0.5,
         }}
       >
-        <Icon as={props.icon} color="orange" w={5} h={5} />
+        <Icon as={props.icon} color="#0ea5ea" w={5} h={5} />
         <a href={props.href}>
           <Text>{props.value}</Text>
         </a>

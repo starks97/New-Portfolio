@@ -2,16 +2,7 @@
 import Link from "next/link";
 import { IPostsCardsMobileProps } from "../interfaces";
 
-import {
-  Box,
-  Center,
-  Heading,
-  Text,
-  Stack,
-  Badge,
-  Flex,
-  Avatar,
-} from "@chakra-ui/react";
+import { Box, Heading, Text, Stack, Flex, Avatar } from "@chakra-ui/react";
 
 //Must be Client Components
 

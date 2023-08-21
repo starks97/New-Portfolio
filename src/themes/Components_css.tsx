@@ -11,8 +11,9 @@ import { IconType } from "react-icons";
 import {
   ICustomButtonComponentProps,
   ICustomComponentsProps,
-  ICustomFormComponentProps,
+  ICustomGridItemComponentProps,
   ICustomIconProps,
+  ICustomTextComponentProps,
 } from "./interfaces";
 
 export function LayoutComponent({ variant, children }: ICustomComponentsProps) {
@@ -33,7 +34,6 @@ export function LineSeparator({ icon }: { icon: IconType }) {
     <Flex
       overflow={"inherit"}
       bg="none"
-      margin="35px 0 62px"
       justifyItems="center"
       alignItems="center"
       w="50%"
@@ -60,9 +60,19 @@ export function CustomButtonComponent({
   );
 }
 
-export function GridItemCustom({ children }: ICustomComponentsProps) {
-  const styles = useStyleConfig("GridItem");
-  return <GridItem __css={styles}>{children}</GridItem>;
+export function GridItemCustom({
+  children,
+  onClick,
+  variant,
+  cursor,
+  bg,
+}: ICustomGridItemComponentProps) {
+  const styles = useStyleConfig("GridItemComponent", { variant });
+  return (
+    <Box __css={styles} onClick={onClick} cursor={cursor} bg={bg}>
+      {children}
+    </Box>
+  );
 }
 
 export function CustomIconComponent({ as, variant }: ICustomIconProps) {
@@ -73,7 +83,12 @@ export function CustomIconComponent({ as, variant }: ICustomIconProps) {
 export function CustomTextComponent({
   children,
   variant,
-}: ICustomComponentsProps) {
-  const styles = useStyleConfig("TextCusto", { variant });
-  return <Text __css={styles}>{children}</Text>;
+  fontSize,
+}: ICustomTextComponentProps) {
+  const styles = useStyleConfig("Text", { variant });
+  return (
+    <Box __css={styles} fontSize={fontSize}>
+      {children}
+    </Box>
+  );
 }

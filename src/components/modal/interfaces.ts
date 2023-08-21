@@ -19,10 +19,14 @@ export interface IModalProps {
   dataPortfolio?: IPortfolioCardProps[];
   activeProjectCard?: number;
   setActiveProjectCard?: React.Dispatch<React.SetStateAction<number>>;
+  id?: string;
 }
 
 export interface ITouchProps
-  extends Pick<IModalProps, "email" | "phone" | "activeIndex" | "info"> {}
+  extends Pick<
+    IModalProps,
+    "email" | "phone" | "activeIndex" | "info" | "id"
+  > {}
 
 export interface IPortfolioProps
   extends Pick<
@@ -34,10 +38,11 @@ export interface IPortfolioProps
     | "dataPortfolio"
     | "activeProjectCard"
     | "setActiveProjectCard"
+    | "id"
   > {}
 
 export interface IAboutProps
-  extends Pick<IModalProps, "description" | "activeIndex"> {}
+  extends Pick<IModalProps, "description" | "activeIndex" | "id"> {}
 
 export interface IFormTouchProps {
   dataForm?: {
