@@ -14,6 +14,7 @@ export default function TypeWritter({ texts }: ITypeWritterProps) {
         color: "white",
         marginTop: "-1px",
         zIndex: 1,
+        overflow: "auto",
       }}
     >
       <Typewriter

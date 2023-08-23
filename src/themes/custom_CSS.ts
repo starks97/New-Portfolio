@@ -133,14 +133,11 @@ export const Layout = defineStyleConfig({
         lg: "repeat(3, 1fr)",
         xl: "repeat(3, 1fr)",
       },
+
       width: "100%",
       height: "100%",
-      boxShadow: "2xl",
-      rounded: "3xl",
 
       gap: 5,
-      border: "1px solid #222f43",
-      bg: "#131c31",
     },
   },
 });
@@ -239,6 +236,7 @@ export const GridItemComponent = defineStyleConfig({
       h: "full",
       gap: "0px",
       role: "group",
+      overflow: "auto",
     },
     footer: {
       display: "flex",
@@ -253,7 +251,7 @@ export const GridItemComponent = defineStyleConfig({
 
 export const IconCustom = defineStyleConfig({
   baseStyle: {
-    color: "#FFB25C",
+    color: "#b9e0f2",
     w: 5,
     h: 5,
     bg: "transparent",
@@ -297,7 +295,7 @@ export const Text = defineStyleConfig({
       fontSize: "30px",
       fontWeight: "extrabold",
       textTransform: "uppercase",
-      color: "orange",
+
       _groupHover: {
         color: "white",
       },

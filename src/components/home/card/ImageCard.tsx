@@ -29,6 +29,7 @@ export default function ImageCard({
         backgroundPosition={"center, center"}
         as={as}
         onClick={onClick}
+        rounded="xl"
       />
     </>
   );

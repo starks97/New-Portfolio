@@ -1,12 +1,10 @@
 "use client";
 import Link from "next/link";
-import { IPostsCardsMobileProps } from "../interfaces";
+import { ISidePostsProps } from "../interfaces";
 
 import { Box, Heading, Text, Stack, Flex, Avatar } from "@chakra-ui/react";
 
-//Must be Client Components
-
-export default function SidePosts({ ...props }: IPostsCardsMobileProps) {
+export default function SidePosts({ ...props }: ISidePostsProps) {
   return (
     <Box
       w="full"

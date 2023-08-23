@@ -9,14 +9,12 @@ import { ImageCard, HomeCard, TypeWritter } from "./card";
 import { ModalComponent } from "../modal";
 
 import { BsGithub, BsInstagram, BsLinkedin } from "react-icons/bs";
-import { useRouter } from "next/router";
 
 export default function HomeLayout() {
-  const router = useRouter();
-  const modalId = router.query.modalId;
-  console.log(modalId);
   const [activeIndex, setActiveIndex] = useState<number>(-1);
+
   const { isOpen, onClose, onOpen } = useDisclosure();
+
   const [isFadeOpen, setIsFadeOpen] = useState<boolean>(false);
 
   const [activeProjectCard, setActiveProjectCard] = useState<number>(0);
@@ -29,6 +27,7 @@ export default function HomeLayout() {
 
   const handdleToggle = (index: number) => {
     setActiveIndex(index);
+
     onOpen();
     setIsFadeOpen(false);
     return;
@@ -39,6 +38,18 @@ export default function HomeLayout() {
     setActiveProjectCard(index);
     return;
   };
+
+  useEffect(() => {
+    // Scroll to the specified hash fragment on page load
+    if (window.location.hash) {
+      const modalIndex = Number(window.location.hash.replace("about", ""));
+      console.log(modalIndex);
+      if (!isNaN(modalIndex)) {
+        // Call your existing function to open the modal
+        handdleToggle(modalIndex);
+      }
+    }
+  }, []);
 
   return (
     <>
@@ -54,7 +65,7 @@ export default function HomeLayout() {
             {data.map((item) => (
               <React.Fragment key={item.index}>
                 <HomeCard
-                  bg={item.index !== 1 ? "#222" : ""}
+                  bg={item.index !== 1 ? "#131c31" : ""}
                   cursor={item.index === 1 ? "default" : "pointer"}
                   onClick={
                     item.index !== 1
@@ -64,10 +75,16 @@ export default function HomeLayout() {
                         }
                   }
                   title={item.title}
+                  boxShadow={item.index !== 1 ? "dark-md" : ""}
+                  rounded={item.index !== 1 ? "xl" : ""}
                 >
                   {item.index === 1 && (
                     <>
-                      <CustomTextComponent variant="profile" fontSize="30px">
+                      <CustomTextComponent
+                        variant="profile"
+                        fontSize="30px"
+                        color="#b9e0f2"
+                      >
                         {item.subtitle}
                       </CustomTextComponent>
                       <TypeWritter
@@ -146,5 +163,3 @@ export default function HomeLayout() {
     </>
   );
 }
-
-/* */

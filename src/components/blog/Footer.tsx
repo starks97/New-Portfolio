@@ -1,18 +1,42 @@
 "use client";
-import { Box, Text, Flex, List, ListItem } from "@chakra-ui/react";
+import {
+  Box,
+  Text,
+  Flex,
+  List,
+  ListItem,
+  Stack,
+  Center,
+} from "@chakra-ui/react";
 import { TouchInfoLabel } from "../modal/card/touch";
 import { BsFillTelephoneFill } from "react-icons/bs";
-import { GridItemCustom, LayoutComponent } from "@/themes";
+import { CustomIconComponent, GridItemCustom, LayoutComponent } from "@/themes";
 import { AiOutlineMail } from "react-icons/ai";
 import Link from "next/link";
+import { IconType } from "react-icons";
 
 interface IFooterProps {
   phone: string;
   email: string;
+  info: {
+    icons: IconType[];
+    path: string[];
+  };
 }
-export default function Footer({ phone, email }: IFooterProps) {
+export default function Footer({ phone, email, info }: IFooterProps) {
   return (
-    <Flex sx={{ justifyContent: { base: "center", md: "center", lg: "none" } }}>
+    <Center
+      sx={{
+        justifyContent: { base: "center", md: "center", lg: "none" },
+        m: { base: 4, md: 0, lg: 0 },
+      }}
+      boxShadow="2xl"
+      rounded="3xl"
+      border="1px solid #222f43"
+      bg="#131c31"
+      flexDir="column"
+      alignItems="center"
+    >
       <LayoutComponent variant="footerCard">
         <GridItemCustom variant="footer">
           <Box>
@@ -44,18 +68,18 @@ export default function Footer({ phone, email }: IFooterProps) {
           <Box>
             <List spacing={3}>
               <ListItem>
-                <Link href="/">
+                <Link href="/#about">
                   <Text>About</Text>
                 </Link>
               </ListItem>
               <ListItem>
-                <Link href="/">
+                <Link href="/#portfolio">
                   <Text>Portfolio</Text>
                 </Link>
               </ListItem>
               <ListItem>
-                <Link href={`/${"#about"}`}>
-                  <Text>touch</Text>
+                <Link href="/#touch">
+                  <Text>Touch</Text>
                 </Link>
               </ListItem>
             </List>
@@ -82,8 +106,34 @@ export default function Footer({ phone, email }: IFooterProps) {
           </Box>
         </GridItemCustom>
       </LayoutComponent>
-    </Flex>
+      <Flex borderBottom="1px solid #66768f" width="80%" mt={4} mb={5} />
+      <Stack
+        w="80%"
+        mb={5}
+        sx={{
+          flexDir: { base: "column", md: "row", lg: "row" },
+          justifyContent: {
+            base: "center",
+            md: "space-between",
+            lg: "space-between",
+          },
+        }}
+        alignItems="center"
+      >
+        <Flex flexDir="row" gap={2}>
+          <Text color="#94a9c9">&copy; 2023 Created by </Text>
+          <Text color="#0ea5ea">David Espinoza</Text>
+        </Flex>
+        <Flex gap={5}>
+          {info.icons?.map((icon, index) => (
+            <Box key={index}>
+              <Link target="_blank" href={info?.path![index]} passHref>
+                <CustomIconComponent as={icon} />
+              </Link>
+            </Box>
+          ))}
+        </Flex>
+      </Stack>
+    </Center>
   );
 }
-
-//<Flex borderBottom="1px solid #66768f" width="100%" mt={4} />

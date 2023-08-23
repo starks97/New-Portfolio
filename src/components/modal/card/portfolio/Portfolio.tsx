@@ -26,7 +26,7 @@ export default function Portfolio({ ...props }: IPortfolioProps) {
     <>
       <>
         {props.activeIndex === 3 && (
-          <Flex flexDirection="column" alignItems="center" id={props.id!}>
+          <Flex flexDirection="column" alignItems="center" id="portfolio">
             <LineSeparator icon={BsFillBriefcaseFill} />
             <LayoutComponent variant="AboutLayout">
               {props?.children}
@@ -41,10 +41,11 @@ export default function Portfolio({ ...props }: IPortfolioProps) {
             left={0}
             width="100%"
             height="100%"
-            bg="#222"
             transform={`translateY(${props?.isFadeOpen ? "0" : "100%"})`}
             transition="transform 0.5s ease-in-out"
             zIndex={props?.isFadeOpen ? 10 : -1}
+            bg="#050704"
+            rounded="xl"
           >
             <Flex justifyContent="flex-end">
               <IconButton

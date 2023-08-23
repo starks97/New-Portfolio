@@ -23,7 +23,7 @@ import { IPostsCardsMobileProps } from "../interfaces";
 
 export default function PostsCardMobile({ ...props }: IPostsCardsMobileProps) {
   return (
-    <Center py={6} m={8}>
+    <Center py={6} m={4}>
       <Swiper
         effect={"creative"}
         creativeEffect={{

@@ -1,12 +1,4 @@
-import {
-  Box,
-  Button,
-  Flex,
-  GridItem,
-  Icon,
-  useStyleConfig,
-  Text,
-} from "@chakra-ui/react";
+import { Box, Button, Flex, Icon, useStyleConfig } from "@chakra-ui/react";
 import { IconType } from "react-icons";
 import {
   ICustomButtonComponentProps,
@@ -38,9 +30,9 @@ export function LineSeparator({ icon }: { icon: IconType }) {
       alignItems="center"
       w="50%"
     >
-      <Flex borderBottom="2px solid #666" width="100%" />
-      <Icon as={icon} bg="none" color="orange" w={5} h={5} margin={"1rem"} />
-      <Flex borderBottom="2px solid #666" width="100%" />
+      <Flex borderBottom="2px solid #66768f" width="100%" />
+      <Icon as={icon} bg="none" color="#0ea5ea" w={5} h={5} margin={"1rem"} />
+      <Flex borderBottom="2px solid #66768f" width="100%" />
     </Flex>
   );
 }
@@ -66,10 +58,19 @@ export function GridItemCustom({
   variant,
   cursor,
   bg,
+  boxShadow,
+  rounded,
 }: ICustomGridItemComponentProps) {
   const styles = useStyleConfig("GridItemComponent", { variant });
   return (
-    <Box __css={styles} onClick={onClick} cursor={cursor} bg={bg}>
+    <Box
+      __css={styles}
+      onClick={onClick}
+      cursor={cursor}
+      bg={bg}
+      boxShadow={boxShadow}
+      rounded={rounded}
+    >
       {children}
     </Box>
   );
@@ -84,10 +85,11 @@ export function CustomTextComponent({
   children,
   variant,
   fontSize,
+  color,
 }: ICustomTextComponentProps) {
   const styles = useStyleConfig("Text", { variant });
   return (
-    <Box __css={styles} fontSize={fontSize}>
+    <Box __css={styles} fontSize={fontSize} color={color}>
       {children}
     </Box>
   );

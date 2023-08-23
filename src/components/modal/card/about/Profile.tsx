@@ -27,12 +27,19 @@ export default function Profile({ description }: IAboutProps) {
       </GridItem>
       <GridItem w="100%" alignItems={"center"}>
         <Flex flexDirection="row" alignItems="center">
-          <Icon as={BsFillPersonFill} w={5} h={5} margin={"1rem"} />
+          <Icon
+            as={BsFillPersonFill}
+            w={5}
+            h={5}
+            margin={"1rem"}
+            color="#0ea5ea"
+          />
           <Text
             fontFamily={"Lato, sans-serif, serif"}
             fontSize={"1.2rem"}
             textTransform={"uppercase"}
             fontWeight={700}
+            color="#b9e0f2"
           >
             Personal Info
           </Text>

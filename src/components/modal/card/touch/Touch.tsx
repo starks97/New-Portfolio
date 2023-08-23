@@ -29,11 +29,11 @@ export default function Touch({
           flexDirection="column"
           alignItems="center"
           marginBottom="0.5rem"
-          id={id}
+          id="touch"
         >
           <LineSeparator icon={MdEmail} />
           <LayoutComponent variant="touchLayout">
-            <GridItemCustom>
+            <GridItemCustom boxShadow="#070B2C" rounded="xl" variant="">
               <TouchInfoLabel
                 href="tel:631-903-3732"
                 icon={BsFillTelephoneFill}

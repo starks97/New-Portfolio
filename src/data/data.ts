@@ -28,11 +28,23 @@ const data = [
       LastName: "Espinoza",
       phoneNumber: "+1(631)903-3732",
       email: "ifrit68@hotmai.com",
-      socialMedia: {
-        linkedIn: "",
-        github: "",
-        instagram: "",
-      },
+      socialMedia: [
+        {
+          index: 1,
+          value: "instagram",
+          path: "https://www.instagram.com/",
+        },
+        {
+          index: 2,
+          value: "github",
+          path: "https://github.com/starks97",
+        },
+        {
+          index: 3,
+          value: "linkedIn",
+          path: "https://www.linkedin.com/in/david-espinoza-a306b2242/",
+        },
+      ],
       Experience: [
         {
           index: 1,

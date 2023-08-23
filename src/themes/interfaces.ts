@@ -39,6 +39,7 @@ export interface ICustomButtonComponentProps
 export interface ICustomTextComponentProps
   extends Pick<ICustomComponentsProps, "children" | "variant"> {
   fontSize: string;
+  color: string;
 }
 
 export interface ICustomGridItemComponentProps
@@ -46,4 +47,6 @@ export interface ICustomGridItemComponentProps
   onClick?: MouseEventHandler<HTMLDivElement> | undefined;
   cursor?: string;
   bg?: string;
+  boxShadow: string;
+  rounded: string;
 }

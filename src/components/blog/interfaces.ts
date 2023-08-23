@@ -29,3 +29,8 @@ export interface IPostsCardsDesktopProps
 const AppData = {
   links: ["/", "/about", "/portfolio", "/contact"],
 };
+
+export interface ISidePostsProps
+  extends Pick<IBlogProps, "title" | "publishDate" | "images"> {}
+{
+}

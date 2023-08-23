@@ -4,4 +4,6 @@ export interface ICardProps {
   onClick: () => void;
   children: React.ReactNode;
   title: string;
+  rounded: string;
+  boxShadow: string;
 }

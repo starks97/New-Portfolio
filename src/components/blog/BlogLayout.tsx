@@ -6,16 +6,21 @@ import { Box, Flex, Text } from "@chakra-ui/react";
 import { useResponsive, ResponsiveBreakpoints } from "@/hooks";
 import Footer from "./Footer";
 
+import React from "react";
+import { BsGithub, BsInstagram, BsLinkedin } from "react-icons/bs";
+
 export default function BlogLayout() {
   const isMobile = useResponsive(ResponsiveBreakpoints.XS);
+
   return (
     <Box
-      h="100%"
       w="100%"
+      maxH="100%"
       sx={{
         pl: { base: "1rem", md: "5.5rem" },
         pr: { base: "1rem", md: "5.5rem" },
       }}
+      mb={7}
     >
       <Flex
         sx={{
@@ -47,7 +52,19 @@ export default function BlogLayout() {
           publishDate="May 31, 2021"
         />
       )}
-      <Footer phone="631-903-3732" email="ifrit68@hotmail.com" />
+
+      <Footer
+        phone="631-903-3732"
+        email="ifrit68@hotmail.com"
+        info={{
+          icons: [BsInstagram, BsGithub, BsLinkedin],
+          path: [
+            "https://www.instagram.com/",
+            "https://github.com/starks97",
+            "https://www.linkedin.com/in/david-espinoza-a306b2242/",
+          ],
+        }}
+      />
     </Box>
   );
 }

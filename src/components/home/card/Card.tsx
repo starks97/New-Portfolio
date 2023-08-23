@@ -5,23 +5,19 @@ import { Flex } from "@chakra-ui/react";
 import { ICardProps } from "../interfaces";
 import { CustomTextComponent, GridItemCustom } from "@/themes";
 
-export default function HomeCard({
-  bg,
-  cursor,
-  children,
-  onClick,
-  title,
-}: ICardProps) {
+export default function HomeCard({ ...props }: ICardProps) {
   return (
     <>
       <GridItemCustom
-        bg={bg}
-        cursor={cursor}
-        onClick={onClick}
+        bg={props.bg}
+        cursor={props.cursor}
+        onClick={props.onClick}
         variant="profile"
+        boxShadow={props.boxShadow}
+        rounded={props.rounded}
       >
-        <CustomTextComponent variant="profile" fontSize="25px">
-          {title}
+        <CustomTextComponent variant="profile" fontSize="25px" color="#0ea5ea">
+          {props.title}
         </CustomTextComponent>
 
         <Flex
@@ -30,7 +26,7 @@ export default function HomeCard({
           alignItems={"center"}
           overflow="auto"
         >
-          {children}
+          {props.children}
         </Flex>
       </GridItemCustom>
     </>

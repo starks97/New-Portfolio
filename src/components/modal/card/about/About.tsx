@@ -12,7 +12,7 @@ export default function About({ activeIndex, description, id }: IAboutProps) {
   return (
     <>
       {activeIndex === 2 && (
-        <Flex flexDirection="column" alignItems="center" id={id}>
+        <Flex flexDirection="column" alignItems="center" id="about">
           <LineSeparator icon={ImProfile} />
           <LayoutComponent variant="aboutCard">
             <Profile description={description} />

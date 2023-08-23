@@ -24,11 +24,11 @@ export default function ModalComponent({ ...props }: IModalProps) {
       <Modal
         isOpen={props.isOpen}
         onClose={props.onClose}
-        size={"6xl"}
+        size={{ base: "full", md: "6xl", lg: "6xl", xl: "6xl" }}
         scrollBehavior="inside"
       >
         <ModalOverlay />
-        <ModalContent bg="#222" alignItems={"center"}>
+        <ModalContent bg="#050704" alignItems={"center"} rounded="xl" pb="2rem">
           <ModalHeader
             display="flex"
             alignItems="center"
@@ -41,7 +41,7 @@ export default function ModalComponent({ ...props }: IModalProps) {
                 sx={{ fontSize: { base: "30px", md: "50px" } }}
                 textTransform="uppercase"
                 fontWeight={900}
-                color="white"
+                color="#0ea5ea"
               >
                 {props.title}
               </Text>
@@ -65,7 +65,7 @@ export default function ModalComponent({ ...props }: IModalProps) {
             <About
               activeIndex={props.activeIndex}
               description={props.description}
-              id="#about"
+              id="about"
             />
 
             <Portfolio
@@ -75,7 +75,6 @@ export default function ModalComponent({ ...props }: IModalProps) {
               dataPortfolio={props.dataPortfolio}
               activeProjectCard={props.activeProjectCard}
               setActiveProjectCard={props.setActiveProjectCard}
-              id="#portfolio"
             >
               {props.children}
             </Portfolio>
@@ -87,7 +86,6 @@ export default function ModalComponent({ ...props }: IModalProps) {
                 icons: props.info.icons,
                 path: props.info.path,
               }}
-              id="#touch"
             />
           </ModalBody>
         </ModalContent>
