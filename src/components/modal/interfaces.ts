@@ -20,6 +20,10 @@ export interface IModalProps {
   activeProjectCard?: number;
   setActiveProjectCard?: React.Dispatch<React.SetStateAction<number>>;
   id?: string;
+  dataAbout?: {
+    EDUCATION: ISwiperAboutType[];
+    EXPERIENCE: ISwiperAboutType[];
+  };
 }
 
 export interface ITouchProps
@@ -42,7 +46,12 @@ export interface IPortfolioProps
   > {}
 
 export interface IAboutProps
-  extends Pick<IModalProps, "description" | "activeIndex" | "id"> {}
+  extends Pick<
+    IModalProps,
+    "description" | "activeIndex" | "id" | "dataAbout"
+  > {}
+
+export interface IAboutSwiperProps extends Pick<IAboutProps, "dataAbout"> {}
 
 export interface IFormTouchProps {
   dataForm?: {
@@ -72,3 +81,10 @@ export interface IPortfolioCardProps {
   image: string;
   index: number;
 }
+
+export type ISwiperAboutType = {
+  index: number;
+  title: string;
+  date: string;
+  description: string;
+};

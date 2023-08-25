@@ -1,33 +1,42 @@
 "use client"; //Must be Client Components
-import { Box, Text, Container, Flex, Icon, IconButton } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
+import { Pagination, Navigation } from "swiper/modules";
 
-// Import Swiper styles
-import "swiper/css/bundle";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { IAboutSwiperProps } from "../../interfaces";
+import SwiperResumeSlide from "./SwiperResume";
 
-export default function SwiperAbout() {
+export default function SwiperAbout({ ...props }: IAboutSwiperProps) {
   return (
-    <>
+    <Flex
+      w="full"
+      mt="5rem"
+      h="full"
+      sx={{
+        maxW: { base: "full", md: "50%" },
+        ml: { base: "none", md: "20rem", lg: "30rem", xl: "30rem" },
+      }}
+    >
       <Swiper
-        effect="cards"
-        modules={[Navigation, Pagination, Scrollbar, A11y]}
-        spaceBetween={50}
-        slidesPerView={3}
-        navigation
-        pagination={{ clickable: true }}
-        scrollbar={{ draggable: true }}
-        onSwiper={(swiper) => console.log(swiper)}
-        onSlideChange={() => console.log("slide change")}
-        cssMode={true}
+        slidesPerView={1}
+        spaceBetween={30}
+        loop={true}
+        pagination={{
+          clickable: true,
+        }}
+        navigation={true}
+        modules={[Pagination, Navigation]}
       >
-        <Box h="150px" w="100px">
-          <SwiperSlide>Slide</SwiperSlide>
-        </Box>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
+        <SwiperSlide>
+          <SwiperResumeSlide mainTitle="Education" props={props} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <SwiperResumeSlide mainTitle="Experience" props={props} />
+        </SwiperSlide>
       </Swiper>
-    </>
+    </Flex>
   );
 }

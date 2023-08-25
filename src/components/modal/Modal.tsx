@@ -66,6 +66,7 @@ export default function ModalComponent({ ...props }: IModalProps) {
               activeIndex={props.activeIndex}
               description={props.description}
               id="about"
+              dataAbout={props?.dataAbout!}
             />
 
             <Portfolio

@@ -130,6 +130,14 @@ export default function HomeLayout() {
                     }
                     activeProjectCard={activeProjectCard}
                     setActiveProjectCard={setActiveProjectCard}
+                    dataAbout={{
+                      EDUCATION: item.personalInfo?.resume.EDUCATION
+                        ? item.personalInfo?.resume.EDUCATION
+                        : [],
+                      EXPERIENCE: item.personalInfo?.resume.Experience
+                        ? item.personalInfo?.resume.Experience
+                        : [],
+                    }}
                   >
                     {item.work?.map((element) => (
                       <React.Fragment key={element.index}>

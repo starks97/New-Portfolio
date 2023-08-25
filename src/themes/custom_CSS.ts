@@ -173,34 +173,15 @@ export const Button = defineStyleConfig({
   },
   variants: {
     FormButton: {
-      bg: "#222",
-      color: "orange",
-      borderRadius: "0",
-      border: "1px solid #F0A202",
+      bg: "#020203",
+      color: "#0ea5ea",
+      w: "full",
+      border: "1px solid #0ea5ea",
+      rounded: "lg",
 
       _hover: {
-        bg: "orange",
-        border: "2px solid orange",
-        color: "white",
-      },
-      _focus: {
-        outline: "none",
-      },
-      _active: {
-        bg: "transparent",
-      },
-      fontFamily: "Lato, sans-serif, serif",
-      textTransform: "uppercase",
-    },
-    AboutButton: {
-      bg: "#222",
-      color: "orange",
-      borderRadius: "0",
-      border: "1px solid #F0A202",
-
-      _hover: {
-        bg: "orange",
-        border: "2px solid orange",
+        bg: "#131c31",
+        border: "2px solid #0ea5ea",
         color: "white",
       },
       _focus: {

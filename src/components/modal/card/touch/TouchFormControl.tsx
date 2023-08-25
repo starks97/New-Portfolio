@@ -15,14 +15,14 @@ export default function TouchFormControl({ ...props }: IFormTouchProps) {
   return (
     <>
       <FormControl>
-        <FormLabel>{props.label}</FormLabel>
-        <InputGroup borderColor="white" w="100%">
+        <FormLabel color="#b9e0f2">{props.label}</FormLabel>
+        <InputGroup borderColor="#0ea5ea" w="100%">
           {props.label === "Message" ? (
             <>
               <Textarea
-                borderColor="gray.300"
+                borderColor="#0ea5ea"
                 _hover={{
-                  borderRadius: "gray.300",
+                  borderColor: "white",
                 }}
                 placeholder="message"
               />
@@ -30,7 +30,7 @@ export default function TouchFormControl({ ...props }: IFormTouchProps) {
           ) : (
             <>
               <InputLeftElement pointerEvents="none">
-                {props.icon ? <props.icon color="orange" /> : null}
+                {props.icon ? <props.icon color="#b9e0f2" /> : null}
               </InputLeftElement>
               <Input type="text" size="md" />
             </>

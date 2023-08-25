@@ -45,76 +45,62 @@ const data = [
           path: "https://www.linkedin.com/in/david-espinoza-a306b2242/",
         },
       ],
-      Experience: [
-        {
-          index: 1,
-          title: "Web designer- envato",
-          date: Date.now(),
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pretium orci sit amet mi ullamcorper",
-        },
-        {
-          index: 2,
-          title: "Web designer- envato",
-          date: Date.now(),
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pretium orci sit amet mi ullamcorper",
-        },
+      resume: {
+        Experience: [
+          {
+            index: 1,
+            title: "Web designer- envato",
+            date: "11/04/2021",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pretium orci sit amet mi ullamcorper",
+          },
+          {
+            index: 2,
+            title: "Web designer- envato",
+            date: "11/04/2021",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pretium orci sit amet mi ullamcorper",
+          },
 
-        {
-          index: 3,
-          title: "Web designer- envato",
-          date: Date.now(),
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pretium orci sit amet mi ullamcorper",
-        },
-      ],
-      EDUCATION: [
-        {
-          index: 1,
-          title: "ENGINEERING DIPLOMA - OXFORD UNIVERSITY",
-          date: Date.now(),
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pretium orci sit amet mi ullamcorper",
-        },
-        {
-          index: 2,
-          title: "MASTERS DEGREE - PARIS UNIVERSITY",
-          date: Date.now(),
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pretium orci sit amet mi ullamcorper",
-        },
+          {
+            index: 3,
+            title: "Web designer- envato",
+            date: "11/04/2021",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pretium orci sit amet mi ullamcorper",
+          },
+        ],
+        EDUCATION: [
+          {
+            index: 1,
+            title: "ENGINEERING DIPLOMA - OXFORD UNIVERSITY",
+            date: "11/04/2021",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pretium orci sit amet mi ullamcorper",
+          },
+          {
+            index: 2,
+            title: "MASTERS DEGREE - PARIS UNIVERSITY",
+            date: "11/04/2021",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pretium orci sit amet mi ullamcorper",
+          },
 
-        {
-          index: 3,
-          title: "BACHELOR DEGREE - BERLIN HIGHER INSTITUTE",
-          date: Date.now(),
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pretium orci sit amet mi ullamcorper",
-        },
-      ],
-      SKILLS: [
-        {
-          index: 1,
-          value: "",
-          icon: "",
-        },
-        {
-          index: 2,
-          value: "",
-          icon: "",
-        },
-        {
-          index: 3,
-          value: "",
-          icon: "",
-        },
-        {
-          index: 4,
-          value: "",
-          icon: "",
-        },
-      ],
+          {
+            index: 3,
+            title: "BACHELOR DEGREE - BERLIN HIGHER INSTITUTE",
+            date: "11/04/2021",
+            description:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pretium orci sit amet mi ullamcorper",
+          },
+        ],
+        SKILLS: [
+          {
+            index: 1,
+            title: "HTML",
+          },
+        ],
+      },
     },
   },
   {

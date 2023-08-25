@@ -8,18 +8,25 @@ import { IAboutProps } from "../../interfaces";
 import { LayoutComponent, LineSeparator } from "@/themes";
 import Profile from "./Profile";
 
-export default function About({ activeIndex, description, id }: IAboutProps) {
+export default function About({
+  activeIndex,
+  description,
+  dataAbout,
+}: IAboutProps) {
   return (
     <>
       {activeIndex === 2 && (
-        <Flex flexDirection="column" alignItems="center" id="about">
-          <LineSeparator icon={ImProfile} />
-          <LayoutComponent variant="aboutCard">
-            <Profile description={description} />
-          </LayoutComponent>
+        <>
+          <Flex flexDirection="column" alignItems="center" id="about">
+            <LineSeparator icon={ImProfile} />
+            <LayoutComponent variant="aboutCard">
+              <Profile description={description} />
+            </LayoutComponent>
+          </Flex>
+          <Flex borderBottom="1px solid #66768f" width="100%" mt={7} />
 
-          <SwiperAbout />
-        </Flex>
+          <SwiperAbout dataAbout={dataAbout} />
+        </>
       )}
     </>
   );

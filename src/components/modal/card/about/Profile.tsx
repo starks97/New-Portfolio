@@ -49,17 +49,17 @@ export default function Profile({ description }: IAboutProps) {
         </Box>
         <Flex
           w="full"
-          marginTop="2rem"
+          mt="2rem"
           alignItems="center"
           sx={{
-            flexDirection: { base: "column", md: "row" },
+            flexDirection: { base: "column", md: "row", lg: "row" },
             gap: { base: 3, md: 7 },
             justifyContent: { base: "center", md: "flex-start" },
             marginLeft: { base: "0", md: "1rem" },
           }}
         >
           <CustomButtonComponent
-            variant="AboutButton"
+            variant="FormButton"
             rightIcon={<BsCloudDownloadFill />}
             sx={{ width: { base: "100%", md: "100%", lg: "25%" } }}
           >
@@ -67,8 +67,9 @@ export default function Profile({ description }: IAboutProps) {
               My Resume
             </Link>
           </CustomButtonComponent>
+
           <CustomButtonComponent
-            variant="AboutButton"
+            variant="FormButton"
             rightIcon={<ImBlog />}
             sx={{ width: { base: "100%", md: "100%", lg: "25%" } }}
           >

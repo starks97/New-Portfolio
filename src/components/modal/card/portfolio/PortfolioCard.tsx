@@ -17,7 +17,7 @@ import Link from "next/link";
 export default function PortfolioCard({ ...props }: IPortfolioCardProps) {
   return (
     <LayoutComponent variant="PortfolioLayout">
-      <GridItem w="100%" h="100%" display="flex" justifyContent="center">
+      <GridItem w="100%" h="100%" display="flex" justifyContent="center" p={6}>
         <Image
           src={props.image}
           width={500}
@@ -29,7 +29,7 @@ export default function PortfolioCard({ ...props }: IPortfolioCardProps) {
         display="flex"
         flexDirection={"column"}
         w="100%"
-        sx={{ padding: { base: "4rem", md: "none" } }}
+        sx={{ padding: { base: "2rem", md: "none" } }}
       >
         <Box>
           <Text
@@ -37,6 +37,7 @@ export default function PortfolioCard({ ...props }: IPortfolioCardProps) {
             fontWeight="extrabold"
             fontSize="1.7rem"
             textTransform={"uppercase"}
+            color="#0ea5ea"
           >
             {props.title}
           </Text>
@@ -55,18 +56,13 @@ export default function PortfolioCard({ ...props }: IPortfolioCardProps) {
 
         <ProjectInfo icon={BsPerson} label="Technologies: ">
           {props.iconUsedTechnologies.map((icon, index) => (
-            <Icon
-              as={icon}
-              key={index}
-              marginRight="1rem"
-              color="white!important"
-            />
+            <Icon as={icon} key={index} marginRight="1rem" color="#b9e0f2" />
           ))}
         </ProjectInfo>
 
         <Flex
           borderBottom="1px solid #666"
-          sx={{ width: { base: "100%", md: "90%" } }}
+          sx={{ width: { base: "100%", md: "100%", lg: "90%" } }}
           marginTop="1.5rem"
         />
 
@@ -76,7 +72,7 @@ export default function PortfolioCard({ ...props }: IPortfolioCardProps) {
           sx={{ justifyContent: { md: "center", lg: "flex-start" } }}
         >
           <CustomButtonComponent
-            variant="AboutButton"
+            variant="FormButton"
             sx={{ width: { base: "100%", md: "50%" } }}
           >
             <Link href={""} passHref target="_blank">

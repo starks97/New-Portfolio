@@ -28,6 +28,7 @@ export default function TouchForm() {
         fontFamily={"Lato, serif, Calibri, Arial"}
         fontWeight="extrabold"
         fontSize="1.3rem"
+        color="#b9e0f2"
       >
         FEEL FREE TO DROP ME A LINE
       </Text>

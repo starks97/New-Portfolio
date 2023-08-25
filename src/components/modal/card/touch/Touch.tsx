@@ -47,7 +47,7 @@ export default function Touch({
                 value={email}
               />
               <Box>
-                <Text fontWeight={"extrabold"} color="orange">
+                <Text fontWeight={"extrabold"} color="#0ea5ea">
                   SOCIAL MEDIA
                 </Text>
                 <Flex flexDirection={"row"} gap={"1rem"} marginTop={"1rem"}>
