@@ -1,6 +1,7 @@
 import { Box, Button, Flex, Icon, useStyleConfig } from "@chakra-ui/react";
 import { IconType } from "react-icons";
 import {
+  ICustomBoxComponentProps,
   ICustomButtonComponentProps,
   ICustomComponentsProps,
   ICustomGridItemComponentProps,
@@ -60,6 +61,8 @@ export function GridItemCustom({
   bg,
   boxShadow,
   rounded,
+  _hover,
+  role,
 }: ICustomGridItemComponentProps) {
   const styles = useStyleConfig("GridItemComponent", { variant });
   return (
@@ -70,6 +73,8 @@ export function GridItemCustom({
       bg={bg}
       boxShadow={boxShadow}
       rounded={rounded}
+      _hover={_hover}
+      role={role}
     >
       {children}
     </Box>
@@ -86,10 +91,32 @@ export function CustomTextComponent({
   variant,
   fontSize,
   color,
+  sx,
+  _groupHover,
 }: ICustomTextComponentProps) {
   const styles = useStyleConfig("Text", { variant });
   return (
-    <Box __css={styles} fontSize={fontSize} color={color}>
+    <Box
+      __css={styles}
+      fontSize={fontSize}
+      color={color}
+      sx={sx}
+      _groupHover={_groupHover}
+    >
+      {children}
+    </Box>
+  );
+}
+
+export function CustomBoxComponent({
+  variant,
+  children,
+  onClick,
+  sx,
+}: ICustomBoxComponentProps) {
+  const styles = useStyleConfig("CustomBox", { variant });
+  return (
+    <Box __css={styles} onClick={onClick} sx={sx}>
       {children}
     </Box>
   );

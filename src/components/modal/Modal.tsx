@@ -67,6 +67,7 @@ export default function ModalComponent({ ...props }: IModalProps) {
               description={props.description}
               id="about"
               dataAbout={props?.dataAbout!}
+              journey={props.journey}
             />
 
             <Portfolio

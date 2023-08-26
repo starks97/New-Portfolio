@@ -15,8 +15,15 @@ export default function HomeCard({ ...props }: ICardProps) {
         variant="profile"
         boxShadow={props.boxShadow}
         rounded={props.rounded}
+        _hover={props._hover}
+        role={props.role}
       >
-        <CustomTextComponent variant="profile" fontSize="25px" color="#0ea5ea">
+        <CustomTextComponent
+          variant="profile"
+          fontSize="25px"
+          color="#0ea5ea"
+          _groupHover={{ color: "#b9e0f2" }}
+        >
           {props.title}
         </CustomTextComponent>
 

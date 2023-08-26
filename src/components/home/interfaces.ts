@@ -1,3 +1,5 @@
+import { SystemStyleObject } from "@chakra-ui/react";
+
 export interface ICardProps {
   bg: string;
   cursor: string;
@@ -6,4 +8,6 @@ export interface ICardProps {
   title: string;
   rounded: string;
   boxShadow: string;
+  _hover: SystemStyleObject | undefined;
+  role: string;
 }

@@ -216,9 +216,10 @@ export const GridItemComponent = defineStyleConfig({
       w: "full",
       h: "full",
       gap: "0px",
-      role: "group",
       overflow: "auto",
+      transition: "transform 0.2s ease",
     },
+
     footer: {
       display: "flex",
       flexDirection: "column",
@@ -226,6 +227,15 @@ export const GridItemComponent = defineStyleConfig({
       alignItems: "center",
       justifyContent: "center",
       w: "full",
+    },
+    post: {
+      display: "flex",
+      gap: "2rem",
+      marginTop: "2rem",
+      flexDir: "column",
+      justifyContent: "center",
+      mb: "4rem",
+      bg: "none",
     },
   },
 });
@@ -276,10 +286,35 @@ export const Text = defineStyleConfig({
       fontSize: "30px",
       fontWeight: "extrabold",
       textTransform: "uppercase",
+    },
 
-      _groupHover: {
-        color: "white",
-      },
+    postCardAuthor: {
+      fontWeight: 600,
+      fontFamily: "Noto Sans,sans-serif",
+    },
+  },
+});
+
+export const CustomBox = defineStyleConfig({
+  baseStyle: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    w: "full",
+    h: "full",
+  },
+  variants: {
+    postImage: {
+      bg: "gray.100",
+      mt: -6,
+      mx: -6,
+      mb: 6,
+      pos: "relative",
+      margin: 1,
+      borderRadius: 9,
+
+      transition: "transform 0.2s ease",
+      _hover: { transform: "scale(1.05)" },
     },
   },
 });

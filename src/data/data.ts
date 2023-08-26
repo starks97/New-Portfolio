@@ -28,6 +28,8 @@ const data = [
       LastName: "Espinoza",
       phoneNumber: "+1(631)903-3732",
       email: "ifrit68@hotmai.com",
+      journey:
+        "Hello! My name is David and I enjoy creating things that live on the internet. My journey in technologies started back in 2019 when I decided to try make a website for my friend, in that time she needed for her business. After that opportunity I made the decision to keep learning as much as I could. My main focus these days is building accessible, inclusive products and digital experiences and also keep learning new technologies focus on backend development.",
       socialMedia: [
         {
           index: 1,

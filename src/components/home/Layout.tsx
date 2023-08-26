@@ -77,6 +77,8 @@ export default function HomeLayout() {
                   title={item.title}
                   boxShadow={item.index !== 1 ? "dark-md" : ""}
                   rounded={item.index !== 1 ? "xl" : ""}
+                  _hover={item.index !== 1 ? { transform: "scale(1.05)" } : {}}
+                  role={item.index !== 1 ? "group" : ""}
                 >
                   {item.index === 1 && (
                     <>
@@ -138,6 +140,7 @@ export default function HomeLayout() {
                         ? item.personalInfo?.resume.Experience
                         : [],
                     }}
+                    journey={item.personalInfo?.journey}
                   >
                     {item.work?.map((element) => (
                       <React.Fragment key={element.index}>

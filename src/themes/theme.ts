@@ -1,6 +1,7 @@
 import { extendTheme } from "@chakra-ui/react";
 import {
   Button,
+  CustomBox,
   GridItemComponent,
   IconCustom,
   Layout,
@@ -36,6 +37,7 @@ const theme = extendTheme({
     GridItemComponent,
     IconCustom,
     Text,
+    CustomBox,
   },
 });
 

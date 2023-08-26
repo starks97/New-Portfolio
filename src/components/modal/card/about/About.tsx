@@ -5,13 +5,14 @@ import React from "react";
 import { ImProfile } from "react-icons/im";
 import SwiperAbout from "./SwipeAbout";
 import { IAboutProps } from "../../interfaces";
-import { LayoutComponent, LineSeparator } from "@/themes";
+import { CustomTextComponent, LayoutComponent, LineSeparator } from "@/themes";
 import Profile from "./Profile";
 
 export default function About({
   activeIndex,
   description,
   dataAbout,
+  journey,
 }: IAboutProps) {
   return (
     <>
@@ -24,8 +25,19 @@ export default function About({
             </LayoutComponent>
           </Flex>
           <Flex borderBottom="1px solid #66768f" width="100%" mt={7} />
+          <Flex
+            justifyContent="center"
+            mt="2rem"
+            sx={{
+              "@media (min-width: 62em)": { display: "none" },
+            }}
+          >
+            <CustomTextComponent variant="portfolioTitle" color="#b9e0f2">
+              My Journey
+            </CustomTextComponent>
+          </Flex>
 
-          <SwiperAbout dataAbout={dataAbout} />
+          <SwiperAbout dataAbout={dataAbout} journey={journey} />
         </>
       )}
     </>

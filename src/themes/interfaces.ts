@@ -1,4 +1,4 @@
-import { ResponsiveValue } from "@chakra-ui/react";
+import { ResponsiveValue, SystemStyleObject } from "@chakra-ui/react";
 import {
   JSXElementConstructor,
   MouseEventHandler,
@@ -38,8 +38,10 @@ export interface ICustomButtonComponentProps
 
 export interface ICustomTextComponentProps
   extends Pick<ICustomComponentsProps, "children" | "variant"> {
-  fontSize: string;
+  fontSize?: string;
   color: string;
+  sx?: Record<string, unknown>;
+  _groupHover?: SystemStyleObject | undefined;
 }
 
 export interface ICustomGridItemComponentProps
@@ -47,6 +49,16 @@ export interface ICustomGridItemComponentProps
   onClick?: MouseEventHandler<HTMLDivElement> | undefined;
   cursor?: string;
   bg?: string;
-  boxShadow: string;
-  rounded: string;
+  boxShadow?: string;
+  rounded?: string;
+  _hover?: SystemStyleObject | undefined;
+  role?: string;
+}
+
+export interface ICustomBoxComponentProps
+  extends Pick<
+    ICustomGridItemComponentProps,
+    "children" | "variant" | "onClick"
+  > {
+  sx?: Record<string, unknown>;
 }

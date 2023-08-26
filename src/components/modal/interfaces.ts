@@ -24,6 +24,7 @@ export interface IModalProps {
     EDUCATION: ISwiperAboutType[];
     EXPERIENCE: ISwiperAboutType[];
   };
+  journey?: string;
 }
 
 export interface ITouchProps
@@ -48,10 +49,11 @@ export interface IPortfolioProps
 export interface IAboutProps
   extends Pick<
     IModalProps,
-    "description" | "activeIndex" | "id" | "dataAbout"
+    "description" | "activeIndex" | "id" | "dataAbout" | "journey"
   > {}
 
-export interface IAboutSwiperProps extends Pick<IAboutProps, "dataAbout"> {}
+export interface IAboutSwiperProps
+  extends Pick<IAboutProps, "dataAbout" | "journey"> {}
 
 export interface IFormTouchProps {
   dataForm?: {
