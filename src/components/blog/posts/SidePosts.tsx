@@ -1,10 +1,14 @@
 "use client";
 import Link from "next/link";
-import { ISidePostsProps } from "../interfaces";
 
 import { Box, Heading, Text, Stack, Flex, Avatar } from "@chakra-ui/react";
+import { IBlogPostProps } from "..";
 
-export default function SidePosts({ ...props }: ISidePostsProps) {
+interface BlogLayoutProps {
+  posts: IBlogPostProps[];
+}
+
+export default function SidePosts({ posts }: BlogLayoutProps) {
   return (
     <Box
       w="full"
@@ -22,106 +26,39 @@ export default function SidePosts({ ...props }: ISidePostsProps) {
         </Text>
         <Flex borderBottom="3px solid #0ea5ea" width="13%" />
       </Stack>
-      <Stack mt={6} direction={"row"} spacing={4} align="center">
-        <Link href="">
-          <Avatar src={props.images} />
-        </Link>
-
-        <Stack direction={"column"} spacing={0} fontSize={"sm"} gap={3}>
+      {posts.map((post) => (
+        <Stack
+          mt={6}
+          direction={"row"}
+          spacing={4}
+          align="center"
+          key={post.id}
+        >
           <Link href="">
-            <Heading
-              color="#b9e0f2"
-              textTransform={"uppercase"}
-              fontWeight="extrabold"
-              sx={{
-                fontSize: { md: "md", lg: "lg" },
-              }}
-              fontFamily="lato, sans-serif"
-              _hover={{ color: "#4BA9C5" }}
-            >
-              {props.title}
-            </Heading>
+            <Avatar src={post.resources[0]?.url!} />
           </Link>
 
-          <Text>{props.publishDate}</Text>
-          <Flex borderBottom="1px solid #66768f" width="80%" mt={4} />
+          <Stack direction={"column"} spacing={0} fontSize={"sm"} gap={3}>
+            <Link href="">
+              <Heading
+                color="#b9e0f2"
+                textTransform={"uppercase"}
+                fontWeight="extrabold"
+                sx={{
+                  fontSize: { md: "md", lg: "lg" },
+                }}
+                fontFamily="lato, sans-serif"
+                _hover={{ color: "#4BA9C5" }}
+              >
+                {post.title}
+              </Heading>
+            </Link>
+
+            <Text>{post.createdAt}</Text>
+            <Flex borderBottom="1px solid #66768f" width="80%" mt={4} />
+          </Stack>
         </Stack>
-      </Stack>
-      <Stack mt={6} direction={"row"} spacing={4} align="center">
-        <Link href="">
-          <Avatar src={props.images} />
-        </Link>
-
-        <Stack direction={"column"} spacing={0} fontSize={"sm"} gap={3}>
-          <Link href="">
-            <Heading
-              color="#b9e0f2"
-              textTransform={"uppercase"}
-              fontWeight="extrabold"
-              sx={{
-                fontSize: { md: "md", lg: "lg" },
-              }}
-              fontFamily="lato, sans-serif"
-              _hover={{ color: "#4BA9C5" }}
-            >
-              {props.title}
-            </Heading>
-          </Link>
-
-          <Text>{props.publishDate}</Text>
-          <Flex borderBottom="1px solid #66768f" width="80%" mt={4} />
-        </Stack>
-      </Stack>
-      <Stack mt={6} direction={"row"} spacing={4} align="center">
-        <Link href="">
-          <Avatar src={props.images} />
-        </Link>
-
-        <Stack direction={"column"} spacing={0} fontSize={"sm"} gap={3}>
-          <Link href="">
-            <Heading
-              color="#b9e0f2"
-              textTransform={"uppercase"}
-              fontWeight="extrabold"
-              sx={{
-                fontSize: { md: "md", lg: "lg" },
-              }}
-              fontFamily="lato, sans-serif"
-              _hover={{ color: "#4BA9C5" }}
-            >
-              {props.title}
-            </Heading>
-          </Link>
-
-          <Text>{props.publishDate}</Text>
-          <Flex borderBottom="1px solid #66768f" width="80%" mt={4} />
-        </Stack>
-      </Stack>
-      <Stack mt={6} direction={"row"} spacing={4} align="center">
-        <Link href="">
-          <Avatar src={props.images} />
-        </Link>
-
-        <Stack direction={"column"} spacing={0} fontSize={"sm"} gap={3}>
-          <Link href="">
-            <Heading
-              color="#b9e0f2"
-              textTransform={"uppercase"}
-              fontWeight="extrabold"
-              sx={{
-                fontSize: { md: "md", lg: "lg" },
-              }}
-              fontFamily="lato, sans-serif"
-              _hover={{ color: "#4BA9C5" }}
-            >
-              {props.title}
-            </Heading>
-          </Link>
-
-          <Text>{props.publishDate}</Text>
-          <Flex borderBottom="1px solid #66768f" width="80%" mt={4} />
-        </Stack>
-      </Stack>
+      ))}
     </Box>
   );
 }

@@ -8,8 +8,13 @@ import Footer from "./Footer";
 
 import React from "react";
 import { BsGithub, BsInstagram, BsLinkedin } from "react-icons/bs";
+import { IBlogPostProps } from ".";
 
-export default function BlogLayout() {
+interface BlogLayoutProps {
+  posts: IBlogPostProps[];
+}
+
+export default function BlogLayout({ posts }: BlogLayoutProps) {
   const isMobile = useResponsive(ResponsiveBreakpoints.XS);
 
   return (
@@ -31,26 +36,11 @@ export default function BlogLayout() {
           Recent Posts
         </Text>
       </Flex>
+
       {isMobile ? (
-        <>
-          <PostsCardMobile
-            title="Helpful Tips for Working from Home as a Freelancer"
-            images={"/dados.svg"}
-            author="David"
-            imageAuthor={"/xample.jpg"}
-            publishDate="May 31, 2021"
-            category={"#Technology"}
-          />
-        </>
+        <PostsCardMobile posts={posts} />
       ) : (
-        <PostsCard
-          images={"/dados.svg"}
-          title="Helpful Tips for Working from Home as a Freelancer"
-          category="#Technology"
-          description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's "
-          author="David"
-          publishDate="May 31, 2021"
-        />
+        <PostsCard posts={posts} />
       )}
 
       <Footer

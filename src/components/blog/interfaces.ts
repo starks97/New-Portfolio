@@ -1,36 +1,37 @@
-export interface IBlogProps {
-  children?: React.ReactNode;
+export interface IBlogPostProps {
+  id: string;
   title: string;
   description: string;
-  author: string;
+  content: string;
+  tags: string[];
   category: string;
-  imageAuthor?: string;
-  publishDate?: string;
-  images?: string;
+  published: boolean;
+  createdAt: string;
+  updatedAt: string;
+  deletedAt: string | null;
+  userId: string;
+  resources: Resources[];
+  user: User;
 }
-export interface IPostsCardsMobileProps
-  extends Pick<
-    IBlogProps,
-    "title" | "author" | "imageAuthor" | "publishDate" | "images" | "category"
-  > {}
-
-export interface IPostsCardsDesktopProps
-  extends Pick<
-    IBlogProps,
-    | "author"
-    | "category"
-    | "children"
-    | "description"
-    | "title"
-    | "publishDate"
-    | "images"
-  > {}
-
-const AppData = {
-  links: ["/", "/about", "/portfolio", "/contact"],
+export type Resources = {
+  id: string;
+  url: string;
+  resource_type: string;
+  createdAt: string;
+  updatedAt: string;
+  postId: string;
 };
 
-export interface ISidePostsProps
-  extends Pick<IBlogProps, "title" | "publishDate" | "images"> {}
-{
-}
+export type User = {
+  id: string;
+  email: string;
+  password: string;
+  name: string;
+  lastName: string;
+  bio: string;
+  image: string;
+  birthday: string;
+  createdAt: string;
+  updatedAt: string;
+  roleName: string;
+};

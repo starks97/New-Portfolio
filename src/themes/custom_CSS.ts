@@ -116,9 +116,8 @@ export const Layout = defineStyleConfig({
         lg: "70% 30%",
         xl: "70% 30%",
       },
-
       justifyContent: "center",
-      alignItems: "center",
+      alignItems: "flex-start",
       gap: 5,
       justifyItems: "center",
       width: "100%",
@@ -231,7 +230,6 @@ export const GridItemComponent = defineStyleConfig({
     post: {
       display: "flex",
       gap: "2rem",
-      marginTop: "2rem",
       flexDir: "column",
       justifyContent: "center",
       mb: "4rem",
@@ -312,7 +310,6 @@ export const CustomBox = defineStyleConfig({
       pos: "relative",
       margin: 1,
       borderRadius: 9,
-
       transition: "transform 0.2s ease",
       _hover: { transform: "scale(1.05)" },
     },
