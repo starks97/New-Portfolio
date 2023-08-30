@@ -7,7 +7,7 @@ import {
   CustomTextComponent,
   GridItemCustom,
   LayoutComponent,
-} from "@/themes";
+} from "../../../themes";
 import SidePosts from "./SidePosts";
 import { IBlogPostProps } from "..";
 import React from "react";
@@ -72,7 +72,7 @@ export default function PostsCard({ posts }: BlogLayoutProps) {
                     color="#66768f"
                     sx={{ fontSize: { base: "xs", md: "sm", lg: "md" } }}
                   >
-                    {post.userId}
+                    {post.user.name}
                   </CustomTextComponent>
                   <Text sx={{ fontSize: { base: "xs", md: "sm", lg: "md" } }}>
                     {post.createdAt}

@@ -86,7 +86,7 @@ export default function PostsCardMobile({ posts }: BlogLayoutProps) {
                 </Link>
               </Stack>
               <Stack mt={6} direction={"row"} spacing={4} align="center">
-                <Avatar src={post.resources[0]?.url!} />
+                <Avatar src={post.user.image} />
                 <Stack direction={"column"} spacing={0} fontSize={"sm"}>
                   <Text
                     fontWeight={600}
@@ -94,7 +94,7 @@ export default function PostsCardMobile({ posts }: BlogLayoutProps) {
                     fontFamily={"Noto Sans,sans-serif"}
                     fontSize={"16px"}
                   >
-                    {post.userId}
+                    {post.user.name}
                   </Text>
                   <Text>{post.createdAt}</Text>
                 </Stack>

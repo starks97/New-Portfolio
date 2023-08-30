@@ -3,7 +3,7 @@
 import { Flex } from "@chakra-ui/react";
 
 import { ICardProps } from "../interfaces";
-import { CustomTextComponent, GridItemCustom } from "@/themes";
+import { CustomTextComponent, GridItemCustom } from "../../../themes";
 
 export default function HomeCard({ ...props }: ICardProps) {
   return (

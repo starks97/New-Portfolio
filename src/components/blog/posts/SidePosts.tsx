@@ -35,7 +35,7 @@ export default function SidePosts({ posts }: BlogLayoutProps) {
           key={post.id}
         >
           <Link href="">
-            <Avatar src={post.resources[0]?.url!} />
+            <Avatar src={post.user.image} />
           </Link>
 
           <Stack direction={"column"} spacing={0} fontSize={"sm"} gap={3}>

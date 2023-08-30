@@ -8,7 +8,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { IAboutSwiperProps } from "../../interfaces";
 import SwiperResumeSlide from "./SwiperResume";
-import { CustomTextComponent } from "@/themes";
+import { CustomTextComponent } from "../../../../themes";
 
 export default function SwiperAbout({ ...props }: IAboutSwiperProps) {
   return (

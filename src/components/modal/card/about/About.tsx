@@ -5,7 +5,11 @@ import React from "react";
 import { ImProfile } from "react-icons/im";
 import SwiperAbout from "./SwipeAbout";
 import { IAboutProps } from "../../interfaces";
-import { CustomTextComponent, LayoutComponent, LineSeparator } from "@/themes";
+import {
+  CustomTextComponent,
+  LayoutComponent,
+  LineSeparator,
+} from "../../../../themes";
 import Profile from "./Profile";
 
 export default function About({

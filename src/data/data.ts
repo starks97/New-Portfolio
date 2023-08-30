@@ -11,7 +11,7 @@ export const TechIcon = {
   aws: SiIcons.SiAmazonaws,
 };
 
-const data = [
+export const data = [
   {
     index: 1,
     title: "Hi there! I'm",

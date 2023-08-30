@@ -4,7 +4,7 @@ import { Box, Text, Flex, Icon, GridItem } from "@chakra-ui/react";
 import Image from "next/image";
 import Link from "next/link";
 
-import { CustomButtonComponent } from "@/themes";
+import { CustomButtonComponent } from "../../../../themes";
 
 import { BsCloudDownloadFill } from "react-icons/bs";
 import { ImBlog } from "react-icons/im";

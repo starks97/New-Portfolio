@@ -3,7 +3,7 @@
 import { PostsCardMobile, PostsCard } from "./posts";
 
 import { Box, Flex, Text } from "@chakra-ui/react";
-import { useResponsive, ResponsiveBreakpoints } from "@/hooks";
+import { useResponsive, ResponsiveBreakpoints } from "../../hooks";
 import Footer from "./Footer";
 
 import React from "react";

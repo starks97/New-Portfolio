@@ -19,7 +19,7 @@ import {
 import { BsPerson } from "react-icons/bs";
 import { MdOutlineEmail } from "react-icons/md";
 import TouchFormControl from "./TouchFormControl";
-import { CustomButtonComponent } from "@/themes";
+import { CustomButtonComponent } from "../../../../themes";
 
 export default function TouchForm() {
   return (

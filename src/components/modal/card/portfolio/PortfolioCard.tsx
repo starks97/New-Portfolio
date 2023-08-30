@@ -1,7 +1,7 @@
 "use client"; //Must be Client Components
 
 import { Box, Text, GridItem, Flex, Button, Icon } from "@chakra-ui/react";
-import { CustomButtonComponent, LayoutComponent } from "@/themes";
+import { CustomButtonComponent, LayoutComponent } from "../../../../themes";
 import { IPortfolioCardProps } from "../../interfaces";
 
 import {

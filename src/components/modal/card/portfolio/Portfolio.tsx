@@ -1,6 +1,6 @@
 "use client"; //Must be Client Components
 
-import { LayoutComponent, LineSeparator } from "@/themes";
+import { LayoutComponent, LineSeparator } from "../../../../themes";
 import { Box, Flex, IconButton } from "@chakra-ui/react";
 import { AiOutlineClose } from "react-icons/ai";
 

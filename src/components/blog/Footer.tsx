@@ -10,7 +10,11 @@ import {
 } from "@chakra-ui/react";
 import { TouchInfoLabel } from "../modal/card/touch";
 import { BsFillTelephoneFill } from "react-icons/bs";
-import { CustomIconComponent, GridItemCustom, LayoutComponent } from "@/themes";
+import {
+  CustomIconComponent,
+  GridItemCustom,
+  LayoutComponent,
+} from "../../themes";
 import { AiOutlineMail } from "react-icons/ai";
 import Link from "next/link";
 import { IconType } from "react-icons";

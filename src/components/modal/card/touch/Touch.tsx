@@ -4,7 +4,7 @@ import {
   GridItemCustom,
   LayoutComponent,
   LineSeparator,
-} from "@/themes";
+} from "../../../../themes";
 import { Flex, GridItem, Box, Text } from "@chakra-ui/react";
 import Link from "next/link";
 import React from "react";

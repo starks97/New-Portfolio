@@ -3,7 +3,7 @@
 import { Box, useDisclosure } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 
-import { data } from "../../data";
+import { data } from "../../data/data";
 import { CustomTextComponent, LayoutComponent } from "../../themes";
 import { ImageCard, HomeCard, TypeWritter } from "./card";
 import { ModalComponent } from "../modal";
