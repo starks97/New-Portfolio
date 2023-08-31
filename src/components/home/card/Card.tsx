@@ -17,6 +17,7 @@ export default function HomeCard({ ...props }: ICardProps) {
         rounded={props.rounded}
         _hover={props._hover}
         role={props.role}
+        h={props.height}
       >
         <CustomTextComponent
           variant="profile"
@@ -27,14 +28,7 @@ export default function HomeCard({ ...props }: ICardProps) {
           {props.title}
         </CustomTextComponent>
 
-        <Flex
-          justifyContent={"center"}
-          flexDirection={"column"}
-          alignItems={"center"}
-          overflow="auto"
-        >
-          {props.children}
-        </Flex>
+        {props.children}
       </GridItemCustom>
     </>
   );

@@ -12,9 +12,7 @@ export default function TypeWritter({ texts }: ITypeWritterProps) {
         fontSize: "20px",
         textTransform: "uppercase",
         color: "white",
-        marginTop: "-1px",
-        zIndex: 1,
-        overflow: "auto",
+        zIndex: 10,
       }}
     >
       <Typewriter

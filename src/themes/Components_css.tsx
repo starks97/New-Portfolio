@@ -63,6 +63,7 @@ export function GridItemCustom({
   rounded,
   _hover,
   role,
+  h,
 }: ICustomGridItemComponentProps) {
   const styles = useStyleConfig("GridItemComponent", { variant });
   return (
@@ -75,6 +76,7 @@ export function GridItemCustom({
       rounded={rounded}
       _hover={_hover}
       role={role}
+      h={h}
     >
       {children}
     </Box>
@@ -113,10 +115,11 @@ export function CustomBoxComponent({
   children,
   onClick,
   sx,
+  bgImage,
 }: ICustomBoxComponentProps) {
   const styles = useStyleConfig("CustomBox", { variant });
   return (
-    <Box __css={styles} onClick={onClick} sx={sx}>
+    <Box __css={styles} onClick={onClick} sx={sx} bgImage={bgImage}>
       {children}
     </Box>
   );

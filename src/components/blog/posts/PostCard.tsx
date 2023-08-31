@@ -19,7 +19,7 @@ export default function PostsCard({ posts }: BlogLayoutProps) {
   return (
     <LayoutComponent variant="postCard">
       <GridItemCustom variant="post">
-        {posts.map((post) => (
+        {posts?.map((post) => (
           <React.Fragment key={post.id}>
             <Stack flexDir={"row"}>
               <Link href="/">
@@ -31,14 +31,16 @@ export default function PostsCard({ posts }: BlogLayoutProps) {
                     minWidth: { base: "180px", md: "200px", lg: "270px" },
                   }}
                 >
-                  <Image src={post.resources[0]?.url!} alt="postImage" fill />
+                  {post.resources[0]?.url && (
+                    <Image src={post.resources[0].url} alt="postImage" fill />
+                  )}
                 </CustomBoxComponent>
               </Link>
 
               <Stack dir="column">
                 <Box>
                   <Badge borderRadius="0.30rem" color="#4BA9C5" bg="black">
-                    {post.category}
+                    {`#${post.category}`}
                   </Badge>
                 </Box>
                 <Box>

@@ -26,7 +26,7 @@ export default function SidePosts({ posts }: BlogLayoutProps) {
         </Text>
         <Flex borderBottom="3px solid #0ea5ea" width="13%" />
       </Stack>
-      {posts.map((post) => (
+      {posts?.map((post) => (
         <Stack
           mt={6}
           direction={"row"}
@@ -35,7 +35,13 @@ export default function SidePosts({ posts }: BlogLayoutProps) {
           key={post.id}
         >
           <Link href="">
-            <Avatar src={post.user.image} />
+            {post.resources[0]?.url && (
+              <Avatar
+                src={post.resources[0]?.url!}
+                name="postImage"
+                size="lg"
+              />
+            )}
           </Link>
 
           <Stack direction={"column"} spacing={0} fontSize={"sm"} gap={3}>

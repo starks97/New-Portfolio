@@ -2,7 +2,7 @@
 
 import { PostsCardMobile, PostsCard } from "./posts";
 
-import { Box, Flex, Text } from "@chakra-ui/react";
+import { Box, Flex, Spinner, Text } from "@chakra-ui/react";
 import { useResponsive, ResponsiveBreakpoints } from "../../hooks";
 import Footer from "./Footer";
 
@@ -10,11 +10,17 @@ import React from "react";
 import { BsGithub, BsInstagram, BsLinkedin } from "react-icons/bs";
 import { IBlogPostProps } from ".";
 
-interface BlogLayoutProps {
-  posts: IBlogPostProps[];
-}
+import { useQuery } from "react-query";
+import { fetchBlogPosts } from "@/api/blog";
 
-export default function BlogLayout({ posts }: BlogLayoutProps) {
+export default function BlogLayout() {
+  const { data, isLoading } = useQuery<IBlogPostProps[]>({
+    queryKey: ["posts"],
+    queryFn: fetchBlogPosts,
+  });
+
+  if (!data) return null;
+
   const isMobile = useResponsive(ResponsiveBreakpoints.XS);
 
   return (
@@ -37,10 +43,12 @@ export default function BlogLayout({ posts }: BlogLayoutProps) {
         </Text>
       </Flex>
 
-      {isMobile ? (
-        <PostsCardMobile posts={posts} />
+      {isLoading ? (
+        <Spinner size="xl" mt={4} />
+      ) : isMobile ? (
+        <PostsCardMobile posts={data} />
       ) : (
-        <PostsCard posts={posts} />
+        <PostsCard posts={data} />
       )}
 
       <Footer

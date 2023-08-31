@@ -213,10 +213,10 @@ export const GridItemComponent = defineStyleConfig({
       alignItems: "center",
       justifyContent: "center",
       w: "full",
-      h: "full",
       gap: "0px",
-      overflow: "auto",
+      overflow: "scroll",
       transition: "transform 0.2s ease",
+      zIndex: 1,
     },
 
     footer: {
@@ -303,15 +303,15 @@ export const CustomBox = defineStyleConfig({
   },
   variants: {
     postImage: {
-      bg: "gray.100",
       mt: -6,
       mx: -6,
       mb: 6,
       pos: "relative",
       margin: 1,
-      borderRadius: 9,
+      borderRadius: "lg",
       transition: "transform 0.2s ease",
       _hover: { transform: "scale(1.05)" },
+      overflow: "hidden",
     },
   },
 });

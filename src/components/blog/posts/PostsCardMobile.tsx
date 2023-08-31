@@ -1,4 +1,4 @@
-"use client"; //Must be Client Components
+"use client";
 import {
   Box,
   Center,
@@ -40,7 +40,7 @@ export default function PostsCardMobile({ posts }: BlogLayoutProps) {
         }}
         modules={[EffectCreative]}
       >
-        {posts.map((post) => (
+        {posts?.map((post, index) => (
           <SwiperSlide key={post.id}>
             <Box
               maxW="25rem"
@@ -55,20 +55,23 @@ export default function PostsCardMobile({ posts }: BlogLayoutProps) {
               onClick={() => console.log("teste")}
             >
               <Box
+                key={index}
                 h="250px"
-                bg="gray.100"
                 mt={-6}
                 mx={-6}
                 mb={6}
                 pos="relative"
                 margin={1}
                 borderRadius={9}
+                overflow={"hidden"}
               >
-                <Image src={post.resources[0]?.url!} alt="postImage" fill />
+                {post.resources[0]?.url && (
+                  <Image src={post.resources[0].url} alt="postImage" fill />
+                )}
               </Box>
               <Flex m={1} mt={2}>
                 <Badge borderRadius="0.30rem" color="#4BA9C5" bg="black">
-                  {post.category}
+                  {`#${post.category}`}
                 </Badge>
               </Flex>
               <Stack marginTop="2rem">

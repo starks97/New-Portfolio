@@ -53,6 +53,7 @@ export interface ICustomGridItemComponentProps
   rounded?: string;
   _hover?: SystemStyleObject | undefined;
   role?: string;
+  h?: string;
 }
 
 export interface ICustomBoxComponentProps
@@ -61,4 +62,5 @@ export interface ICustomBoxComponentProps
     "children" | "variant" | "onClick"
   > {
   sx?: Record<string, unknown>;
+  bgImage?: ResponsiveValue<string | (string & {})> | undefined;
 }

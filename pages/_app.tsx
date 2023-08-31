@@ -1,20 +1,23 @@
 import React from "react";
 import { ChakraProvider, CSSReset } from "@chakra-ui/react";
-import { QueryClient, QueryClientProvider } from "react-query";
+import { QueryClient, QueryClientProvider, Hydrate } from "react-query";
+import { ReactQueryDevtools } from "react-query/devtools";
 
 import { AppProps } from "next/app";
 import { theme } from "@/themes";
 
-const queryClient = new QueryClient();
-
 function MyApp({ Component, pageProps }: AppProps) {
+  const [queryClient] = React.useState(() => new QueryClient());
   return (
-    <ChakraProvider theme={theme}>
-      <CSSReset />
-      <QueryClientProvider client={queryClient}>
-        <Component {...pageProps} />
-      </QueryClientProvider>
-    </ChakraProvider>
+    <QueryClientProvider client={queryClient}>
+      <Hydrate state={pageProps.dehydratedState}>
+        <ChakraProvider theme={theme}>
+          <CSSReset />
+          <Component {...pageProps} />
+        </ChakraProvider>
+        <ReactQueryDevtools initialIsOpen={false} />
+      </Hydrate>
+    </QueryClientProvider>
   );
 }
 

@@ -10,4 +10,5 @@ export interface ICardProps {
   boxShadow: string;
   _hover: SystemStyleObject | undefined;
   role: string;
+  height: string;
 }

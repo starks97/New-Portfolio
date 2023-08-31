@@ -1,18 +1,24 @@
+import { fetchBlogPosts } from "@/api/blog";
 import { BlogLayout, IBlogPostProps } from "../../src/components/blog";
+import { dehydrate, QueryClient } from "@tanstack/react-query";
+import { Hydrate } from "react-query";
 
-export default function Blog({ posts }: { posts: IBlogPostProps[] }) {
-  return <BlogLayout posts={posts} />;
+export default function Blog(dehydratedState: IBlogPostProps[]) {
+  return (
+    <Hydrate state={dehydratedState}>
+      <BlogLayout />;
+    </Hydrate>
+  );
 }
 
 export async function getStaticProps() {
-  const res = await fetch("http://localhost:3000/blog/post");
+  const queryClient = new QueryClient();
 
-  const data = await res.json();
-  const posts = data.data.posts as IBlogPostProps[];
+  await queryClient.prefetchQuery(["posts"], fetchBlogPosts);
 
   return {
     props: {
-      posts: posts,
+      dehydratedState: dehydrate(queryClient),
     },
   };
 }

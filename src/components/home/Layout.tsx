@@ -74,6 +74,7 @@ export default function HomeLayout() {
                           return;
                         }
                   }
+                  height={item.index !== 1 ? "full" : ""}
                   title={item.title}
                   boxShadow={item.index !== 1 ? "dark-md" : ""}
                   rounded={item.index !== 1 ? "xl" : ""}

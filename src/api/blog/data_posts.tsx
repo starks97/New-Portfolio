@@ -4,7 +4,7 @@ import { useQuery } from "react-query";
 import { IBlogPostProps } from "../../components/blog";
 
 export const fetchBlogPosts = async () => {
-  const res = await fetch("http://localhost:3000/blog/post");
+  const res = await fetch("http://localhost:3000/blog/post?limit=5");
   const data = await res.json();
 
   return data.data.posts as IBlogPostProps[];
