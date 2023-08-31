@@ -14,8 +14,9 @@ import React from "react";
 
 interface BlogLayoutProps {
   posts: IBlogPostProps[];
+  children?: React.ReactNode;
 }
-export default function PostsCard({ posts }: BlogLayoutProps) {
+export default function PostsCard({ posts, children }: BlogLayoutProps) {
   return (
     <LayoutComponent variant="postCard">
       <GridItemCustom variant="post">
@@ -84,6 +85,7 @@ export default function PostsCard({ posts }: BlogLayoutProps) {
             </Stack>
           </React.Fragment>
         ))}
+        {children}
       </GridItemCustom>
 
       <GridItem display="flex" w="full" mb="4rem">

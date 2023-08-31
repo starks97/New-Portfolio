@@ -20,11 +20,23 @@ import "swiper/css/effect-creative";
 import Image from "next/image";
 import Link from "next/link";
 import { IBlogPostProps } from "..";
+import { useState } from "react";
+import { useQuery } from "react-query";
+import { fetchBlogPosts } from "@/api/blog";
 interface BlogLayoutProps {
   posts: IBlogPostProps[];
+  handleFetchPosts: () => void;
 }
 
-export default function PostsCardMobile({ posts }: BlogLayoutProps) {
+export default function PostsCardMobile() {
+  const { data: postsMobile } = useQuery<IBlogPostProps[], Error>(
+    ["posts"],
+    () => fetchBlogPosts(1, 0),
+    {
+      keepPreviousData: true,
+    }
+  );
+  if (!postsMobile) return null;
   return (
     <Center py={6} m={4}>
       <Swiper
@@ -40,7 +52,7 @@ export default function PostsCardMobile({ posts }: BlogLayoutProps) {
         }}
         modules={[EffectCreative]}
       >
-        {posts?.map((post, index) => (
+        {postsMobile?.map((post, index) => (
           <SwiperSlide key={post.id}>
             <Box
               maxW="25rem"

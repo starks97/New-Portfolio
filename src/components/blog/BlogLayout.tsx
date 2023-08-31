@@ -1,8 +1,10 @@
 "use client"; //Must be Client Components
 
+import { useState, useMemo } from "react";
+
 import { PostsCardMobile, PostsCard } from "./posts";
 
-import { Box, Flex, Spinner, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Spinner, Text } from "@chakra-ui/react";
 import { useResponsive, ResponsiveBreakpoints } from "../../hooks";
 import Footer from "./Footer";
 
@@ -14,14 +16,27 @@ import { useQuery } from "react-query";
 import { fetchBlogPosts } from "@/api/blog";
 
 export default function BlogLayout() {
-  const { data, isLoading } = useQuery<IBlogPostProps[]>({
-    queryKey: ["posts"],
-    queryFn: fetchBlogPosts,
-  });
+  const isMobile = useResponsive(ResponsiveBreakpoints.XS);
+  const [postPage, setPostPage] = useState<number>(1);
+  const limit = +5;
+  const testPage = postPage * limit;
+  const offset = useMemo(() => postPage, [postPage]);
 
+  const { isLoading, data, isFetching, isPreviousData } = useQuery<
+    IBlogPostProps[],
+    Error
+  >(["posts", postPage], () => fetchBlogPosts(offset, 5), {
+    keepPreviousData: true,
+  });
   if (!data) return null;
 
-  const isMobile = useResponsive(ResponsiveBreakpoints.XS);
+  const handleFetchPosts = () => {
+    if (testPage > data.length) {
+      setPostPage((currentPage) => currentPage - 1);
+      return;
+    }
+    setPostPage((previusPostPage) => previusPostPage + 1);
+  };
 
   return (
     <Box
@@ -46,9 +61,13 @@ export default function BlogLayout() {
       {isLoading ? (
         <Spinner size="xl" mt={4} />
       ) : isMobile ? (
-        <PostsCardMobile posts={data} />
+        <PostsCardMobile />
       ) : (
-        <PostsCard posts={data} />
+        <PostsCard posts={data}>
+          <Button onClick={handleFetchPosts} mt={4}>
+            {isFetching ? "Loading..." : "Load More"}
+          </Button>
+        </PostsCard>
       )}
 
       <Footer
