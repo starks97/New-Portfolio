@@ -1,6 +1,5 @@
 "use client";
 
-import { useQuery } from "react-query";
 import { IBlogPostProps } from "../../components/blog";
 
 export const fetchBlogPosts = async (page: number, limit: number) => {
@@ -18,4 +17,15 @@ export const fetchBlogPosts = async (page: number, limit: number) => {
   const data = await res.json();
 
   return data.data.posts as IBlogPostProps[];
+};
+
+export const fetchPostBySlug = async (slug: string) => {
+  const res = await fetch(`http://localhost:3000/blog/post/${slug}`);
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch post");
+  }
+  const data = await res.json();
+
+  return data.response as IBlogPostProps;
 };

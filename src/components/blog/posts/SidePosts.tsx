@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { Box, Heading, Text, Stack, Flex, Avatar } from "@chakra-ui/react";
 import { IBlogPostProps } from "..";
+import { DateConverter } from "@/utils";
 
 interface BlogLayoutProps {
   posts: IBlogPostProps[];
@@ -34,7 +35,7 @@ export default function SidePosts({ posts }: BlogLayoutProps) {
           align="center"
           key={post.id}
         >
-          <Link href="">
+          <Link href={`/blog/${post.slug}`}>
             {post.resources[0]?.url && (
               <Avatar
                 src={post.resources[0]?.url!}
@@ -45,7 +46,7 @@ export default function SidePosts({ posts }: BlogLayoutProps) {
           </Link>
 
           <Stack direction={"column"} spacing={0} fontSize={"sm"} gap={3}>
-            <Link href="">
+            <Link href={`/blog/${post.slug}`}>
               <Heading
                 color="#b9e0f2"
                 textTransform={"uppercase"}
@@ -60,7 +61,7 @@ export default function SidePosts({ posts }: BlogLayoutProps) {
               </Heading>
             </Link>
 
-            <Text>{post.createdAt}</Text>
+            <Text>{DateConverter.formatDateFromString(post.createdAt)}</Text>
             <Flex borderBottom="1px solid #66768f" width="80%" mt={4} />
           </Stack>
         </Stack>
