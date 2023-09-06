@@ -1,10 +1,25 @@
 "use client";
 
-import { Text, Stack, Container, Avatar } from "@chakra-ui/react";
+import {
+  Text,
+  Stack,
+  Container,
+  Avatar,
+  GridItem,
+  Flex,
+  Button,
+  Box,
+} from "@chakra-ui/react";
 import { useQuery } from "react-query";
 import { fetchPostBySlug } from "@/api/blog";
 import { useRouter } from "next/router";
 import { DateConverter } from "@/utils";
+import { CustomTextComponent, GridItemCustom, LayoutComponent } from "@/themes";
+import { SidePosts } from "../posts";
+import { BsGithub, BsInstagram, BsLinkedin } from "react-icons/bs";
+import Footer from "../Footer";
+
+import SubBar from "./SubBar";
 
 export default function PostLayout() {
   const router = useRouter();
@@ -19,38 +34,48 @@ export default function PostLayout() {
   );
 
   if (!data) return null;
+  const postUrl = encodeURIComponent(window.location.href);
 
   return (
-    <Container w="100%" maxW="60%">
-      <Stack w="100%" mt="2rem" mb="3rem" gap="2rem">
-        <Text
-          mt={5}
-          textTransform={"uppercase"}
-          fontWeight="extrabold"
-          color="#0ea5ea"
-          fontFamily="lato, sans-serif"
-          _hover={{ color: "#4BA9C5" }}
+    <Container w="100%" sx={{ maxW: { base: "100%", md: "80%" } }} mb="2rem">
+      <Stack w="100%" mt="2rem" mb="3rem" gap="2rem" p="0.5rem">
+        <CustomTextComponent
+          variant="postMainTitle"
           sx={{
-            fontSize: { sm: "sm", md: "3xl", lg: "4xl" },
+            fontSize: { base: "3xl", md: "3xl", lg: "4xl" },
           }}
-          w="full"
+          color="#0ea5ea"
         >
           {data.title}
-        </Text>
-        <Stack direction="row" gap="2rem" alignItems={"center"}>
-          <Avatar src={data.user.image} name="postImage" size="md" />
-          <Stack direction={"column"} alignItems={"flex-start"} gap={-1}>
-            <Text>
-              {data.user.name} {""} {data.user.lastName}
-            </Text>
-            <Text>{DateConverter.formatDateFromString(data.createdAt)}</Text>
-          </Stack>
-        </Stack>
+        </CustomTextComponent>
+        <SubBar
+          hrefShare={`http:${location.hostname}${router.asPath}`}
+          creatAt={DateConverter.formatDateFromString(data.createdAt)}
+          name={data.user.name}
+          lastName={data.user.lastName}
+          image={data.user.image}
+        />
       </Stack>
-
-      <Stack>
-        <Text>{data.content}</Text>
-      </Stack>
+      <LayoutComponent variant="postPage">
+        <GridItemCustom variant="postPageItem">
+          <Text fontSize={"xl"}>{data.content}</Text>
+        </GridItemCustom>
+        <GridItem>
+          <SidePosts />
+        </GridItem>
+      </LayoutComponent>
+      <Footer
+        phone="631-903-3732"
+        email="ifrit68@hotmail.com"
+        info={{
+          icons: [BsInstagram, BsGithub, BsLinkedin],
+          path: [
+            "https://www.instagram.com/",
+            "https://github.com/starks97",
+            "https://www.linkedin.com/in/david-espinoza-a306b2242/",
+          ],
+        }}
+      />
     </Container>
   );
 }

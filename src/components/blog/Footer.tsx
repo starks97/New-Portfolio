@@ -7,6 +7,7 @@ import {
   ListItem,
   Stack,
   Center,
+  SystemStyleObject,
 } from "@chakra-ui/react";
 import { TouchInfoLabel } from "../modal/card/touch";
 import { BsFillTelephoneFill } from "react-icons/bs";
@@ -26,14 +27,11 @@ interface IFooterProps {
     icons: IconType[];
     path: string[];
   };
+  sx?: SystemStyleObject | undefined;
 }
-export default function Footer({ phone, email, info }: IFooterProps) {
+export default function Footer({ phone, email, info, sx }: IFooterProps) {
   return (
     <Center
-      sx={{
-        justifyContent: { base: "center", md: "center", lg: "none" },
-        m: { base: 4, md: 0, lg: 0 },
-      }}
       boxShadow="2xl"
       rounded="3xl"
       border="1px solid #222f43"

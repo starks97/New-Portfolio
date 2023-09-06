@@ -81,6 +81,10 @@ export default function BlogLayout() {
             "https://www.linkedin.com/in/david-espinoza-a306b2242/",
           ],
         }}
+        sx={{
+          justifyContent: { base: "center", md: "center", lg: "none" },
+          m: { base: 4, md: 0, lg: 0, xl: 0 },
+        }}
       />
     </Box>
   );

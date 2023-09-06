@@ -135,8 +135,25 @@ export const Layout = defineStyleConfig({
 
       width: "100%",
       height: "100%",
-
       gap: 5,
+    },
+
+    postPage: {
+      display: "grid",
+      gridTemplateColumns: {
+        base: "repeat(1, 1fr)",
+        sm: "repeat(1, 1fr)",
+        md: "repeat(1, 1fr)",
+        lg: "70% 30%",
+        xl: "70% 30%",
+      },
+      justifyContent: "center",
+      alignItems: "flex-start",
+      gap: 5,
+      justifyItems: "center",
+      width: "100%",
+      height: "100%",
+      mb: "4rem",
     },
   },
 });
@@ -231,8 +248,16 @@ export const GridItemComponent = defineStyleConfig({
       display: "flex",
       gap: "2rem",
       flexDir: "column",
-      justifyContent: "center",
+      justifyContent: "flex-start",
       mb: "4rem",
+      bg: "none",
+    },
+
+    postPageItem: {
+      display: "flex",
+      gap: "2rem",
+      flexDir: "column",
+      justifyContent: "flex-start",
       bg: "none",
     },
   },
@@ -289,6 +314,14 @@ export const Text = defineStyleConfig({
     postCardAuthor: {
       fontWeight: 600,
       fontFamily: "Noto Sans,sans-serif",
+    },
+
+    postMainTitle: {
+      fontFamily: "Lato, serif, Calibri, Arial",
+      fontSize: "30px",
+      fontWeight: "extrabold",
+      textTransform: "uppercase",
+      w: "full",
     },
   },
 });

@@ -4,12 +4,25 @@ import Link from "next/link";
 import { Box, Heading, Text, Stack, Flex, Avatar } from "@chakra-ui/react";
 import { IBlogPostProps } from "..";
 import { DateConverter } from "@/utils";
+import { useQuery } from "react-query";
+import { fetchBlogPosts } from "@/api/blog";
+import { useRouter } from "next/router";
 
-interface BlogLayoutProps {
-  posts: IBlogPostProps[];
-}
+export default function SidePosts() {
+  const router = useRouter();
 
-export default function SidePosts({ posts }: BlogLayoutProps) {
+  const { data: posts } = useQuery<IBlogPostProps[], Error>(
+    ["posts"],
+    () => fetchBlogPosts(1, 0),
+    {
+      keepPreviousData: true,
+    }
+  );
+
+  if (!posts) return null;
+
+  const filteredPosts = posts.filter((post) => post.slug !== router.query.slug);
+
   return (
     <Box
       w="full"
@@ -27,7 +40,8 @@ export default function SidePosts({ posts }: BlogLayoutProps) {
         </Text>
         <Flex borderBottom="3px solid #0ea5ea" width="13%" />
       </Stack>
-      {posts?.map((post) => (
+
+      {filteredPosts?.map((post, index) => (
         <Stack
           mt={6}
           direction={"row"}
@@ -62,7 +76,9 @@ export default function SidePosts({ posts }: BlogLayoutProps) {
             </Link>
 
             <Text>{DateConverter.formatDateFromString(post.createdAt)}</Text>
-            <Flex borderBottom="1px solid #66768f" width="80%" mt={4} />
+            {index < filteredPosts.length - 1 && (
+              <Flex borderBottom="1px solid #66768f" width="80%" mt={4} />
+            )}
           </Stack>
         </Stack>
       ))}

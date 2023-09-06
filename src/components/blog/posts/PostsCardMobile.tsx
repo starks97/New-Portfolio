@@ -37,7 +37,7 @@ export default function PostsCardMobile() {
   if (!postsMobile) return null;
 
   return (
-    <Center py={6} m={4}>
+    <Center py={6}>
       <Swiper
         effect={"creative"}
         creativeEffect={{

@@ -20,7 +20,6 @@ interface BlogLayoutProps {
 }
 
 export default function PostsCard({ posts, children }: BlogLayoutProps) {
-  console.log(posts);
   return (
     <LayoutComponent variant="postCard">
       <GridItemCustom variant="post">
@@ -107,7 +106,7 @@ export default function PostsCard({ posts, children }: BlogLayoutProps) {
       </GridItemCustom>
 
       <GridItem display="flex" w="full" mb="4rem">
-        <SidePosts posts={posts} />
+        <SidePosts />
       </GridItem>
     </LayoutComponent>
   );
