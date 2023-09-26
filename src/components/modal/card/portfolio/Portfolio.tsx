@@ -26,7 +26,7 @@ export default function Portfolio({ ...props }: IPortfolioProps) {
     <>
       <>
         {props.activeIndex === 3 && (
-          <Flex flexDirection="column" alignItems="center" id="portfolio">
+          <Flex flexDirection="column" alignItems="center">
             <LineSeparator icon={BsFillBriefcaseFill} />
             <LayoutComponent variant="AboutLayout">
               {props?.children}

@@ -7,7 +7,6 @@ import {
   ListItem,
   Stack,
   Center,
-  SystemStyleObject,
 } from "@chakra-ui/react";
 import { TouchInfoLabel } from "../modal/card/touch";
 import { BsFillTelephoneFill } from "react-icons/bs";
@@ -18,18 +17,9 @@ import {
 } from "../../themes";
 import { AiOutlineMail } from "react-icons/ai";
 import Link from "next/link";
-import { IconType } from "react-icons";
+import { IFooterProps } from "./interfaces";
 
-interface IFooterProps {
-  phone: string;
-  email: string;
-  info: {
-    icons: IconType[];
-    path: string[];
-  };
-  sx?: SystemStyleObject | undefined;
-}
-export default function Footer({ phone, email, info, sx }: IFooterProps) {
+export default function Footer({ ...props }: IFooterProps) {
   return (
     <Center
       boxShadow="2xl"
@@ -51,12 +41,12 @@ export default function Footer({ phone, email, info, sx }: IFooterProps) {
             <TouchInfoLabel
               href="tel:631-903-3732"
               icon={BsFillTelephoneFill}
-              value={phone}
+              value={props.phone}
             />
             <TouchInfoLabel
               href="mailto:ifrit68@hotmail.com"
               icon={AiOutlineMail}
-              value={email}
+              value={props.email}
             />
           </Box>
         </GridItemCustom>
@@ -70,17 +60,17 @@ export default function Footer({ phone, email, info, sx }: IFooterProps) {
           <Box>
             <List spacing={3}>
               <ListItem>
-                <Link href="/#about">
+                <Link href="/#2">
                   <Text>About</Text>
                 </Link>
               </ListItem>
               <ListItem>
-                <Link href="/#portfolio">
+                <Link href="/#3">
                   <Text>Portfolio</Text>
                 </Link>
               </ListItem>
               <ListItem>
-                <Link href="/#touch">
+                <Link href="/#4">
                   <Text>Touch</Text>
                 </Link>
               </ListItem>
@@ -98,12 +88,12 @@ export default function Footer({ phone, email, info, sx }: IFooterProps) {
             <TouchInfoLabel
               href="tel:631-903-3732"
               icon={BsFillTelephoneFill}
-              value={phone}
+              value={props.phone}
             />
             <TouchInfoLabel
               href="mailto:ifrit68@hotmail.com"
               icon={AiOutlineMail}
-              value={email}
+              value={props.email}
             />
           </Box>
         </GridItemCustom>
@@ -127,9 +117,9 @@ export default function Footer({ phone, email, info, sx }: IFooterProps) {
           <Text color="#0ea5ea">David Espinoza</Text>
         </Flex>
         <Flex gap={5}>
-          {info.icons?.map((icon, index) => (
+          {props.info.icons?.map((icon, index) => (
             <Box key={index}>
-              <Link target="_blank" href={info?.path![index]} passHref>
+              <Link target="_blank" href={props.info?.path![index]} passHref>
                 <CustomIconComponent as={icon} />
               </Link>
             </Box>

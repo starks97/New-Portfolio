@@ -22,7 +22,7 @@ export default function About({
     <>
       {activeIndex === 2 && (
         <>
-          <Flex flexDirection="column" alignItems="center" id="about">
+          <Flex flexDirection="column" alignItems="center">
             <LineSeparator icon={ImProfile} />
             <LayoutComponent variant="aboutCard">
               <Profile description={description} />

@@ -1,7 +1,5 @@
 "use client"; //Must be Client Components
 
-import { Flex } from "@chakra-ui/react";
-
 import { ICardProps } from "../interfaces";
 import { CustomTextComponent, GridItemCustom } from "../../../themes";
 

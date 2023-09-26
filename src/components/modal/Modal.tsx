@@ -65,7 +65,6 @@ export default function ModalComponent({ ...props }: IModalProps) {
             <About
               activeIndex={props.activeIndex}
               description={props.description}
-              id="about"
               dataAbout={props?.dataAbout!}
               journey={props.journey}
             />

@@ -1,3 +1,6 @@
+import { SystemStyleObject } from "@chakra-ui/react";
+import { IconType } from "react-icons";
+
 export interface IBlogPostProps {
   id: string;
   title: string;
@@ -36,3 +39,13 @@ export type User = {
   updatedAt: string;
   roleName: string;
 };
+
+export interface IFooterProps {
+  phone: string;
+  email: string;
+  info: {
+    icons: IconType[];
+    path: string[];
+  };
+  sx?: SystemStyleObject | undefined;
+}

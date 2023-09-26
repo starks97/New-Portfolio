@@ -27,5 +27,5 @@ export const fetchPostBySlug = async (slug: string) => {
   }
   const data = await res.json();
 
-  return data.response as IBlogPostProps;
+  return data.data as IBlogPostProps;
 };

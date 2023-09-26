@@ -40,14 +40,13 @@ export default function HomeLayout() {
   };
 
   useEffect(() => {
-    // Scroll to the specified hash fragment on page load
     if (window.location.hash) {
-      const modalIndex = Number(window.location.hash.replace("about", ""));
-      console.log(modalIndex);
+      const modalIndex = +window.location.hash.replace("#", "");
+
       if (!isNaN(modalIndex)) {
-        // Call your existing function to open the modal
         handdleToggle(modalIndex);
       }
+      window.location.hash = "";
     }
   }, []);
 

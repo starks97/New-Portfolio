@@ -1,15 +1,6 @@
 "use client";
 
-import {
-  Text,
-  Stack,
-  Container,
-  Avatar,
-  GridItem,
-  Flex,
-  Button,
-  Box,
-} from "@chakra-ui/react";
+import { Text, Stack, Container, GridItem } from "@chakra-ui/react";
 import { useQuery } from "react-query";
 import { fetchPostBySlug } from "@/api/blog";
 import { useRouter } from "next/router";
@@ -34,7 +25,6 @@ export default function PostLayout() {
   );
 
   if (!data) return null;
-  const postUrl = encodeURIComponent(window.location.href);
 
   return (
     <Container w="100%" sx={{ maxW: { base: "100%", md: "80%" } }} mb="2rem">
