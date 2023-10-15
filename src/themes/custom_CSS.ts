@@ -209,6 +209,27 @@ export const Button = defineStyleConfig({
       fontFamily: "Lato, sans-serif, serif",
       textTransform: "uppercase",
     },
+    refreshButton: {
+      bg: "#020203",
+      color: "#0ea5ea",
+      w: "full",
+      border: "1px solid #0ea5ea",
+      rounded: "lg",
+
+      _hover: {
+        bg: "#131c31",
+        border: "2px solid #0ea5ea",
+        color: "white",
+      },
+      _focus: {
+        outline: "none",
+      },
+      _active: {
+        bg: "transparent",
+      },
+      fontFamily: "Lato, sans-serif, serif",
+      textTransform: "uppercase",
+    },
   },
 });
 

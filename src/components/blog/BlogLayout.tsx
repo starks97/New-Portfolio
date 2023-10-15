@@ -13,7 +13,7 @@ import { BsGithub, BsInstagram, BsLinkedin } from "react-icons/bs";
 import { IBlogPostProps } from ".";
 
 import { useQuery } from "react-query";
-import { fetchBlogPosts, fetchPostBySlug } from "@/api/blog";
+import { fetchBlogPosts } from "@/api/blog";
 
 export default function BlogLayout() {
   const isMobile = useResponsive(ResponsiveBreakpoints.XS);
