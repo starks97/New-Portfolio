@@ -13,7 +13,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Hydrate state={pageProps.dehydratedState}>
         <ChakraProvider theme={theme}>
           <CSSReset />
-
           <Component {...pageProps} />
         </ChakraProvider>
         <ReactQueryDevtools initialIsOpen={false} />

@@ -59,6 +59,7 @@ export default function SignIn() {
         Cookies.set(REFRESH_TOKEN, data.data.refresh_token, {
           secure: true,
           expires: 7,
+          sameSite: "none",
         });
         Cookies.set(AUTH_TOKEN, data.data.access_token, { expires: 1 / 24 });
         return data;
@@ -69,7 +70,7 @@ export default function SignIn() {
         throw "An error occurred during sign-in.";
       }
     },
-    onSuccess: (data) => {
+    onSuccess: async (data) => {
       setAccessToken(data.data.access_token);
       setRefreshToken(data.data.refresh_token);
       router.replace(destination);

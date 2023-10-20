@@ -1,5 +1,6 @@
 "use client";
 
+import { baseUrl } from "../../../consts";
 import { IBlogPostProps } from "../../components/blog";
 
 export const fetchBlogPosts = async (page: number, limit: number) => {
@@ -8,7 +9,7 @@ export const fetchBlogPosts = async (page: number, limit: number) => {
   if (limit < 0) throw new Error("Limit must be greater than 0");
 
   const res = await fetch(
-    `http://localhost:3000/blog/post?offset=${+page}&limit=${+limit}`
+    `${baseUrl}/blog/post?offset=${+page}&limit=${+limit}`
   );
   if (!res.ok) {
     throw new Error("Failed to fetch posts from server");
@@ -20,7 +21,7 @@ export const fetchBlogPosts = async (page: number, limit: number) => {
 };
 
 export const fetchPostBySlug = async (slug: string) => {
-  const res = await fetch(`http://localhost:3000/blog/post/${slug}`);
+  const res = await fetch(`${baseUrl}/blog/post/${slug}`);
 
   if (!res.ok) {
     throw new Error("Failed to fetch post");

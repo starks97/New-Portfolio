@@ -1,7 +1,9 @@
 "use client";
 
+import { baseUrl } from "../../../consts";
+
 export async function fetchAuthSignUser(email: string, password: string) {
-  const res = await fetch(`http://localhost:3000/auth/signin`, {
+  const res = await fetch(`${baseUrl}/auth/signin`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

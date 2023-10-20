@@ -1,9 +1,8 @@
 import { UseMutateFunction } from "react-query";
 
-export type User = {
+export interface User {
   id: string;
   email: string;
-  password: string;
   name: string;
   lastName: string;
   bio: string;
@@ -12,7 +11,7 @@ export type User = {
   createdAt: Date;
   updatedAt: Date;
   roleName: string;
-};
+}
 
 export interface RegistrationStatus {
   success: boolean;
@@ -24,7 +23,15 @@ export interface LoginStatus extends Omit<RegistrationStatus, "data"> {
   data: {
     refresh_token: string;
     access_token: string;
-    rest: Omit<User, "password" | "id">;
+  };
+}
+
+export interface RefreshStatus {
+  success: boolean;
+  message: string;
+  data: {
+    refreshToken: string;
+    authToken: string;
   };
 }
 

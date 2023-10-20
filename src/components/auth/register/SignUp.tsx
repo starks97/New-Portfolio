@@ -36,7 +36,7 @@ export default function SignupCard() {
 
   const router: NextRouter = useRouter();
 
-  const destination = router.query.p?.toString() || "sign_in";
+  const destination = router.query.p?.toString() || "login";
 
   const {
     register,
@@ -122,7 +122,7 @@ export default function SignupCard() {
               </FormControl>
               <FormControl id="password" isRequired>
                 <FormLabel>Password</FormLabel>
-                <InputGroup>
+                <InputGroup display={"flex"} flexDirection={"column"}>
                   <Input
                     type={showPassword ? "text" : "password"}
                     {...register("password")}

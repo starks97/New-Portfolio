@@ -1,9 +1,46 @@
 "use client";
 
-import { Center, Heading } from "@chakra-ui/react";
+import { Center, Heading, Text } from "@chakra-ui/react";
 import { Button, Flex, Stack } from "@chakra-ui/react";
+import Cookies from "js-cookie";
+import { AUTH_TOKEN, REFRESH_TOKEN } from "../../../../consts";
+import { NextRouter, useRouter } from "next/router";
+import { fetchRefeshToken } from "@/api/auth/refresh";
 import { useEffect } from "react";
+
 export default function RefreshForm() {
+  const router: NextRouter = useRouter();
+
+  console.log(Cookies.get(REFRESH_TOKEN));
+
+  const destination = router.query.p?.toString() || "/dashboard";
+
+  const handleRefresh = async () => {
+    try {
+      const data = await fetchRefeshToken();
+
+      if (!data) {
+        throw new Error("No data returned from server");
+      }
+
+      Cookies.set(REFRESH_TOKEN, data.data.refreshToken, {
+        secure: true,
+        expires: 7,
+        sameSite: "none",
+      });
+      Cookies.set(AUTH_TOKEN, data.data.authToken, { expires: 1 / 24 });
+
+      router.replace(destination);
+      return;
+    } catch (error) {
+      console.error("Error refreshing tokens:", error);
+    }
+  };
+
+  useEffect(() => {
+    router.prefetch(destination);
+  }, [router, destination]);
+
   return (
     <Flex minH={"100vh"} align={"center"} justify={"center"}>
       <Stack
@@ -16,6 +53,7 @@ export default function RefreshForm() {
         bg="#131c31"
         rounded={"lg"}
         boxShadow={"lg"}
+        sx={{ margin: { base: "2rem", md: "auto" } }}
       >
         <Center>
           <Heading
@@ -27,13 +65,16 @@ export default function RefreshForm() {
           </Heading>
         </Center>
 
-        <Center
+        <Flex
           fontSize={{ base: "sm", sm: "md" }}
           fontWeight="bold"
           color="white"
         >
-          {""}
-        </Center>
+          <Text>
+            You have been logged out due to inactivity. Please click continue
+            below to log back in.
+          </Text>
+        </Flex>
 
         <Stack spacing={6}>
           <Button
@@ -42,6 +83,7 @@ export default function RefreshForm() {
             _hover={{
               bg: "blue.500",
             }}
+            onClick={() => handleRefresh()}
           >
             Continue
           </Button>

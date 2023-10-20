@@ -1,9 +1,11 @@
+import { baseUrl } from "../../../consts";
+
 export default async function fetchAuthRegisterUser(
   email: string,
   name: string,
   password: string
 ) {
-  const res = await fetch("http://localhost:3000/auth/signup", {
+  const res = await fetch(`${baseUrl}/auth/signup`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
