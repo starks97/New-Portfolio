@@ -30,8 +30,8 @@ export interface RefreshStatus {
   success: boolean;
   message: string;
   data: {
-    refreshToken: string;
-    authToken: string;
+    refresh_token: string;
+    access_token: string;
   };
 }
 

@@ -10,7 +10,10 @@ import { SidePosts } from "../posts";
 import { BsGithub, BsInstagram, BsLinkedin } from "react-icons/bs";
 import Footer from "../Footer";
 
+import Image from "next/image";
+
 import SubBar from "./SubBar";
+import MarkdownRender from "../MarkRender";
 
 export default function PostLayout() {
   const router = useRouter();
@@ -48,7 +51,17 @@ export default function PostLayout() {
       </Stack>
       <LayoutComponent variant="postPage">
         <GridItemCustom variant="postPageItem">
-          <Text fontSize={"xl"}>{data.content}</Text>
+          {data.resources.map((item, index) => (
+            <Image
+              key={index}
+              src={item.url}
+              alt="post"
+              width={100}
+              height={100}
+              layout="responsive"
+            />
+          ))}
+          <MarkdownRender content={data.content} />
         </GridItemCustom>
         <GridItem>
           <SidePosts />

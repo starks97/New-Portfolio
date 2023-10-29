@@ -17,18 +17,13 @@ import {
 
 import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useMutation, useQueryClient } from "react-query";
+import { useMutation } from "react-query";
 import { LoginStatus } from "@/api/auth/interfaces";
 import Cookies from "js-cookie";
 import { NextRouter, useRouter } from "next/router";
 
 import { useEffect } from "react";
-import {
-  AUTH_TOKEN,
-  REFRESH_TOKEN,
-  signUpRoute,
-  userData,
-} from "../../../../consts";
+import { ACCESS_TOKEN, REFRESH_TOKEN, signUpRoute } from "../../../../consts";
 import { getActions } from "@/store";
 export default function SignIn() {
   const router: NextRouter = useRouter();
@@ -37,7 +32,6 @@ export default function SignIn() {
 
   const destination = router.query.p?.toString() || "/dashboard";
 
-  const queryClient = useQueryClient();
   const {
     register,
     handleSubmit,
@@ -55,13 +49,7 @@ export default function SignIn() {
     mutationFn: async ({ email, password }) => {
       try {
         const data = await fetchAuthSignUser(email, password);
-        queryClient.setQueryData([userData], data);
-        Cookies.set(REFRESH_TOKEN, data.data.refresh_token, {
-          secure: true,
-          expires: 7,
-          sameSite: "none",
-        });
-        Cookies.set(AUTH_TOKEN, data.data.access_token, { expires: 1 / 24 });
+
         return data;
       } catch (error) {
         if (error instanceof Error) {
@@ -70,7 +58,15 @@ export default function SignIn() {
         throw "An error occurred during sign-in.";
       }
     },
-    onSuccess: async (data) => {
+    onSuccess: (data) => {
+      Cookies.set(REFRESH_TOKEN, data.data.refresh_token, {
+        secure: true,
+        expires: 7,
+        sameSite: "none",
+      });
+      Cookies.set(ACCESS_TOKEN, data.data.access_token, {
+        expires: 1 / 24,
+      });
       setAccessToken(data.data.access_token);
       setRefreshToken(data.data.refresh_token);
       router.replace(destination);
@@ -160,6 +156,7 @@ export default function SignIn() {
                     bg: "blue.500",
                   }}
                   type="submit"
+                  disabled={mutation.isLoading}
                   isLoading={isSubmitting}
                 >
                   Sign in

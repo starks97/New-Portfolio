@@ -1,5 +1,5 @@
 import Cookies from "js-cookie";
-import { AUTH_TOKEN, REFRESH_TOKEN } from "../../consts";
+import { ACCESS_TOKEN, REFRESH_TOKEN } from "../../consts";
 
 import { createStore } from "zustand";
 import { devtools } from "zustand/middleware";
@@ -18,7 +18,7 @@ export interface Actions {
 
 export const authStore = createStore<State>()(
   devtools((set) => ({
-    access_token: Cookies.get(AUTH_TOKEN),
+    access_token: Cookies.get(ACCESS_TOKEN),
     refresh_token: Cookies.get(REFRESH_TOKEN),
     actions: {
       setAccessToken: (access_token: string | undefined) => {
@@ -31,7 +31,7 @@ export const authStore = createStore<State>()(
       clearTokens: () => {
         set({ access_token: undefined, refresh_token: undefined });
         Cookies.remove(REFRESH_TOKEN);
-        Cookies.remove(AUTH_TOKEN);
+        Cookies.remove(ACCESS_TOKEN);
       },
     },
   }))

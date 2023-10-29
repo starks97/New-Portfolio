@@ -1,20 +1,16 @@
-import { getAccessToken, getRefreshToken } from "@/store";
-import { REFRESH_TOKEN, baseUrl } from "../../../consts";
-import { RefreshStatus } from "./interfaces";
-import Cookies from "js-cookie";
+import { getRefreshToken } from "@/store";
+import { baseUrl } from "../../../consts";
 
 export async function fetchRefeshToken() {
-  const refresh_token = getAccessToken();
-
-  console.log("from endpooint", refresh_token);
+  const refresh_token = getRefreshToken();
 
   const res = await fetch(`${baseUrl}/auth/refresh_token`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
+    credentials: "include",
     body: JSON.stringify({ refresh_token }),
-    credentials: "include", // this is important for cookies to be sent for the request
   });
 
   const data = await res.json();
@@ -23,5 +19,5 @@ export async function fetchRefeshToken() {
     throw new Error(data.message);
   }
 
-  return data as RefreshStatus;
+  return data.data;
 }

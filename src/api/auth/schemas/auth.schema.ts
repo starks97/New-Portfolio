@@ -26,6 +26,7 @@ export type Register = z.infer<typeof RegisterUserSchema>;
 
 export type Login = z.infer<typeof LoginUserSchema>;
 
+//fucntion to validate data againts the schema whiout react-hook-form
 export function validateData<T>(schema: z.ZodType<T>, data: unknown): T {
   try {
     return schema.parse(data) as T;

@@ -3,38 +3,47 @@
 import { Center, Heading, Text } from "@chakra-ui/react";
 import { Button, Flex, Stack } from "@chakra-ui/react";
 import Cookies from "js-cookie";
-import { AUTH_TOKEN, REFRESH_TOKEN } from "../../../../consts";
+import { ACCESS_TOKEN, REFRESH_TOKEN } from "../../../../consts";
 import { NextRouter, useRouter } from "next/router";
 import { fetchRefeshToken } from "@/api/auth/refresh";
 import { useEffect } from "react";
+import { RefreshStatus } from "@/api/auth/interfaces";
+import { useMutation } from "react-query";
+import { getActions } from "@/store";
 
 export default function RefreshForm() {
   const router: NextRouter = useRouter();
 
-  console.log(Cookies.get(REFRESH_TOKEN));
-
   const destination = router.query.p?.toString() || "/dashboard";
 
-  const handleRefresh = async () => {
-    try {
-      const data = await fetchRefeshToken();
+  const mutation = useMutation<RefreshStatus, unknown, unknown, unknown>({
+    mutationFn: async () => {
+      try {
+        const data = await fetchRefeshToken();
 
-      if (!data) {
-        throw new Error("No data returned from server");
+        return data;
+      } catch (error) {
+        if (error instanceof Error) {
+          throw error.message;
+        }
+        throw "An error occurred during refresh.";
       }
+    },
 
-      Cookies.set(REFRESH_TOKEN, data.data.refreshToken, {
+    onSuccess: (data) => {
+      Cookies.set(REFRESH_TOKEN, data.data.access_token, {
         secure: true,
         expires: 7,
         sameSite: "none",
       });
-      Cookies.set(AUTH_TOKEN, data.data.authToken, { expires: 1 / 24 });
+      Cookies.set(ACCESS_TOKEN, data.data.refresh_token, { expires: 1 / 24 });
 
       router.replace(destination);
-      return;
-    } catch (error) {
-      console.error("Error refreshing tokens:", error);
-    }
+    },
+  });
+
+  const handleRefresh = () => {
+    mutation.mutate({});
   };
 
   useEffect(() => {
@@ -83,6 +92,7 @@ export default function RefreshForm() {
             _hover={{
               bg: "blue.500",
             }}
+            disabled={mutation.isLoading}
             onClick={() => handleRefresh()}
           >
             Continue

@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { AUTH_TOKEN, REFRESH_TOKEN } from "./consts";
+import { ACCESS_TOKEN, REFRESH_TOKEN } from "./consts";
 
 export const config = {
   matcher: "/dashboard",
@@ -9,7 +9,7 @@ export const config = {
 export function middleware(req: NextRequest) {
   try {
     const { cookies } = req;
-    const authCookie = cookies.get(AUTH_TOKEN);
+    const authCookie = cookies.get(ACCESS_TOKEN);
     const refreshToken = cookies.get(REFRESH_TOKEN);
 
     if (!refreshToken && !authCookie) {

@@ -17,6 +17,7 @@ export interface IBlogPostProps {
   resources: Resources[];
   user: User;
 }
+
 export type Resources = {
   id: string;
   url: string;

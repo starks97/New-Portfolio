@@ -15,15 +15,14 @@ const accessTokenSelector = (state: ExtractState<typeof authStore>) =>
   state.access_token;
 const refreshTokenSelector = (state: ExtractState<typeof authStore>) =>
   state.refresh_token;
-const dataUserSelector = (state: ExtractState<typeof authStore>) =>
-  state.data_user;
+
 const actionsSelector = (state: ExtractState<typeof authStore>) =>
   state.actions;
 
 // getters
 export const getAccessToken = () => accessTokenSelector(authStore.getState());
 export const getRefreshToken = () => refreshTokenSelector(authStore.getState());
-export const getDataUser = () => dataUserSelector(authStore.getState());
+
 export const getActions = () => actionsSelector(authStore.getState());
 
 function useAuthStore<U>(selector: Params<U>[1], equalityFn?: Params<U>[2]) {
@@ -33,5 +32,5 @@ function useAuthStore<U>(selector: Params<U>[1], equalityFn?: Params<U>[2]) {
 // Hooks
 export const useAccessToken = () => useAuthStore(accessTokenSelector);
 export const useRefreshToken = () => useAuthStore(refreshTokenSelector);
-export const useDataUser = () => useAuthStore(dataUserSelector);
+
 export const useActions = () => useAuthStore(actionsSelector);

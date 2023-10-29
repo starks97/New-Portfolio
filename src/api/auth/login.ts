@@ -12,6 +12,7 @@ export async function fetchAuthSignUser(email: string, password: string) {
   });
 
   const data = await res.json();
+  console.log("signin", data);
 
   if (!res.ok) {
     throw new Error(data.message);

@@ -230,6 +230,14 @@ export const Button = defineStyleConfig({
       fontFamily: "Lato, sans-serif, serif",
       textTransform: "uppercase",
     },
+
+    DashButton: {
+      bg: "#020203",
+      color: "#0ea5ea",
+      border: "1px solid #0ea5ea",
+      rounded: "lg",
+      fontFamily: "Lato, sans-serif, serif",
+    },
   },
 });
 
