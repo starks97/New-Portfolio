@@ -23,13 +23,16 @@ export const data = [
     title: "About me",
     personalInfo: {
       description:
-        "Hello! My name is David and I enjoy creating things that live on the internet. My journey in technologies started back in 2019 when I decided to try make a website for my friend, in that time she needed for her business. After that opportunity I made the decision to keep learning as much as I could. My main focus these days is building accessible, inclusive products and digital experiences and also keep learning new technologies focus on backend development.",
+        "Greetings! I'm David, a frontend software engineer with a passion for crafting exceptional digital products and finding innovative solutions for businesses. My commitment to excellence drives me to always give my best effort and never stop learning. I believe that staying up-to-date with the latest technologies and exploring new opportunities is essential to success in this dynamic field.",
       firstName: "David",
       LastName: "Espinoza",
       phoneNumber: "+1(631)903-3732",
       email: "ifrit68@hotmai.com",
-      journey:
-        "Hello! My name is David and I enjoy creating things that live on the internet. My journey in technologies started back in 2019 when I decided to try make a website for my friend, in that time she needed for her business. After that opportunity I made the decision to keep learning as much as I could. My main focus these days is building accessible, inclusive products and digital experiences and also keep learning new technologies focus on backend development.",
+      journey: `Back in 2019, I took my first steps into the world of web development by venturing into creating a website for a friend's business. Little did I know that this small project would ignite a newfound passion for technology within me.
+
+        Since that initial foray, I have been wholeheartedly committed to continuously learning and growing in this ever-evolving field. My primary focus has shifted towards building digital products and experiences that prioritize accessibility and inclusivity for all users. I strongly believe that technology should be a tool that brings people together, regardless of their backgrounds or abilities.
+        
+        As I embark on this journey, I am excited to share my insights and experiences with the world of technology. I invite you to join me on this adventure as I navigate the exciting and dynamic realm of tech, and together, we can shape a better and more inclusive digital landscape.`,
       socialMedia: [
         {
           index: 1,

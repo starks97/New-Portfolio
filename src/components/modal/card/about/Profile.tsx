@@ -41,7 +41,7 @@ export default function Profile({ description }: IAboutProps) {
             fontWeight={700}
             color="#b9e0f2"
           >
-            Personal Info
+            Info
           </Text>
         </Flex>
         <Box marginLeft="1rem" lineHeight={"8"}>
