@@ -9,8 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@chakra-ui/next-js": "^2.1.5",
-    "@chakra-ui/react": "^2.8.1",
+    "@chakra-ui/next-js": "^2.2.0",
+    "@chakra-ui/react": "^2.8.2",
+    "@emailjs/browser": "^3.11.0",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@hookform/resolvers": "^3.3.2",
@@ -26,7 +27,7 @@
     "next": "13.4.9",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-hook-form": "^7.47.0",
+    "react-hook-form": "^7.48.2",
     "react-icons": "^4.11.0",
     "react-markdown": "^9.0.0",
     "react-query": "^3.39.3",
@@ -35,9 +36,9 @@
     "typescript": "5.1.6",
     "typewriter-effect": "^2.21.0",
     "zod": "^3.22.4",
-    "zustand": "^4.4.4"
+    "zustand": "^4.4.6"
   },
   "devDependencies": {
-    "@types/js-cookie": "^3.0.5"
+    "@types/js-cookie": "^3.0.6"
   }
 }

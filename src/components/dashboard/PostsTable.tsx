@@ -17,7 +17,11 @@ import React from "react";
 import { DateConverter } from "@/utils";
 import { CustomButtonComponent } from "@/themes";
 
-export default function PostsTable({ posts }: { posts: IBlogPostProps[] }) {
+export interface IPostProps {
+  posts: IBlogPostProps[];
+}
+
+export default function PostsTable({ posts }: IPostProps) {
   return (
     <Flex maxW="80%" mt="2rem" flexDirection={"column"}>
       <Text

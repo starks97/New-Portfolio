@@ -32,7 +32,7 @@ export default function TouchFormControl({ ...props }: IFormTouchProps) {
               <InputLeftElement pointerEvents="none">
                 {props.icon ? <props.icon color="#b9e0f2" /> : null}
               </InputLeftElement>
-              <Input type="text" size="md" />
+              <Input type="text" size="md" name={props.name} />
             </>
           )}
         </InputGroup>
@@ -40,6 +40,3 @@ export default function TouchFormControl({ ...props }: IFormTouchProps) {
     </>
   );
 }
-
-//onChange={props.onChange}
-//value={props.value}

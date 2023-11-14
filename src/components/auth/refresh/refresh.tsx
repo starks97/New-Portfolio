@@ -20,7 +20,12 @@ export default function RefreshForm() {
     mutationFn: async () => {
       try {
         const data = await fetchRefeshToken();
-
+        Cookies.set(REFRESH_TOKEN, data.data.access_token, {
+          secure: true,
+          expires: 7,
+          sameSite: "none",
+        });
+        Cookies.set(ACCESS_TOKEN, data.data.refresh_token, { expires: 1 / 24 });
         return data;
       } catch (error) {
         if (error instanceof Error) {
@@ -31,13 +36,6 @@ export default function RefreshForm() {
     },
 
     onSuccess: (data) => {
-      Cookies.set(REFRESH_TOKEN, data.data.access_token, {
-        secure: true,
-        expires: 7,
-        sameSite: "none",
-      });
-      Cookies.set(ACCESS_TOKEN, data.data.refresh_token, { expires: 1 / 24 });
-
       router.replace(destination);
     },
   });

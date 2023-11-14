@@ -41,13 +41,20 @@ export function LineSeparator({ icon }: { icon: IconType }) {
 export function CustomButtonComponent({
   children,
   variant,
-  onSubmit,
+  onClick,
   sx,
   rightIcon,
+  type,
 }: ICustomButtonComponentProps) {
   const styles = useStyleConfig("Button", { variant });
   return (
-    <Button __css={styles} onSubmit={onSubmit} sx={sx} rightIcon={rightIcon}>
+    <Button
+      __css={styles}
+      onClick={onClick}
+      sx={sx}
+      rightIcon={rightIcon}
+      type={type}
+    >
       {children}
     </Button>
   );

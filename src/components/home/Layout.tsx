@@ -19,12 +19,6 @@ export default function HomeLayout() {
 
   const [activeProjectCard, setActiveProjectCard] = useState<number>(0);
 
-  const [dataForm, setDataForm] = useState({
-    name: "",
-    email: "",
-    comment: "",
-  });
-
   const handdleToggle = (index: number) => {
     setActiveIndex(index);
 
@@ -127,6 +121,7 @@ export default function HomeLayout() {
                             startDate: element.startDate,
                             iconUsedTechnologies: element.iconUsedTechnologies,
                             index: element.index,
+                            url: element.url,
                           }))
                         : []
                     }

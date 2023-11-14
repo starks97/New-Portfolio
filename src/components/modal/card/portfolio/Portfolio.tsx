@@ -71,6 +71,7 @@ export default function Portfolio({ ...props }: IPortfolioProps) {
                 endDate={activeProject.endDate}
                 iconUsedTechnologies={activeProject.iconUsedTechnologies}
                 index={activeProject.index}
+                url={activeProject.url}
               />
             )}
           </Box>

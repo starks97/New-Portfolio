@@ -7,7 +7,6 @@ import { getAccessToken } from "@/store";
 export async function fetchUsers(page: number, limit: number) {
   //const authorization = Cookies.get(ACCESS_TOKEN);
   const authorization = getAccessToken();
-  console.log(authorization);
   if (page < 0) throw new Error("Page must be greater than 0");
 
   if (limit < 0) throw new Error("Limit must be greater than 0");
@@ -25,8 +24,6 @@ export async function fetchUsers(page: number, limit: number) {
   }
 
   const data = await res.json();
-
-  console.log(data.data);
 
   return data.data as IUserRole[];
 }

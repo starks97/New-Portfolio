@@ -72,6 +72,7 @@ export interface IFormTouchProps {
   icon?: IconType;
   onChange?: ChangeEventHandler<HTMLInputElement> | undefined;
   value: string;
+  name: string;
 }
 
 export interface IPortfolioCardProps {
@@ -82,6 +83,7 @@ export interface IPortfolioCardProps {
   iconUsedTechnologies: IconType[];
   image: string;
   index: number;
+  url: string;
 }
 
 export type ISwiperAboutType = {

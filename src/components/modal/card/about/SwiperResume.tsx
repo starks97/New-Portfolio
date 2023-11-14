@@ -49,8 +49,8 @@ export default function SwiperResumeSlide({
               ))
             : props.dataAbout?.EDUCATION.map((item, index) => (
                 <Stack key={index}>
-                  <Text>{item.date}</Text>
                   <Text>{item.title}</Text>
+                  <Text>{item.date}</Text>
                   <Text>{item.description}</Text>
                   {props.dataAbout?.EXPERIENCE
                     ? index < props.dataAbout?.EXPERIENCE!.length - 1 && (

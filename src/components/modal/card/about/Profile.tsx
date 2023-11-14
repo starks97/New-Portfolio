@@ -73,7 +73,7 @@ export default function Profile({ description }: IAboutProps) {
             rightIcon={<ImBlog />}
             sx={{ width: { base: "100%", md: "100%", lg: "25%" } }}
           >
-            <Link href={"/blog"} passHref>
+            <Link href={"/comming"} passHref>
               My Blog
             </Link>
           </CustomButtonComponent>

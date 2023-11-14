@@ -29,7 +29,8 @@ export interface ICustomIconProps
 
 export interface ICustomButtonComponentProps
   extends Pick<ICustomComponentsProps, "children" | "variant"> {
-  onSubmit?: () => void;
+  onClick?: () => void;
+  type?: "button" | "submit" | "reset" | undefined;
   sx?: Record<string, unknown>;
   rightIcon?:
     | ReactElement<any, string | JSXElementConstructor<any>>

@@ -8,6 +8,7 @@ import {
   BsPerson,
   BsFillCalendarFill,
   BsFillCalendarCheckFill,
+  BsFillGearFill,
 } from "react-icons/bs";
 
 import Image from "next/image";
@@ -17,7 +18,15 @@ import Link from "next/link";
 export default function PortfolioCard({ ...props }: IPortfolioCardProps) {
   return (
     <LayoutComponent variant="PortfolioLayout">
-      <GridItem w="100%" h="100%" display="flex" justifyContent="center" p={6}>
+      <GridItem
+        sx={{
+          width: { base: "100%", md: "100%" },
+          height: { base: "100%", md: "50%" },
+        }}
+        display="flex"
+        justifyContent="center"
+        p={6}
+      >
         <Image
           src={props.image}
           width={500}
@@ -54,7 +63,7 @@ export default function PortfolioCard({ ...props }: IPortfolioCardProps) {
           value={props.endDate}
         />
 
-        <ProjectInfo icon={BsPerson} label="Technologies: ">
+        <ProjectInfo icon={BsFillGearFill} label="Technologies: ">
           {props.iconUsedTechnologies.map((icon, index) => (
             <Icon as={icon} key={index} marginRight="1rem" color="#b9e0f2" />
           ))}
@@ -75,7 +84,7 @@ export default function PortfolioCard({ ...props }: IPortfolioCardProps) {
             variant="FormButton"
             sx={{ width: { base: "100%", md: "50%" } }}
           >
-            <Link href={""} passHref target="_blank">
+            <Link href={props.url} passHref target="_blank">
               View More
             </Link>
           </CustomButtonComponent>
