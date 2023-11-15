@@ -1,17 +1,9 @@
-import {
-  Box,
-  Button,
-  Container,
-  Flex,
-  IconButton,
-  Text,
-} from "@chakra-ui/react";
+import { Box, Container, Flex, Text } from "@chakra-ui/react";
 
 import Link from "next/link";
 
 import { CommingSoonBackgroundAnimation } from "../animation";
 
-import { BsGithub, BsInstagram, BsLinkedin } from "react-icons/bs";
 import { CustomButtonComponent } from "@/themes";
 
 export default function MainHero() {

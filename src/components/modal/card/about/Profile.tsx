@@ -63,7 +63,7 @@ export default function Profile({ description }: IAboutProps) {
             rightIcon={<BsCloudDownloadFill />}
             sx={{ width: { base: "100%", md: "100%", lg: "25%" } }}
           >
-            <Link href={""} download>
+            <Link href="/files/resume.pdf" download>
               My Resume
             </Link>
           </CustomButtonComponent>
