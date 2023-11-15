@@ -13,4 +13,4 @@ export const signInRoute = "/auth/login";
 
 //base url
 
-export const baseUrl = "http://localhost:3000";
+export const baseUrl = "htpp://localhost:3000";
