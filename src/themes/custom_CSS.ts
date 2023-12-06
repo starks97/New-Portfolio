@@ -88,6 +88,7 @@ export const Layout = defineStyleConfig({
       justifyItems: "center",
       width: "100%",
       height: "100%",
+      paddingBottom: "3rem",
     },
 
     aboutCard: {

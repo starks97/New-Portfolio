@@ -28,7 +28,7 @@ export default function ModalComponent({ ...props }: IModalProps) {
         scrollBehavior="inside"
       >
         <ModalOverlay />
-        <ModalContent bg="#050704" alignItems={"center"} rounded="xl" pb="2rem">
+        <ModalContent bg="#050704" alignItems={"center"} rounded="xl" pb="4rem">
           <ModalHeader
             display="flex"
             alignItems="center"
