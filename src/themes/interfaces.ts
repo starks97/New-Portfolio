@@ -5,15 +5,13 @@ import {
   ReactElement,
   ReactNode,
 } from "react";
-import { IconType } from "react-icons";
-import { Token } from "typescript";
 
 type VariantProps = Record<string, Record<string, unknown>>;
 
 export interface ICustomComponentsProps {
   variant?: keyof VariantProps;
-  children: ReactNode;
-  icon?: IconType;
+  children?: ReactNode;
+  icon?: React.ReactElement;
 }
 
 export interface ICustomFormComponentProps
@@ -24,7 +22,7 @@ export interface ICustomFormComponentProps
 
 export interface ICustomIconProps
   extends Pick<ICustomComponentsProps, "variant"> {
-  as?: IconType;
+  as?: any;
 }
 
 export interface ICustomButtonComponentProps
@@ -64,4 +62,31 @@ export interface ICustomBoxComponentProps
   > {
   sx?: Record<string, unknown>;
   bgImage?: ResponsiveValue<string | (string & {})> | undefined;
+}
+
+export interface ICustomIconButtonComponentProps
+  extends Pick<ICustomComponentsProps, "children" | "variant"> {
+  onClick?: () => void;
+  icon?: React.ReactElement;
+  ariaLabel?: string;
+  boxSize?: ResponsiveValue<
+    | number
+    | (string & {})
+    | "inherit"
+    | "-moz-initial"
+    | "initial"
+    | "revert"
+    | "revert-layer"
+    | "unset"
+    | "auto"
+    | "-moz-fit-content"
+    | "-moz-max-content"
+    | "-moz-min-content"
+    | "-webkit-fit-content"
+    | "-webkit-max-content"
+    | "-webkit-min-content"
+    | "fit-content"
+    | "max-content"
+    | "min-content"
+  >;
 }

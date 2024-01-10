@@ -13,6 +13,7 @@ export default function TypeWritter({ texts }: ITypeWritterProps) {
         textTransform: "uppercase",
         color: "white",
         zIndex: 10,
+        fontFamily: "Roboto Mono",
       }}
     >
       <Typewriter

@@ -72,6 +72,7 @@ export default function Portfolio({ ...props }: IPortfolioProps) {
                 iconUsedTechnologies={activeProject.iconUsedTechnologies}
                 index={activeProject.index}
                 url={activeProject.url}
+                description={activeProject.description}
               />
             )}
           </Box>

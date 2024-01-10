@@ -1,10 +1,17 @@
-import { Box, Button, Flex, Icon, useStyleConfig } from "@chakra-ui/react";
-import { IconType } from "react-icons";
+import {
+  Box,
+  Button,
+  Flex,
+  Icon,
+  IconButton,
+  useStyleConfig,
+} from "@chakra-ui/react";
 import {
   ICustomBoxComponentProps,
   ICustomButtonComponentProps,
   ICustomComponentsProps,
   ICustomGridItemComponentProps,
+  ICustomIconButtonComponentProps,
   ICustomIconProps,
   ICustomTextComponentProps,
 } from "./interfaces";
@@ -22,7 +29,7 @@ export function WrapperComponent({
   return <Box __css={styles}>{children}</Box>;
 }
 
-export function LineSeparator({ icon }: { icon: IconType }) {
+export function LineSeparator({ icon }: { icon: any }) {
   return (
     <Flex
       overflow={"inherit"}
@@ -129,5 +136,26 @@ export function CustomBoxComponent({
     <Box __css={styles} onClick={onClick} sx={sx} bgImage={bgImage}>
       {children}
     </Box>
+  );
+}
+
+export function CustomIconButtonComponent({
+  variant,
+  icon,
+  children,
+  onClick,
+  boxSize,
+}: ICustomIconButtonComponentProps) {
+  const styles = useStyleConfig("CustomIconButton", { variant });
+  return (
+    <IconButton
+      __css={styles}
+      aria-label={"open menu"}
+      icon={icon}
+      onClick={onClick}
+      boxSize={boxSize}
+    >
+      {children}
+    </IconButton>
   );
 }

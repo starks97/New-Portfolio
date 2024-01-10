@@ -37,7 +37,7 @@ export default function ModalComponent({ ...props }: IModalProps) {
           >
             <Flex w="full" justifyContent="center" marginLeft="2rem">
               <Text
-                fontFamily="Lato, sans-serif, serif"
+                fontFamily="Roboto Mono"
                 sx={{ fontSize: { base: "30px", md: "50px" } }}
                 textTransform="uppercase"
                 fontWeight={900}

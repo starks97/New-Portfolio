@@ -2,26 +2,17 @@
 import Link from "next/link";
 
 import { Box, Heading, Text, Stack, Flex, Avatar } from "@chakra-ui/react";
-import { IBlogPostProps } from "..";
+import { Post } from "..";
 import { DateConverter } from "@/utils";
-import { useQuery } from "react-query";
-import { fetchBlogPosts } from "@/api/blog";
 import { useRouter } from "next/router";
+import { urlFor } from "../../../../sanity";
 
-export default function SidePosts() {
+export default function SidePosts({ posts }: { posts: Post[] }) {
   const router = useRouter();
 
-  const { data: posts } = useQuery<IBlogPostProps[], Error>(
-    ["posts"],
-    () => fetchBlogPosts(1, 0),
-    {
-      keepPreviousData: true,
-    }
+  const filteredPosts = posts.filter(
+    (post) => post.slug.current !== router.query.slug
   );
-
-  if (!posts) return null;
-
-  const filteredPosts = posts.filter((post) => post.slug !== router.query.slug);
 
   return (
     <Box
@@ -35,7 +26,12 @@ export default function SidePosts() {
       h="full"
     >
       <Stack dir="column">
-        <Text fontWeight="extrabold" fontSize="xl" color="#0ea5ea">
+        <Text
+          fontWeight="extrabold"
+          fontSize="xl"
+          color="#0ea5ea"
+          fontFamily={"Roboto Mono"}
+        >
           Popular Posts
         </Text>
         <Flex borderBottom="3px solid #0ea5ea" width="13%" />
@@ -47,12 +43,12 @@ export default function SidePosts() {
           direction={"row"}
           spacing={4}
           align="center"
-          key={post.id}
+          key={post._id}
         >
-          <Link href={`/blog/${post.slug}`}>
-            {post.resources[0]?.url && (
+          <Link href={`/blog/${post.slug.current}`}>
+            {post.mainImage && (
               <Avatar
-                src={post.resources[0]?.url!}
+                src={urlFor(post.mainImage).url()}
                 name="postImage"
                 size="lg"
               />
@@ -60,22 +56,23 @@ export default function SidePosts() {
           </Link>
 
           <Stack direction={"column"} spacing={0} fontSize={"sm"} gap={3}>
-            <Link href={`/blog/${post.slug}`}>
+            <Link href={`/blog/${post.slug.current}`}>
               <Heading
                 color="#b9e0f2"
-                textTransform={"uppercase"}
                 fontWeight="extrabold"
                 sx={{
-                  fontSize: { md: "md", lg: "lg" },
+                  fontSize: { md: "small", lg: "medium" },
                 }}
-                fontFamily="lato, sans-serif"
+                fontFamily="Roboto Mono"
                 _hover={{ color: "#4BA9C5" }}
               >
                 {post.title}
               </Heading>
             </Link>
 
-            <Text>{DateConverter.formatDateFromString(post.createdAt)}</Text>
+            <Text fontFamily={"Roboto Serif"} fontSize={"medium"}>
+              {DateConverter.formatDateFromString(post._updatedAt)}
+            </Text>
             {index < filteredPosts.length - 1 && (
               <Flex borderBottom="1px solid #66768f" width="80%" mt={4} />
             )}

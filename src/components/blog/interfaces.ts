@@ -1,52 +1,54 @@
-import { SystemStyleObject } from "@chakra-ui/react";
-import { IconType } from "react-icons";
+import { User } from "@/api/user";
 
-export interface IBlogPostProps {
-  id: string;
-  title: string;
-  slug: string;
-  description: string;
-  content: string;
-  tags: string[];
-  category: string;
-  published: boolean;
-  createdAt: string;
-  updatedAt: string;
-  deletedAt: string | null;
-  userId: string;
-  resources: Resources[];
-  user: User;
+export interface AuthorReference {
+  _ref: string;
+  _type: "reference";
 }
 
-export type Resources = {
-  id: string;
-  url: string;
-  resource_type: string;
-  createdAt: string;
-  updatedAt: string;
-  postId: string;
-};
+export interface Image {
+  type: "image";
+  alt: string;
+}
 
-export type User = {
-  id: string;
-  email: string;
-  password: string;
-  name: string;
-  lastName: string;
-  bio: string;
-  image: string;
-  birthday: string;
-  createdAt: string;
-  updatedAt: string;
-  roleName: string;
-};
+export interface Block {
+  type: "block";
+}
 
-export interface IFooterProps {
-  phone: string;
-  email: string;
-  info: {
-    icons: IconType[];
-    path: string[];
-  };
-  sx?: SystemStyleObject | undefined;
+export interface PostContent extends Array<Block | Image> {}
+
+interface AssetReference {
+  _type: "reference";
+  _ref: string;
+}
+
+export interface MainImage {
+  caption: string;
+  asset: AssetReference;
+  _type: "image";
+}
+
+export interface Post {
+  slug: { current: string };
+  tags: string[];
+  author: AuthorReference;
+  _createdAt: string;
+  category: string[];
+  title: string;
+  description: string;
+  _updatedAt: string;
+  _rev: string;
+  _type: "post";
+  _id: string;
+  content: any;
+  mainImage: MainImage;
+}
+
+export interface IBlogProps {
+  posts: Post[];
+  author: User[];
+  children?: React.ReactNode;
+}
+
+export interface ISidePostProps extends Pick<IBlogProps, "author"> {
+  post: Post;
 }

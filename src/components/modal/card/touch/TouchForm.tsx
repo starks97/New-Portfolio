@@ -49,7 +49,7 @@ export default function TouchForm() {
   return (
     <Box width="100%">
       <Text
-        fontFamily={"Lato, serif, Calibri, Arial"}
+        fontFamily={"Roboto Mono"}
         fontWeight="extrabold"
         fontSize="1.3rem"
         color="#b9e0f2"

@@ -150,11 +150,12 @@ export const Layout = defineStyleConfig({
       },
       justifyContent: "center",
       alignItems: "flex-start",
-      gap: 5,
+      gap: 7,
       justifyItems: "center",
       width: "100%",
       height: "100%",
       mb: "4rem",
+      p: "none",
     },
   },
 });
@@ -207,7 +208,7 @@ export const Button = defineStyleConfig({
       _active: {
         bg: "transparent",
       },
-      fontFamily: "Lato, sans-serif, serif",
+      fontFamily: "Roboto Mono",
       textTransform: "uppercase",
     },
     refreshButton: {
@@ -239,6 +240,51 @@ export const Button = defineStyleConfig({
       rounded: "lg",
       fontFamily: "Lato, sans-serif, serif",
     },
+
+    menuButtonResume: {
+      border: "1px solid white",
+      size: "lg",
+      bg: "transparent",
+      variant: "none",
+      _active: {
+        bg: "transparent",
+      },
+      _focus: {
+        outline: "none",
+      },
+      _hover: {
+        opacity: 0.5,
+        border: "1px solid #2aa5ea",
+        color: "#b9e0f2",
+      },
+      fontSize: "2xl",
+      fontFamily: "Roboto Mono",
+    },
+    menuButtons: {
+      varian: "none",
+      bg: "none",
+      fontSiz: "2xl",
+      _active: {
+        bg: "transparent",
+      },
+      _focus: {
+        outline: "none",
+      },
+      _hover: {
+        opacity: 0.5,
+        color: "#2aa5ea",
+      },
+      fontSize: "2xl",
+      fontFamily: "Roboto Mono",
+      color: "#b9e0f2",
+    },
+    menuButtonTitle: {
+      variant: "none",
+      fontFamily: "raleway",
+      fontWeight: "semibold",
+      fontSize: "4xl",
+      bg: "transparent",
+    },
   },
 });
 
@@ -261,7 +307,7 @@ export const GridItemComponent = defineStyleConfig({
       justifyContent: "center",
       w: "full",
       gap: "0px",
-      overflow: "scroll",
+      overflow: "auto",
       transition: "transform 0.2s ease",
       zIndex: 1,
     },
@@ -289,6 +335,9 @@ export const GridItemComponent = defineStyleConfig({
       flexDir: "column",
       justifyContent: "flex-start",
       bg: "none",
+      alignItems: "center",
+      paddingLeft: "1rem",
+      paddingRight: "1rem",
     },
   },
 });
@@ -328,14 +377,13 @@ export const Text = defineStyleConfig({
     },
 
     portfolioTitle: {
-      fontFamily: "Lato, serif, Calibri, Arial",
+      fontFamily: "Roboto Mono",
       fontSize: "1.7rem",
       fontWeight: "extrabold",
-      textTransform: "uppercase",
     },
 
     profile: {
-      fontFamily: "Lato, serif, Calibri, Arial",
+      fontFamily: "Roboto Mono",
       fontSize: "30px",
       fontWeight: "extrabold",
       textTransform: "uppercase",
@@ -343,15 +391,17 @@ export const Text = defineStyleConfig({
 
     postCardAuthor: {
       fontWeight: 600,
-      fontFamily: "Noto Sans,sans-serif",
+      fontFamily: "Roboto Mono",
+      fontSize: "xl",
+      textTransform: "capitalize",
     },
 
     postMainTitle: {
-      fontFamily: "Lato, serif, Calibri, Arial",
-      fontSize: "30px",
+      fontFamily: "Roboto Mono",
+      fontSize: "3xl",
       fontWeight: "extrabold",
-      textTransform: "uppercase",
       w: "full",
+      p: "none",
     },
   },
 });
@@ -375,6 +425,43 @@ export const CustomBox = defineStyleConfig({
       transition: "transform 0.2s ease",
       _hover: { transform: "scale(1.05)" },
       overflow: "hidden",
+    },
+    MenuBox: {
+      display: "flex",
+      zIndex: "999",
+      width: "100vw",
+      height: "100vh",
+      inset: "0",
+      position: "fixed",
+      color: "white",
+      backdropFilter: "blur(10px)",
+      shadow: "md",
+    },
+  },
+});
+
+export const CustomIconButton = defineStyleConfig({
+  baseStyle: {
+    bg: "transparent",
+    _active: {
+      bg: "transparent",
+    },
+    _focus: {
+      outline: "none",
+    },
+    _hover: {
+      opacity: 0.5,
+    },
+    size: "md",
+    ariaLabel: "open menu",
+    display: { md: "none" },
+  },
+  variants: {
+    resumeButton: {
+      bg: "transparent",
+      ariaLabel: "resume",
+      color: "#94a9c9",
+      border: "1px solid #94a9c9",
     },
   },
 });

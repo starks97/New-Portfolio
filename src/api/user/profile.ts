@@ -1,20 +1,12 @@
-import { baseUrl } from "../../../consts";
-import { getAccessToken } from "@/store";
-import { User } from "../auth/interfaces";
+import { client } from "../../../sanity";
+import { User } from "./interfaces";
 
 export async function fetchProfile() {
-  const authorization = getAccessToken();
-  const res = await fetch(`${baseUrl}/user/profile`, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${authorization}`,
-    },
-  });
-  const data = await res.json();
-  if (!res.ok) {
-    throw new Error(data.message);
-  }
+  const query = `*[_type == 'user']`;
 
-  return data.data as User;
+  const data = (await client.fetch(query)) as User;
+
+  if (!data) throw new Error("No data found");
+
+  return data;
 }

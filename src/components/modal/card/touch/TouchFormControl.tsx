@@ -15,7 +15,9 @@ export default function TouchFormControl({ ...props }: IFormTouchProps) {
   return (
     <>
       <FormControl>
-        <FormLabel color="#b9e0f2">{props.label}</FormLabel>
+        <FormLabel color="#b9e0f2" fontFamily={"Robot Serif"}>
+          {props.label}
+        </FormLabel>
         <InputGroup borderColor="#0ea5ea" w="100%">
           {props.label === "Message" ? (
             <>

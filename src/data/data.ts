@@ -1,4 +1,5 @@
 import * as SiIcons from "react-icons/si";
+import { BsGithub, BsInstagram, BsLinkedin } from "react-icons/bs";
 
 export const TechIcon = {
   typescript: SiIcons.SiTypescript,
@@ -12,12 +13,18 @@ export const TechIcon = {
   redis: SiIcons.SiRedis,
 };
 
+const socialMediaIcons = {
+  instagram: BsInstagram,
+  github: BsGithub,
+  linkedIn: BsLinkedin,
+};
+
 export const data = [
   {
     index: 1,
     title: "Hi there! I'm",
     subtitle: "David Espinoza",
-    description: ["full stack developer", "web designer", "blogger"],
+    description: ["frontend engineer", "web designer", "blogger"],
   },
   {
     index: 2,
@@ -79,22 +86,21 @@ export const data = [
         EDUCATION: [
           {
             index: 1,
-            title: "GED - IES CAPE DIEM",
+            title: "GED - IES Carpe Diem, Madrid Spain",
             date: "2009 - 2015",
-            description:
-              "Completed GED of Science at IES CAPE DIEM in Madrid Spain",
+            description: "Completed the high school ",
           },
           {
             index: 2,
-            title: "ASSOCIATE DEGREE - UNIVERITY CATOLICA DE CUENCA",
+            title: "Associate Degree - University of Cuenca, Ecuador",
             date: "2016 - 2018",
             description: "Completed Associate Degree in Math and Statistics.",
           },
 
           {
             index: 3,
-            title: "GED - UNIVERSITY OF NEW YORK",
-            date: "DECEMBER 2020",
+            title: "GED - University of New York",
+            date: "Dec 2020",
             description:
               "Completed the high school equivalency exam at the University of New York.",
           },
@@ -126,6 +132,8 @@ export const data = [
           TechIcon.prisma,
         ],
         imagePreview: "/img/ecommerce.png",
+        description:
+          "ModernShop is a state-of-the-art eCommerce platform designed to provide businesses with a robust, scalable, and efficient solution for online retail. Harnessing the capabilities of Next.js, Prisma, and MongoDB, ModernShop offers a seamless fusion of cutting-edge technology and user-centric design, ensuring a superior shopping experience for customers and streamlined operations for businesses.",
         url: "https://github.com/starks97/e-commerce",
       },
       {
@@ -136,6 +144,8 @@ export const data = [
         endDate: "05/27/2021",
         iconUsedTechnologies: [TechIcon.react],
         imagePreview: "/img/manageBudget.png",
+        description:
+          "ModernShop is a state-of-the-art eCommerce platform designed to provide businesses with a robust, scalable, and efficient solution for online retail. Harnessing the capabilities of Next.js, Prisma, and MongoDB, ModernShop offers a seamless fusion of cutting-edge technology and user-centric design, ensuring a superior shopping experience for customers and streamlined operations for businesses.",
         url: "https://budget-manage-app.netlify.app/",
       },
       {
@@ -146,6 +156,8 @@ export const data = [
         endDate: "09/02/2021",
         iconUsedTechnologies: [TechIcon.react],
         imagePreview: "/img/pokemon.png",
+        description:
+          "ModernShop is a state-of-the-art eCommerce platform designed to provide businesses with a robust, scalable, and efficient solution for online retail. Harnessing the capabilities of Next.js, Prisma, and MongoDB, ModernShop offers a seamless fusion of cutting-edge technology and user-centric design, ensuring a superior shopping experience for customers and streamlined operations for businesses.",
         url: "https://pokemon-app-plum-three.vercel.app/",
       },
       {
@@ -162,6 +174,8 @@ export const data = [
           TechIcon.prisma,
         ],
         imagePreview: "/img/todoApp.png",
+        description:
+          "ModernShop is a state-of-the-art eCommerce platform designed to provide businesses with a robust, scalable, and efficient solution for online retail. Harnessing the capabilities of Next.js, Prisma, and MongoDB, ModernShop offers a seamless fusion of cutting-edge technology and user-centric design, ensuring a superior shopping experience for customers and streamlined operations for businesses.",
         url: "https://todo-challenge-iota.vercel.app/",
       },
       {
@@ -178,6 +192,8 @@ export const data = [
           TechIcon.prisma,
         ],
         imagePreview: "/img/hampton.png",
+        description:
+          "ModernShop is a state-of-the-art eCommerce platform designed to provide businesses with a robust, scalable, and efficient solution for online retail. Harnessing the capabilities of Next.js, Prisma, and MongoDB, ModernShop offers a seamless fusion of cutting-edge technology and user-centric design, ensuring a superior shopping experience for customers and streamlined operations for businesses.",
         url: "https://www.hamptonshairsalon.com/",
       },
       {
@@ -196,6 +212,8 @@ export const data = [
           TechIcon.redis,
         ],
         imagePreview: "/img/admin.png",
+        description:
+          "ModernShop is a state-of-the-art eCommerce platform designed to provide businesses with a robust, scalable, and efficient solution for online retail. Harnessing the capabilities of Next.js, Prisma, and MongoDB, ModernShop offers a seamless fusion of cutting-edge technology and user-centric design, ensuring a superior shopping experience for customers and streamlined operations for businesses.",
         url: "https://github.com/starks97/adminPanel",
       },
     ],
@@ -210,17 +228,17 @@ export const data = [
       socialMedia: [
         {
           index: 1,
-          value: "instagram",
+          value: socialMediaIcons.instagram,
           path: "https://www.instagram.com/",
         },
         {
           index: 2,
-          value: "github",
+          value: socialMediaIcons.github,
           path: "https://github.com/starks97",
         },
         {
           index: 3,
-          value: "linkedIn",
+          value: socialMediaIcons.linkedIn,
           path: "https://www.linkedin.com/in/david-espinoza-a306b2242/",
         },
       ],

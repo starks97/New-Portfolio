@@ -57,7 +57,12 @@ export default function SwiperAbout({ ...props }: IAboutSwiperProps) {
           <CustomTextComponent variant="portfolioTitle" color="#b9e0f2">
             My Journey
           </CustomTextComponent>
-          <Text>{props.journey}</Text>
+          <Text
+            fontFamily={"Roboto Serif"}
+            fontSize={{ base: "1rem", md: "1.1rem" }}
+          >
+            {props.journey}
+          </Text>
         </Flex>
       </Flex>
     </>

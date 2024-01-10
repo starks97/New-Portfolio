@@ -2,11 +2,11 @@
 
 import { Flex, Text, Button, Icon, Box } from "@chakra-ui/react";
 import Link from "next/link";
-import { IconType } from "react-icons";
+import React from "react";
 
 interface IProps {
   value: string;
-  icon: IconType;
+  icon: React.ElementType;
   href: string;
   label?: string;
 }
@@ -14,7 +14,7 @@ interface IProps {
 export default function TouchInfoLabel({ ...props }: IProps) {
   return (
     <Box>
-      <Text fontWeight={"extrabold"} color="#0ea5ea">
+      <Text fontWeight={"extrabold"} color="#0ea5ea" fontFamily={"Roboto Mono"}>
         {props.label}
       </Text>
       <Flex
@@ -33,7 +33,7 @@ export default function TouchInfoLabel({ ...props }: IProps) {
       >
         <Icon as={props.icon} color="#b9e0f2" w={5} h={5} />
         <a href={props.href}>
-          <Text>{props.value}</Text>
+          <Text fontFamily={"Roboto Serif"}>{props.value}</Text>
         </a>
       </Flex>
     </Box>

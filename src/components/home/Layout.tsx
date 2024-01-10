@@ -122,6 +122,7 @@ export default function HomeLayout() {
                             iconUsedTechnologies: element.iconUsedTechnologies,
                             index: element.index,
                             url: element.url,
+                            description: element.description,
                           }))
                         : []
                     }

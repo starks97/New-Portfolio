@@ -1,5 +1,4 @@
-import { ChangeEventHandler, Dispatch, SetStateAction } from "react";
-import { IconType } from "react-icons";
+import React, { ChangeEventHandler, Dispatch, SetStateAction } from "react";
 
 export interface IModalProps {
   title: string;
@@ -11,7 +10,7 @@ export interface IModalProps {
   isFadeOpen: boolean;
   setIsFadeOpen: React.Dispatch<React.SetStateAction<boolean>>;
   info: {
-    icons: IconType[];
+    icons: React.ElementType[];
     path: string[];
   };
   email: string;
@@ -69,7 +68,7 @@ export interface IFormTouchProps {
     }>
   >;
   label: string;
-  icon?: IconType;
+  icon?: React.ElementType;
   onChange?: ChangeEventHandler<HTMLInputElement> | undefined;
   value: string;
   name: string;
@@ -80,11 +79,15 @@ export interface IPortfolioCardProps {
   client: string;
   startDate: string;
   endDate: string;
-  iconUsedTechnologies: IconType[];
+  iconUsedTechnologies: React.ElementType[];
   image: string;
   index: number;
   url: string;
+  description: string;
 }
+
+export interface SwiperIPortfolioProps
+  extends Pick<IPortfolioCardProps, "image" | "description"> {}
 
 export type ISwiperAboutType = {
   index: number;

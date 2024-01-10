@@ -7,13 +7,15 @@ import {
   WhatsappIcon,
   WhatsappShareButton,
 } from "react-share";
+import { urlFor } from "../../../../sanity";
+import { User } from "../../../api/user";
 
 interface ISubarProps {
   name: string;
   lastName: string;
   creatAt: string;
   hrefShare: string;
-  image: string;
+  image: User["image"];
 }
 
 export default function SubBar({ ...props }: ISubarProps) {
@@ -29,16 +31,17 @@ export default function SubBar({ ...props }: ISubarProps) {
       gap="2rem"
     >
       <GridItem display="flex" gap="1rem">
-        <Avatar src={props.image} name="postImage" size="md" />
+        <Avatar src={urlFor(props.image).url()} name="postImage" size="md" />
         <Stack direction={"column"} alignItems={"flex-start"} gap={-1}>
           <Text
             color="#94a9c9"
-            fontFamily={"Noto Sans,sans-serif"}
+            fontFamily={"Roboto Serif"}
             fontWeight={700}
+            textTransform={"capitalize"}
           >
             {props.name} {""} {props.lastName}
           </Text>
-          <Text>{props.creatAt}</Text>
+          <Text fontFamily={"Roboto Serif"}>{props.creatAt}</Text>
         </Stack>
       </GridItem>
 
@@ -53,7 +56,7 @@ export default function SubBar({ ...props }: ISubarProps) {
         p="1rem"
       >
         <Text
-          fontFamily={"Noto Sans,sans-serif"}
+          fontFamily={"Roboto Mono"}
           color="#94a9c9"
           fontWeight={700}
           fontSize={"xl"}

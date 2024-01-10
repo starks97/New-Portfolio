@@ -11,29 +11,15 @@ import {
   BsFillGearFill,
 } from "react-icons/bs";
 
-import Image from "next/image";
 import ProjectInfo from "./ProjectInfo";
 
 import Link from "next/link";
+import SwiperProject from "./SwiperProject";
 export default function PortfolioCard({ ...props }: IPortfolioCardProps) {
   return (
     <LayoutComponent variant="PortfolioLayout">
-      <GridItem
-        sx={{
-          width: { base: "100%", md: "100%" },
-          height: { base: "100%", md: "50%" },
-        }}
-        display="flex"
-        justifyContent="center"
-        p={6}
-      >
-        <Image
-          src={props.image}
-          width={500}
-          height={500}
-          alt="portfolio_image"
-        />
-      </GridItem>
+      <SwiperProject image={props.image} description={props.description} />
+
       <GridItem
         display="flex"
         flexDirection={"column"}
@@ -42,7 +28,7 @@ export default function PortfolioCard({ ...props }: IPortfolioCardProps) {
       >
         <Box>
           <Text
-            fontFamily={"Lato, serif, Calibri, Arial"}
+            fontFamily={"Roboto Mono"}
             fontWeight="extrabold"
             fontSize="1.7rem"
             textTransform={"uppercase"}
@@ -80,14 +66,16 @@ export default function PortfolioCard({ ...props }: IPortfolioCardProps) {
           w="full"
           sx={{ justifyContent: { md: "center", lg: "flex-start" } }}
         >
-          <CustomButtonComponent
-            variant="FormButton"
-            sx={{ width: { base: "100%", md: "50%" } }}
-          >
+          <Box w={{ base: "full", md: "full", lg: "full" }}>
             <Link href={props.url} passHref target="_blank">
-              View More
+              <CustomButtonComponent
+                variant="FormButton"
+                sx={{ width: { base: "100%", md: "50%" } }}
+              >
+                View More
+              </CustomButtonComponent>
             </Link>
-          </CustomButtonComponent>
+          </Box>
         </Flex>
       </GridItem>
     </LayoutComponent>

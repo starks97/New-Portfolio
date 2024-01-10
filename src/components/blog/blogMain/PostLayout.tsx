@@ -1,84 +1,92 @@
 "use client";
 
-import { Text, Stack, Container, GridItem } from "@chakra-ui/react";
-import { useQuery } from "react-query";
-import { fetchPostBySlug } from "@/api/blog";
+import { Stack, Container, GridItem, Box, Text } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { DateConverter } from "@/utils";
 import { CustomTextComponent, GridItemCustom, LayoutComponent } from "@/themes";
 import { SidePosts } from "../posts";
-import { BsGithub, BsInstagram, BsLinkedin } from "react-icons/bs";
 import Footer from "../Footer";
 
-import Image from "next/image";
-
 import SubBar from "./SubBar";
-import MarkdownRender from "../MarkRender";
+import { Post } from "../interfaces";
+import { PortableText } from "@portabletext/react";
+import { User } from "../../../api/user";
+import Menu from "@/components/navbar/Menu";
+import { PortableImageRenderComponent } from "../utils/ImageRender";
 
-export default function PostLayout() {
+interface IPostProps {
+  post: Post;
+  posts: Post[];
+  author: User[];
+}
+export default function PostLayout({ ...props }: IPostProps) {
   const router = useRouter();
   const { slug } = router.query as { slug: string };
-
-  const { data, isLoading } = useQuery(
-    ["post", slug],
-    () => fetchPostBySlug(slug),
-    {
-      enabled: !!slug,
-    }
-  );
-
-  if (!data) return null;
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3002";
+  const shareUrl = `${baseUrl}/blog/${slug}`;
 
   return (
-    <Container w="100%" sx={{ maxW: { base: "100%", md: "80%" } }} mb="2rem">
-      <Stack w="100%" mt="2rem" mb="3rem" gap="2rem" p="0.5rem">
-        <CustomTextComponent
-          variant="postMainTitle"
-          sx={{
-            fontSize: { base: "3xl", md: "3xl", lg: "4xl" },
-          }}
-          color="#0ea5ea"
-        >
-          {data.title}
-        </CustomTextComponent>
-        <SubBar
-          hrefShare={`http:${location.hostname}${router.asPath}`}
-          creatAt={DateConverter.formatDateFromString(data.createdAt)}
-          name={data.user.name}
-          lastName={data.user.lastName}
-          image={data.user.image}
-        />
-      </Stack>
-      <LayoutComponent variant="postPage">
-        <GridItemCustom variant="postPageItem">
-          {data.resources.map((item, index) => (
-            <Image
-              key={index}
-              src={item.url}
-              alt="post"
-              width={100}
-              height={100}
-              layout="responsive"
-            />
-          ))}
-          <MarkdownRender content={data.content} />
-        </GridItemCustom>
-        <GridItem>
-          <SidePosts />
-        </GridItem>
-      </LayoutComponent>
-      <Footer
-        phone="631-903-3732"
-        email="ifrit68@hotmail.com"
-        info={{
-          icons: [BsInstagram, BsGithub, BsLinkedin],
-          path: [
-            "https://www.instagram.com/",
-            "https://github.com/starks97",
-            "https://www.linkedin.com/in/david-espinoza-a306b2242/",
-          ],
-        }}
-      />
-    </Container>
+    <>
+      <Box sx={{ px: { base: "1rem", md: "2rem" } }}>
+        <Menu />
+      </Box>
+      <Container
+        w="100%"
+        sx={{ maxW: { base: "100%", md: "80%", lg: "90%" } }}
+        mb="2rem"
+        p="1.5rem"
+      >
+        <Stack w="100%" mt="2rem" mb="3rem" p="none">
+          <CustomTextComponent
+            variant="postMainTitle"
+            sx={{
+              fontSize: { base: "3xl", md: "3xl", lg: "4xl" },
+            }}
+            color="#0ea5ea"
+          >
+            {props.post.title}
+          </CustomTextComponent>
+          <Text
+            color="#94a9c9"
+            sx={{
+              fontSize: { base: "large", md: "larger", lg: "xl" },
+              width: { base: "100%", md: "75%", lg: "75%", xl: "50%" },
+            }}
+            fontFamily={"Roboto Serif"}
+          >
+            {props.post.description}
+          </Text>
+          <SubBar
+            hrefShare={shareUrl}
+            creatAt={DateConverter.formatDateFromString(props.post._updatedAt)}
+            name={props.author[0].name}
+            lastName={props.author[0].lastname}
+            image={props.author[0].image}
+          />
+        </Stack>
+        <LayoutComponent variant="postPage">
+          <GridItemCustom variant="postPageItem">
+            <Box
+              sx={{
+                fontSize: { base: "large", md: "large", lg: "xl" },
+              }}
+              lineHeight={"2rem"}
+              fontFamily={"Roboto Serif"}
+            >
+              <PortableText
+                value={props.post.content}
+                components={PortableImageRenderComponent}
+              />
+            </Box>
+          </GridItemCustom>
+          <GridItem w="100%">
+            <SidePosts posts={props.posts} />
+          </GridItem>
+        </LayoutComponent>
+      </Container>
+      <Box mb="1rem" sx={{ px: { base: "1rem", md: "2rem" } }}>
+        <Footer posts={props.posts} />
+      </Box>
+    </>
   );
 }

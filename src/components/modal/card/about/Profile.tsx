@@ -35,7 +35,7 @@ export default function Profile({ description }: IAboutProps) {
             color="#0ea5ea"
           />
           <Text
-            fontFamily={"Lato, sans-serif, serif"}
+            fontFamily={"Roboto Seri"}
             fontSize={"1.2rem"}
             textTransform={"uppercase"}
             fontWeight={700}
@@ -45,7 +45,9 @@ export default function Profile({ description }: IAboutProps) {
           </Text>
         </Flex>
         <Box marginLeft="1rem" lineHeight={"8"}>
-          <Text>{description}</Text>
+          <Text fontFamily={"Roboto Serif"} fontSize={"1rem"}>
+            {description}
+          </Text>
         </Box>
         <Flex
           w="full"
@@ -58,25 +60,27 @@ export default function Profile({ description }: IAboutProps) {
             marginLeft: { base: "0", md: "1rem" },
           }}
         >
-          <CustomButtonComponent
-            variant="FormButton"
-            rightIcon={<BsCloudDownloadFill />}
-            sx={{ width: { base: "100%", md: "100%", lg: "25%" } }}
-          >
+          <Box w={{ base: "full", md: "full", lg: "25%" }}>
             <Link href="/files/resume.pdf" download>
-              My Resume
+              <CustomButtonComponent
+                variant="FormButton"
+                rightIcon={<BsCloudDownloadFill />}
+              >
+                My Resume
+              </CustomButtonComponent>
             </Link>
-          </CustomButtonComponent>
+          </Box>
 
-          <CustomButtonComponent
-            variant="FormButton"
-            rightIcon={<ImBlog />}
-            sx={{ width: { base: "100%", md: "100%", lg: "25%" } }}
-          >
-            <Link href={"/comming"} passHref>
-              My Blog
+          <Box w={{ base: "full", md: "full", lg: "25%" }}>
+            <Link href={"/blog"} passHref>
+              <CustomButtonComponent
+                variant="FormButton"
+                rightIcon={<ImBlog />}
+              >
+                My Blog
+              </CustomButtonComponent>
             </Link>
-          </CustomButtonComponent>
+          </Box>
         </Flex>
       </GridItem>
     </>
