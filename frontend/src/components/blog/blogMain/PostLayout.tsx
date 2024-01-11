@@ -22,7 +22,7 @@ interface IPostProps {
 export default function PostLayout({ ...props }: IPostProps) {
   const router = useRouter();
   const { slug } = router.query as { slug: string };
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3002";
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
   const shareUrl = `${baseUrl}/blog/${slug}`;
 
   return (
