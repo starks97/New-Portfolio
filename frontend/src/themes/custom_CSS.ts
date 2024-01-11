@@ -65,6 +65,13 @@ export const Layout = defineStyleConfig({
         lg: "40% 60%",
         xl: "40% 60%",
       },
+      gridTemplateRows: {
+        base: "repeat(1, 1fr)",
+        sm: "repeat(1, 1fr)",
+        md: "repeat(1, 1fr)",
+        lg: "repeat(1, 1fr)",
+        xl: "repeat(1, 1fr)",
+      },
       justifyContent: "center",
       alignItems: "center",
       gap: 6,
@@ -82,6 +89,14 @@ export const Layout = defineStyleConfig({
         lg: "repeat(2, 1fr)",
         xl: "repeat(2, 1fr)",
       },
+      gridTemplateRows: {
+        base: "repeat(1, 1fr)",
+        sm: "repeat(1, 1fr)",
+        md: "repeat(1, 1fr)",
+        lg: "repeat(1, 1fr)",
+        xl: "repeat(1, 1fr)",
+      },
+
       justifyContent: "center",
       alignItems: "center",
       gap: 5,
@@ -97,6 +112,13 @@ export const Layout = defineStyleConfig({
         base: "repeat(1, 1fr)",
         sm: "repeat(1, 1fr)",
         md: "repeat(2, 1fr)",
+        lg: "repeat(1, 1fr)",
+        xl: "repeat(1, 1fr)",
+      },
+      gridTemplateRows: {
+        base: "repeat(1, 1fr)",
+        sm: "repeat(1, 1fr)",
+        md: "repeat(1, 1fr)",
         lg: "repeat(1, 1fr)",
         xl: "repeat(1, 1fr)",
       },
@@ -133,10 +155,16 @@ export const Layout = defineStyleConfig({
         lg: "repeat(3, 1fr)",
         xl: "repeat(3, 1fr)",
       },
-
+      gridTemplateRows: {
+        base: "repeat(1, 1fr)",
+        sm: "repeat(1, 1fr)",
+        md: "repeat(1, 1fr)",
+        lg: "repeat(1, 1fr)",
+        xl: "repeat(1, 1fr)",
+      },
+      gap: 2,
       width: "100%",
       height: "100%",
-      gap: 5,
     },
 
     postPage: {
@@ -317,8 +345,8 @@ export const GridItemComponent = defineStyleConfig({
       flexDirection: "column",
       bg: "none",
       alignItems: "center",
-      justifyContent: "center",
       w: "full",
+      h: "full",
     },
     post: {
       display: "flex",

@@ -84,7 +84,7 @@ export default function PostLayout({ ...props }: IPostProps) {
           </GridItem>
         </LayoutComponent>
       </Container>
-      <Box mb="1rem" sx={{ px: { base: "1rem", md: "2rem" } }}>
+      <Box sx={{ px: { base: "1rem", md: "2rem" } }} mb="1rem">
         <Footer posts={props.posts} />
       </Box>
     </>

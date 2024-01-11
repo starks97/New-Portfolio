@@ -1,13 +1,5 @@
 "use client";
-import {
-  Box,
-  Text,
-  Flex,
-  List,
-  ListItem,
-  Stack,
-  Center,
-} from "@chakra-ui/react";
+import { Box, Text, Flex, List, ListItem, Stack } from "@chakra-ui/react";
 import { TouchInfoLabel } from "../modal/card/touch";
 import { BsFillTelephoneFill } from "react-icons/bs";
 import {
@@ -28,148 +20,140 @@ interface IFooterProps {
 }
 export default function Footer({ posts }: IFooterProps) {
   return (
-    <Center
+    <Flex
       boxShadow="2xl"
       rounded="3xl"
       border="1px solid #222f43"
       bg="#131c31"
-      flexDir="column"
-      alignItems="center"
+      flexDirection={"column"}
+      alignItems={"center"}
+      justifyItems={"center"}
+      maxH={"100%"}
     >
-      <>
-        <LayoutComponent variant="footerCard">
-          <GridItemCustom variant="footer">
-            <Box>
-              <Text
-                fontWeight="extrabold"
-                fontSize="xl"
-                color="#b9e0f2"
-                fontFamily={"Roboto Mono"}
-              >
-                Get in Touch
-              </Text>
-              <Flex borderBottom="3px solid #0ea5ea" width="30%" />
-            </Box>
+      <LayoutComponent variant="footerCard">
+        <GridItemCustom variant="footer">
+          <Box>
+            <Text
+              fontWeight="extrabold"
+              fontSize="xl"
+              color="#b9e0f2"
+              fontFamily={"Roboto Mono"}
+            >
+              Get in Touch
+            </Text>
+            <Flex borderBottom="3px solid #0ea5ea" width="30%" />
+          </Box>
 
-            <Box>
-              <TouchInfoLabel
-                href="tel:631-903-3732"
-                icon={BsFillTelephoneFill}
-                value={data[3].info?.phone!}
-              />
-              <TouchInfoLabel
-                href="mailto:ifrit68@hotmail.com"
-                icon={AiOutlineMail}
-                value={data[3].info?.email!}
-              />
-            </Box>
-          </GridItemCustom>
-          <GridItemCustom variant="footer">
-            <Box>
-              <Text
-                fontWeight="extrabold"
-                fontSize="xl"
-                color="#b9e0f2"
-                fontFamily={"Roboto Mono"}
-              >
-                Explore
-              </Text>
-              <Flex borderBottom="3px solid #0ea5ea" width="30%" />
-            </Box>
-            <Box>
-              <List spacing={3}>
-                {menuItems.map((item, index) => (
-                  <React.Fragment key={index}>
-                    {item.label === "Blog" ? null : (
-                      <ListItem>
-                        <Link href={item.path}>
-                          <Text
-                            fontFamily={"Roboto Serif"}
-                            _hover={{ color: "#b9e0f2" }}
-                            fontSize={"medium"}
-                          >
-                            {item.label}
-                          </Text>
-                        </Link>
-                      </ListItem>
-                    )}
-                  </React.Fragment>
-                ))}
-              </List>
-            </Box>
-          </GridItemCustom>
-          <GridItemCustom variant="footer">
-            <Box>
-              <Text
-                fontWeight="extrabold"
-                fontSize="xl"
-                color="#b9e0f2"
-                fontFamily={"Roboto Mono"}
-              >
-                Recent Content
-              </Text>
-              <Flex borderBottom="3px solid #0ea5ea" width="30%" />
-            </Box>
-            <Box>
-              <List spacing={3}>
-                {posts.slice(0, 3).map((post, index) => (
-                  <ListItem key={index}>
-                    <Link href={`/blog/${post.slug.current}`}>
-                      <Text
-                        fontFamily={"Roboto Serif"}
-                        _hover={{ color: "#b9e0f2" }}
-                        fontSize={"medium"}
-                      >
-                        {post.title}
-                      </Text>
-                    </Link>
-                  </ListItem>
-                ))}
-              </List>
-            </Box>
-          </GridItemCustom>
-        </LayoutComponent>
-        <Flex borderBottom="1px solid #66768f" width="80%" mt={4} mb={5} />
-        <Stack
-          w="80%"
-          mb={5}
-          sx={{
-            flexDir: { base: "column", md: "row", lg: "row" },
-            justifyContent: {
-              base: "center",
-              md: "space-between",
-              lg: "space-between",
-            },
-          }}
-          alignItems="center"
-        >
-          <Flex flexDir="row" gap={2}>
+          <Box>
+            <TouchInfoLabel
+              href="tel:631-903-3732"
+              icon={BsFillTelephoneFill}
+              value={data[3].info?.phone!}
+            />
+            <TouchInfoLabel
+              href="mailto:ifrit68@hotmail.com"
+              icon={AiOutlineMail}
+              value={data[3].info?.email!}
+            />
+          </Box>
+        </GridItemCustom>
+        <GridItemCustom variant="footer">
+          <Box>
             <Text
-              color="#94a9c9"
-              fontFamily={"Roboto Serif"}
-              fontSize={"large"}
+              fontWeight="extrabold"
+              fontSize="xl"
+              color="#b9e0f2"
+              fontFamily={"Roboto Mono"}
             >
-              &copy; 2023 Created by{" "}
+              Explore
             </Text>
+            <Flex borderBottom="3px solid #0ea5ea" width="30%" />
+          </Box>
+          <Box>
+            <List spacing={3}>
+              {menuItems.map((item, index) => (
+                <React.Fragment key={index}>
+                  {item.label === "Blog" ? null : (
+                    <ListItem>
+                      <Link href={item.path}>
+                        <Text
+                          fontFamily={"Roboto Serif"}
+                          _hover={{ color: "#b9e0f2" }}
+                          fontSize={"medium"}
+                        >
+                          {item.label}
+                        </Text>
+                      </Link>
+                    </ListItem>
+                  )}
+                </React.Fragment>
+              ))}
+            </List>
+          </Box>
+        </GridItemCustom>
+        <GridItemCustom variant="footer">
+          <Box>
             <Text
-              color="#0ea5ea"
-              fontFamily={"Roboto Serif"}
-              fontSize={"large"}
+              fontWeight="extrabold"
+              fontSize="xl"
+              color="#b9e0f2"
+              fontFamily={"Roboto Mono"}
             >
-              David Espinoza
+              Recent Content
             </Text>
-          </Flex>
-          <Flex gap={5}>
-            {data[3].info?.socialMedia.map((icon, index) => (
-              <Box key={index}>
-                <Link target="_blank" href={icon.path} passHref>
-                  <CustomIconComponent as={icon.value} />
-                </Link>
-              </Box>
-            ))}
-          </Flex>
-        </Stack>
-      </>
-    </Center>
+            <Flex borderBottom="3px solid #0ea5ea" width="30%" />
+          </Box>
+          <Box>
+            <List spacing={3}>
+              {posts.slice(0, 3).map((post, index) => (
+                <ListItem key={index}>
+                  <Link href={`/blog/${post.slug.current}`}>
+                    <Text
+                      fontFamily={"Roboto Serif"}
+                      _hover={{ color: "#b9e0f2" }}
+                      fontSize={"medium"}
+                    >
+                      {post.title}
+                    </Text>
+                  </Link>
+                </ListItem>
+              ))}
+            </List>
+          </Box>
+        </GridItemCustom>
+      </LayoutComponent>
+      <Flex borderBottom="1px solid #66768f" width="80%" mt={5} mb={3} />
+      <Stack
+        w="80%"
+        mb={5}
+        sx={{
+          flexDir: { base: "column", md: "row", lg: "row" },
+          justifyContent: {
+            base: "center",
+            md: "space-between",
+            lg: "space-between",
+          },
+        }}
+        alignItems="center"
+      >
+        <Flex flexDir="row" gap={2}>
+          <Text color="#94a9c9" fontFamily={"Roboto Serif"} fontSize={"large"}>
+            &copy; 2023 Created by{" "}
+          </Text>
+          <Text color="#0ea5ea" fontFamily={"Roboto Serif"} fontSize={"large"}>
+            David Espinoza
+          </Text>
+        </Flex>
+        <Flex gap={5}>
+          {data[3].info?.socialMedia.map((icon, index) => (
+            <Box key={index}>
+              <Link target="_blank" href={icon.path} passHref>
+                <CustomIconComponent as={icon.value} />
+              </Link>
+            </Box>
+          ))}
+        </Flex>
+      </Stack>
+    </Flex>
   );
 }

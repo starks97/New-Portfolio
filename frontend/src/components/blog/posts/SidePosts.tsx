@@ -7,8 +7,6 @@ import { DateConverter } from "@/utils";
 import { useRouter } from "next/router";
 import { urlFor } from "../../../../sanity";
 
-import Image from "next/image";
-
 export default function SidePosts({ posts }: { posts: Post[] }) {
   const router = useRouter();
 

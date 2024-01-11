@@ -15,7 +15,7 @@ export default function ImageRender({ ...props }: IProps) {
   return (
     <Box>
       <Image
-        src={urlFor(props.src).url()}
+        src={urlFor(props.src).size(500, 400).url()}
         alt="content-image"
         sizes="100%"
         style={{

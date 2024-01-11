@@ -39,13 +39,14 @@ export default function Portfolio({ ...props }: IPortfolioProps) {
             position="absolute"
             bottom={0}
             left={0}
-            width="100%"
-            height="100%"
+            right={0}
+            top={0}
             transform={`translateY(${props?.isFadeOpen ? "0" : "100%"})`}
             transition="transform 0.5s ease-in-out"
             zIndex={props?.isFadeOpen ? 10 : -1}
             bg="#050704"
             rounded="xl"
+            overflow={"scroll"}
           >
             <Flex justifyContent="flex-end">
               <IconButton
