@@ -68,13 +68,14 @@ export default function PostsCardMobile({ ...props }: IBlogProps) {
               >
                 {post.mainImage && (
                   <Image
-                    src={urlFor(post.mainImage).url()}
+                    src={urlFor(post.mainImage).width(400).url()}
                     alt="postImage"
                     sizes="100%"
                     style={{
                       borderRadius: "0.5rem",
                       width: "100vw",
                       height: "400px",
+                      objectFit: "cover",
                     }}
                     width={300}
                     height={300}

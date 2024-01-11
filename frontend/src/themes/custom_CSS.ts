@@ -20,12 +20,12 @@ export const Layout = defineStyleConfig({
   variants: {
     cardLayout: {
       display: "grid",
-      sx: {
-        "@media (max-width: 768px)": {
-          gridTemplateRows: {
-            base: "repeat(1, 1fr)",
-          },
-        },
+      gridTemplateRows: {
+        base: "repeat(4, 1fr)",
+        sm: "repeat(4, 1fr)",
+        md: "repeat(2, 1fr)",
+        lg: "repeat(2, 1fr)",
+        xl: "repeat(2, 1fr)",
       },
       gridTemplateColumns: {
         base: "repeat(1, 1fr)",

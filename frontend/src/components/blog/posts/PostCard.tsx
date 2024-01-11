@@ -50,14 +50,14 @@ export default function PostsCard({ ...props }: IBlogProps) {
                 >
                   {post.mainImage && (
                     <Image
-                      src={urlFor(post.mainImage).url()}
+                      src={urlFor(post.mainImage).width(500).url()}
                       alt="postImage"
                       loading="lazy"
-                      sizes="100%"
                       style={{
                         borderRadius: "0.5rem",
                         width: "100vw",
                         height: "400px",
+                        objectFit: "cover",
                       }}
                       width={500}
                       height={300}
