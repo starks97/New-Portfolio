@@ -22,6 +22,7 @@ export interface IModalProps {
   dataAbout?: {
     EDUCATION: ISwiperAboutType[];
     EXPERIENCE: ISwiperAboutType[];
+    SKILLS: ISwiperAboutSkills[];
   };
   journey?: string;
 }
@@ -94,4 +95,10 @@ export type ISwiperAboutType = {
   title: string;
   date: string;
   description: string;
+};
+
+export type ISwiperAboutSkills = {
+  index: number;
+  title: string;
+  icon: React.ElementType;
 };

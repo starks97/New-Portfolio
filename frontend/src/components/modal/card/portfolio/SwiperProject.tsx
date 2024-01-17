@@ -36,12 +36,12 @@ export default function SwiperProject({
         pagination={true}
         navigation={true}
         modules={[EffectFlip]}
-        style={{ width: "100%", height: "100%" }}
+        style={{ width: "100%", height: "300px" }}
       >
         <SwiperSlide>
           <Flex
             w="full"
-            h="full"
+            h="300px"
             maxW="100%"
             alignItems="center"
             sx={{
@@ -60,16 +60,15 @@ export default function SwiperProject({
           >
             <Image
               src={image}
-              loading="lazy"
-              sizes="100%"
+              alt="portfolio_image"
+              width={500}
+              height={500}
+              objectFit="cover" // Optional: Use this to specify how the image should be resized
               style={{
                 borderRadius: "0.5rem",
-                width: "100vw",
-                height: "400px",
+                height: "300px",
+                width: "auto",
               }}
-              width={500}
-              height={300}
-              alt="portfolio_image"
             />
 
             <Text

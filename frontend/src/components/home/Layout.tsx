@@ -9,6 +9,7 @@ import { ImageCard, HomeCard, TypeWritter } from "./card";
 import { ModalComponent } from "../modal";
 
 import { BsGithub, BsInstagram, BsLinkedin } from "react-icons/bs";
+import Image from "next/image";
 
 export default function HomeLayout() {
   const [activeIndex, setActiveIndex] = useState<number>(-1);
@@ -135,15 +136,13 @@ export default function HomeLayout() {
                       EXPERIENCE: item.personalInfo?.resume.Experience
                         ? item.personalInfo?.resume.Experience
                         : [],
+                      SKILLS: [],
                     }}
                     journey={item.personalInfo?.journey}
                   >
                     {item.work?.map((element) => (
                       <React.Fragment key={element.index}>
-                        <ImageCard
-                          imagePath={`url(${element.imagePreview})`}
-                          key={element.index}
-                          minHeight={"20rem"}
+                        <Box
                           onClick={() => handleProjectClick(element.index)}
                           sx={{
                             filter: { base: "none", md: "grayscale(100%)" },
@@ -157,7 +156,24 @@ export default function HomeLayout() {
                             transition: { base: "none", md: "filter 0.2s" },
                           }}
                           as={"button"}
-                        />
+                          h="300px"
+                          bg="none"
+                          w="full"
+                        >
+                          <Image
+                            src={element.imagePreview}
+                            key={element.index}
+                            alt={""}
+                            width={500}
+                            height={300}
+                            style={{
+                              borderRadius: "0.5rem",
+                              objectFit: "cover",
+                              height: "300px",
+                              width: "auto",
+                            }}
+                          />
+                        </Box>
                       </React.Fragment>
                     ))}
                   </ModalComponent>

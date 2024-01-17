@@ -13,6 +13,15 @@ export const TechIcon = {
   redis: SiIcons.SiRedis,
 };
 
+export const Skills = {
+  javascript: SiIcons.SiJavascript,
+  typescript: SiIcons.SiTypescript,
+  react: SiIcons.SiReact,
+  rust: SiIcons.SiRust,
+  python: SiIcons.SiPython,
+  docker: SiIcons.SiDocker,
+};
+
 const socialMediaIcons = {
   instagram: BsInstagram,
   github: BsGithub,
@@ -108,7 +117,33 @@ export const data = [
         SKILLS: [
           {
             index: 1,
-            title: "HTML",
+            title: "Javascript",
+            icon: Skills.javascript,
+          },
+          {
+            index: 2,
+            title: "Typescript",
+            icon: Skills.typescript,
+          },
+          {
+            index: 3,
+            title: "React",
+            icon: Skills.react,
+          },
+          {
+            index: 4,
+            title: "Rust",
+            icon: Skills.rust,
+          },
+          {
+            index: 5,
+            title: "Python",
+            icon: Skills.python,
+          },
+          {
+            index: 6,
+            title: "Docker",
+            icon: Skills.docker,
           },
         ],
       },

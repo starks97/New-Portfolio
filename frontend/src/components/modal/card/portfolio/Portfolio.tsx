@@ -51,7 +51,7 @@ export default function Portfolio({ ...props }: IPortfolioProps) {
             <Flex justifyContent="flex-end">
               <IconButton
                 icon={
-                  <AiOutlineClose width="2rem" height="2rem" color="white" />
+                  <AiOutlineClose width="4rem" height="4rem" color="white" />
                 }
                 aria-label="close"
                 bg="none"
