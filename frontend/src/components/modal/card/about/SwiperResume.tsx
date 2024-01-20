@@ -3,7 +3,6 @@
 import { Box, Flex, Stack, Text, Icon } from "@chakra-ui/react";
 import { IAboutSwiperProps } from "../../interfaces";
 
-import { BsCalendarDayFill } from "react-icons/bs";
 import InfoCard from "./InfoCard";
 import React from "react";
 

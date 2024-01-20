@@ -136,7 +136,9 @@ export default function HomeLayout() {
                       EXPERIENCE: item.personalInfo?.resume.Experience
                         ? item.personalInfo?.resume.Experience
                         : [],
-                      SKILLS: [],
+                      SKILLS: item.personalInfo?.resume.SKILLS
+                        ? item.personalInfo?.resume.SKILLS
+                        : [],
                     }}
                     journey={item.personalInfo?.journey}
                   >

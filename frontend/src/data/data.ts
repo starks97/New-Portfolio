@@ -1,4 +1,6 @@
 import * as SiIcons from "react-icons/si";
+
+import { TbBrandNextjs } from "react-icons/tb";
 import { BsGithub, BsInstagram, BsLinkedin } from "react-icons/bs";
 
 export const TechIcon = {
@@ -20,6 +22,10 @@ export const Skills = {
   rust: SiIcons.SiRust,
   python: SiIcons.SiPython,
   docker: SiIcons.SiDocker,
+  nextjs: TbBrandNextjs,
+  nestjs: SiIcons.SiNestjs,
+  redis: SiIcons.SiRedis,
+  graphql: SiIcons.SiGraphql,
 };
 
 const socialMediaIcons = {
@@ -144,6 +150,26 @@ export const data = [
             index: 6,
             title: "Docker",
             icon: Skills.docker,
+          },
+          {
+            index: 7,
+            title: "Nextjs",
+            icon: Skills.nextjs,
+          },
+          {
+            index: 8,
+            title: "Nestjs",
+            icon: Skills.nestjs,
+          },
+          {
+            index: 9,
+            title: "Redis",
+            icon: Skills.redis,
+          },
+          {
+            index: 10,
+            title: "GraphQL",
+            icon: Skills.graphql,
           },
         ],
       },
