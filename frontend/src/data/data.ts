@@ -206,7 +206,7 @@ export const data = [
         iconUsedTechnologies: [TechIcon.react],
         imagePreview: "/img/manageBudget.png",
         description:
-          "ModernShop is a state-of-the-art eCommerce platform designed to provide businesses with a robust, scalable, and efficient solution for online retail. Harnessing the capabilities of Next.js, Prisma, and MongoDB, ModernShop offers a seamless fusion of cutting-edge technology and user-centric design, ensuring a superior shopping experience for customers and streamlined operations for businesses.",
+          "This project, undertaken as a learning initiative, is a React-based budget management application. Developed to explore React and its hooks, the app follows best practices in modern web development",
         url: "https://budget-manage-app.netlify.app/",
       },
       {
@@ -218,7 +218,7 @@ export const data = [
         iconUsedTechnologies: [TechIcon.react],
         imagePreview: "/img/pokemon.png",
         description:
-          "ModernShop is a state-of-the-art eCommerce platform designed to provide businesses with a robust, scalable, and efficient solution for online retail. Harnessing the capabilities of Next.js, Prisma, and MongoDB, ModernShop offers a seamless fusion of cutting-edge technology and user-centric design, ensuring a superior shopping experience for customers and streamlined operations for businesses.",
+          "More than just a Pokemon application, this project is a gateway to understanding Next.js and API integration. Whether you're new to Next.js or seeking to enhance your skills in fetching and displaying data dynamically, this app provides hands-on experience and insights into the world of modern web development",
         url: "https://pokemon-app-plum-three.vercel.app/",
       },
       {
@@ -236,7 +236,7 @@ export const data = [
         ],
         imagePreview: "/img/todoApp.png",
         description:
-          "ModernShop is a state-of-the-art eCommerce platform designed to provide businesses with a robust, scalable, and efficient solution for online retail. Harnessing the capabilities of Next.js, Prisma, and MongoDB, ModernShop offers a seamless fusion of cutting-edge technology and user-centric design, ensuring a superior shopping experience for customers and streamlined operations for businesses.",
+          "This project goes beyond the ordinary by combining the flexibility of MongoDB with the dynamic capabilities of Next.js. The integration of a NoSQL database enhances scalability and data handling, providing a robust foundation for your todo management.",
         url: "https://todo-challenge-iota.vercel.app/",
       },
       {
@@ -254,7 +254,7 @@ export const data = [
         ],
         imagePreview: "/img/hampton.png",
         description:
-          "ModernShop is a state-of-the-art eCommerce platform designed to provide businesses with a robust, scalable, and efficient solution for online retail. Harnessing the capabilities of Next.js, Prisma, and MongoDB, ModernShop offers a seamless fusion of cutting-edge technology and user-centric design, ensuring a superior shopping experience for customers and streamlined operations for businesses.",
+          "The primary goal of this project was to create a digital platform for Hampton Hair Salon, allowing them to efficiently manage appointments and showcase their services online. The implementation reflects a commitment to leveraging technology to enhance local business operations.",
         url: "https://www.hamptonshairsalon.com/",
       },
       {
@@ -274,7 +274,7 @@ export const data = [
         ],
         imagePreview: "/img/admin.png",
         description:
-          "ModernShop is a state-of-the-art eCommerce platform designed to provide businesses with a robust, scalable, and efficient solution for online retail. Harnessing the capabilities of Next.js, Prisma, and MongoDB, ModernShop offers a seamless fusion of cutting-edge technology and user-centric design, ensuring a superior shopping experience for customers and streamlined operations for businesses.",
+          "ModernShop stands as a testament to my commitment to continuous learning and exploration within the realm of modern web development. This personal project, initiated on 03/04/2023 and ongoing, was specifically crafted for a blog platform. By employing technologies such as NestJS, Prisma, MongoDB, and Redis for caching, I aimed to deepen my knowledge and understanding of these cutting-edge tools.",
         url: "https://github.com/starks97/adminPanel",
       },
     ],
